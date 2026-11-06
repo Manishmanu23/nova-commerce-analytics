@@ -406,3 +406,112 @@ python -m pip install matplotlib
 ### The dashboard looks blank
 
 The HTML dashboard may need internet access to load its chart library. Try opening it in an up-to-date version of Edge or Chrome.
+
+## 11. Upload this project to GitHub
+
+The project has already been initialized as a Git repository and the initial commit has already been created. Do not run `git init` or create a duplicate initial commit.
+
+### Create the GitHub repository
+
+Sign in to GitHub as the account that will own the repository. Create a repository named `nova-commerce-analytics` under `Manishmanu23` (or update the URL below if you choose a different account/name).
+
+For this existing local project, create the GitHub repository **empty**: do not initialize it with a README, `.gitignore`, or license.
+
+### Sign in for Git operations using the browser
+
+GitHub does not accept the account password for `git push`. GitHub CLI (`gh`) is installed on this computer; if you have just installed it, close and reopen VS Code so the terminal can find the `gh` command.
+
+Open a new PowerShell terminal in VS Code and run:
+
+```powershell
+Set-Location "C:\Users\Hp\Downloads\nova-commerce-analytics-v2\nova-commerce-analytics"
+gh --version
+gh auth login
+```
+
+In the prompts, choose:
+
+1. `GitHub.com`
+2. `HTTPS`
+3. `Login with a web browser`
+
+Complete sign-in in the browser using the GitHub account that owns the target repository, then approve access. Do not type a GitHub password, personal access token, or browser one-time code into chat or put it in a Git remote URL.
+
+Verify the authenticated account and configure Git to use GitHub CLI's credentials:
+
+```powershell
+gh auth status
+gh api user --jq .login
+gh auth setup-git
+```
+
+The account command should print the repository owner's username (for this setup, `Manishmanu23`). If it prints the wrong account, run `gh auth logout`, then repeat `gh auth login` and sign in to the intended account.
+
+### Check the remote and push
+
+The intended remote is:
+
+```text
+https://github.com/Manishmanu23/nova-commerce-analytics.git
+```
+
+Check the current remote:
+
+```powershell
+git remote -v
+```
+
+If `origin` is not listed, add it:
+
+```powershell
+git remote add origin https://github.com/Manishmanu23/nova-commerce-analytics.git
+```
+
+If `origin` points somewhere else, update it:
+
+```powershell
+git remote set-url origin https://github.com/Manishmanu23/nova-commerce-analytics.git
+```
+
+Then upload the existing `main` branch:
+
+```powershell
+git push -u origin main
+```
+
+After a successful push, open `https://github.com/Manishmanu23/nova-commerce-analytics` in a browser and refresh the page. If GitHub reports that the repository cannot be found, confirm that it was created under the authenticated account and that the account has permission to push.
+
+## 12. Quick start after reopening VS Code
+
+After restarting the laptop or reopening VS Code, start Docker Desktop and wait for it to be running. Open the inner project folder in VS Code, create a new PowerShell terminal, then run:
+
+```powershell
+Set-Location "C:\Users\Hp\Downloads\nova-commerce-analytics-v2\nova-commerce-analytics"
+.\.venv-clean\Scripts\Activate.ps1
+$env:PGHOST = "localhost"
+$env:PGPORT = "5433"
+$env:PGUSER = "nova"
+$env:PGPASSWORD = "nova"
+$env:PGDATABASE = "nova"
+$env:PYTHONPATH = Join-Path (Get-Location) "python"
+$env:PYTHONUTF8 = "1"
+docker compose -f docker\docker-compose.yml up -d --wait
+```
+
+This reuses the installed Python environment and existing Docker database volume. To reopen the dashboard:
+
+```powershell
+Start-Process .\powerbi\dashboard\NovaCommerce_Dashboard.html
+```
+
+To continue the GitHub upload, use the GitHub sign-in steps in section 11 and then run:
+
+```powershell
+git push -u origin main
+```
+
+To stop the database safely while keeping its data:
+
+```powershell
+docker compose -f docker\docker-compose.yml down
+```
