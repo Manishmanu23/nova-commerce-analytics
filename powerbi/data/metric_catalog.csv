@@ -1,0 +1,22 @@
+metric_name,display_name,owner,unit,definition
+gross_revenue,Gross Revenue,Finance,INR,Sum of quantity x selling price of line items on completed reportable orders (after product markdowns; before coupons and refunds; GST-inclusive)
+net_revenue,Net Revenue,Finance,INR,Gross revenue minus order-level coupon discounts minus processed return refunds (cancellation refunds excluded because cancelled orders are never in gross revenue)
+orders,Completed Orders,Finance,count,Count of distinct completed (delivered/shipped/processing) reportable orders
+gross_profit,Gross Profit,Finance,INR,Net revenue minus net COGS (COGS minus cost recovered from restockable returns)
+contribution_margin,Contribution Margin,Finance,INR,Gross profit plus shipping fees collected minus shipping cost minus payment gateway fees minus marketplace commission (before marketing)
+contribution_margin_after_marketing,Contribution Margin after Marketing,Finance,INR,Contribution margin minus net marketing spend (only valid at date/channel/campaign grain)
+cm_pct,Contribution Margin %,Finance,pct,Contribution margin / net revenue
+aov,Average Order Value,Finance,INR,(Gross revenue - coupon discounts) / completed orders excluding B2B bulk orders
+conversion_rate,Session Conversion Rate,Product,pct,Non-bot web/app sessions with a purchase event / non-bot web/app sessions (marketplace excluded - no session data)
+checkout_conversion_rate,Checkout Conversion Rate,Product,pct,Sessions with purchase / sessions that began checkout
+payment_success_rate,Payment Success Rate,Payments,pct,Successful prepaid payment attempts / all prepaid payment attempts (COD excluded)
+refund_rate,Refund Rate (value),CX,pct,Processed return refunds / gross revenue - attributed to ORDER date (cohort basis) not refund date
+new_customers,New Customers,Marketing,count,Customers whose first completed reportable order falls in the period
+cac,Customer Acquisition Cost,Marketing,INR,Net acquisition marketing spend (excl. email/CRM) / new customers whose first order is attributed to a paid campaign
+blended_cac,Blended CAC,Marketing,INR,Net acquisition spend / all new customers (organic included) - flatters paid performance use with care
+roas,Return on Ad Spend,Marketing,ratio,Net revenue of orders attributed to paid campaigns (last non-direct touch) / net marketing spend of those campaigns
+revenue_per_visitor,Revenue per Visitor (session),Product,INR,Net revenue from web/app orders / non-bot sessions (no cross-device visitor id so session is the visitor proxy)
+repeat_purchase_rate_90d,90-day Repeat Purchase Rate,CRM,pct,Share of new customers (mature cohorts only) who place a 2nd completed order within 90 days of the first
+retention_rate,Monthly Cohort Retention,CRM,pct,Customers of acquisition cohort with >=1 completed order in month N / cohort size
+churn_rate_90d,90-day Inactivity Churn Rate,CRM,pct,Customers active in prior 90 days who place no order in the next 90 days / active base (only for mature periods)
+ltv_180d_cm,180-day LTV (Contribution),CRM,INR,Cumulative contribution margin in first 180 days per acquired customer (cohorts with >=180 days of history only)

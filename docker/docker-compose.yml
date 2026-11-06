@@ -1,0 +1,24 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: nova_pg
+    environment:
+      POSTGRES_USER: ${PGUSER:-nova}
+      POSTGRES_PASSWORD: ${PGPASSWORD:-nova}
+      POSTGRES_DB: ${PGDATABASE:-nova}
+    ports: ["5433:5432"]
+    command: >
+      postgres -c shared_buffers=512MB -c work_mem=64MB -c maintenance_work_mem=512MB
+               -c max_wal_size=2GB -c random_page_cost=1.1
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${PGUSER:-nova}"]
+      interval: 5s
+      retries: 10
+  pgadmin:   # optional: docker compose --profile tools up
+    image: dpage/pgadmin4
+    profiles: ["tools"]
+    environment: {PGADMIN_DEFAULT_EMAIL: admin@example.com, PGADMIN_DEFAULT_PASSWORD: admin}
+    ports: ["5050:80"]
+volumes:
+  pgdata:

@@ -1,0 +1,5 @@
+device_type,platform
+mobile_app,App
+mobile_web,Web
+desktop,Web
+unknown,Marketplace

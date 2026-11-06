@@ -1,0 +1,40 @@
+geo_id,city,state,region,city_tier
+G001,Mumbai,Maharashtra,West,1.0
+G002,Pune,Maharashtra,West,1.0
+G003,Nagpur,Maharashtra,West,2.0
+G004,Nashik,Maharashtra,West,3.0
+G005,Delhi,Delhi,North,1.0
+G006,Gurugram,Haryana,North,1.0
+G007,Noida,Uttar Pradesh,North,1.0
+G008,Lucknow,Uttar Pradesh,North,2.0
+G009,Kanpur,Uttar Pradesh,North,2.0
+G010,Varanasi,Uttar Pradesh,North,3.0
+G011,Jaipur,Rajasthan,North,2.0
+G012,Chandigarh,Chandigarh,North,2.0
+G013,Ludhiana,Punjab,North,2.0
+G014,Dehradun,Uttarakhand,North,3.0
+G015,Bengaluru,Karnataka,South,1.0
+G016,Mysuru,Karnataka,South,3.0
+G017,Chennai,Tamil Nadu,South,1.0
+G018,Coimbatore,Tamil Nadu,South,2.0
+G019,Hyderabad,Telangana,South,1.0
+G020,Visakhapatnam,Andhra Pradesh,South,2.0
+G021,Vijayawada,Andhra Pradesh,South,3.0
+G022,Kochi,Kerala,South,2.0
+G023,Thiruvananthapuram,Kerala,South,2.0
+G024,Kolkata,West Bengal,East,1.0
+G025,Howrah,West Bengal,East,2.0
+G026,Siliguri,West Bengal,East,3.0
+G027,Patna,Bihar,East,2.0
+G028,Gaya,Bihar,East,3.0
+G029,Bhubaneswar,Odisha,East,2.0
+G030,Ranchi,Jharkhand,East,3.0
+G031,Guwahati,Assam,North-East,2.0
+G032,Ahmedabad,Gujarat,West,1.0
+G033,Surat,Gujarat,West,2.0
+G034,Vadodara,Gujarat,West,2.0
+G035,Goa,Goa,West,3.0
+G036,Indore,Madhya Pradesh,Central,2.0
+G037,Bhopal,Madhya Pradesh,Central,2.0
+G038,Raipur,Chhattisgarh,Central,3.0
+-1,Unknown,Unknown,Unknown,

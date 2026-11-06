@@ -1,0 +1,19 @@
+check_id,dimension,table_name,description,observed,warn_threshold,fail_threshold,status,mitigation
+U1,Uniqueness,orders,Raw order rows that are duplicates of an order_id,0.013034393552452655,0.005,0.03,warn,stg_orders keeps latest extract per order_id
+U2,Uniqueness,payments,Payment rows that replay an existing gateway_txn_ref,0.0029772242346052698,0.001,0.01,warn,stg_payments de-dups on gateway_txn_ref
+U3,Uniqueness,customers,Exact-duplicate customer CDC rows,0.01960843738634986,0.01,0.05,warn,stg_customers de-dups exact CDC rows
+C1,Completeness,customers,Customers with no geography,0.040434016507465455,0.03,0.08,warn,mapped to 'Unknown' geography member
+C2,Completeness,products,Product versions with missing unit cost (imputed),0.026726057906458798,0.01,0.05,warn,imputed from category median cost ratio; flagged is_cost_imputed
+C3,Completeness,marketing_spend,Spend rows with null impressions,0.00975609756097561,0.005,0.05,warn,CTR computed only where impressions present
+V1,Validity,orders,Orders with order date outside the reporting window,0.001982660125008401,0.001,0.01,warn,excluded via is_reportable
+V2,Validity,orders,Delivered before ordered,0.0024384917746396854,0.001,0.01,warn,days_to_deliver set NULL; order kept
+V3,Validity,refunds,Refunds with negative sign (sign-corrected),0.00926164136866478,0.005,0.03,warn,abs() applied in staging; flagged
+V4,Validity,products/customers,Raw category/channel labels needing a mapping,0.04899777282850779,0.1,0.4,pass,seed mapping tables
+V5,Validity,web_sessions,Share of sessions flagged as bots,0.011811842080396122,0.01,0.05,warn,is_bot flag; excluded from governed conversion
+R1,Referential integrity,order_items,Order lines whose product_id is not in the product master,0.001994579945799458,0.001,0.01,warn,'unknown' product member; cost imputed
+R2,Referential integrity,orders,Orders whose customer is missing from the CRM extract,0.00216998191681736,0.002,0.02,warn,'unknown' customer member; revenue kept
+T1,Timeliness,all,Hours since last successful load,0.17012278194444444,26.0,50.0,pass,freshness alert
+T2,Timeliness,refunds,Share of return refunds that arrived > 7 days after the event,0.2971728081321474,0.2,0.4,warn,metrics_daily.is_refund_mature flag
+K1,Consistency,payments vs orders,Completed prepaid orders where collected != order total,0.0,0.001,0.01,pass,paise->INR conversion in stg_payments
+K2,Consistency,metrics,Governed net revenue: metrics_daily vs fct_orders (abs diff INR),0.0,1.0,100.0,pass,dbt sum_reconciles test
+D1,Consistency,dbt,"dbt tests failing (error severity) - 125 tests, 8 known-defect warnings",0.0,1.0,1.0,pass,build stops on error-severity tests

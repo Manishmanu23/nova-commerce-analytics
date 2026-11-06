@@ -1,0 +1,3 @@
+metric,display,dimension,dimension_value,start_date,end_date,weeks,expected,actual,volume,max_abs_z,deviation,severity
+checkout_conversion,Checkout Conversion,traffic_channel,paid_social,2025-11-03,2025-11-30,4,0.2426283917356193,0.1375387797311272,1934.0,6.70165953405988,-0.43312990393557604,High
+payment_success_rate,Payment Success,device_type,mobile_app,2025-11-10,2025-11-30,3,0.8910795429888826,0.7692307692307693,754.0,7.787103263110014,-0.13674286960892956,High

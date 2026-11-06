@@ -1,0 +1,8 @@
+dimension,checks,fails,warns,score
+Completeness,3,0,3,80.0
+Consistency,3,0,0,100.0
+Referential integrity,2,0,2,80.0
+Timeliness,2,0,1,90.0
+Uniqueness,3,0,3,80.0
+Validity,5,0,4,84.0
+OVERALL,18,0,13,86.2

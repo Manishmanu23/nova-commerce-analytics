@@ -1,0 +1,154 @@
+version: 2
+models:
+  # ------------------------------------------------------------------ dimensions
+  - name: dim_date
+    description: "Calendar dimension. Grain: one row per date. Indian fiscal year (Apr-Mar) and festival flags."
+    columns:
+      - name: date_key
+        description: "Surrogate key YYYYMMDD."
+        data_tests: [unique, not_null]
+  - name: dim_customer
+    description: "Customer dimension, SCD Type 2. Grain: one row per customer version. 'unknown' member for guests/orphans."
+    columns:
+      - name: customer_version_key
+        description: "Surrogate key = md5(customer_id, updated_at). Facts join on this for as-of attributes."
+        data_tests: [unique, not_null]
+      - name: email_hash
+        description: "md5 of normalised email. Raw email never leaves staging (PII minimisation)."
+      - name: acquisition_cohort_month
+        description: "Month of first completed reportable order (NOT signup month)."
+      - name: valid_from
+        description: "Inclusive start of version validity (first version = 1900-01-01)."
+      - name: valid_to
+        description: "Exclusive end of version validity (current = 9999-12-31)."
+  - name: dim_product
+    description: "Product dimension, SCD Type 2 (price and cost history). Grain: one row per product version."
+    columns:
+      - name: product_version_key
+        data_tests: [unique, not_null]
+      - name: unit_cost
+        description: "Landed unit cost valid for the version; imputed from category median ratio if missing (is_cost_imputed)."
+  - name: dim_geography
+    columns:
+      - name: geo_id
+        data_tests: [unique, not_null]
+  - name: dim_channel
+    description: "Conformed channel dimension shared by orders, sessions and spend."
+    columns:
+      - name: channel
+        data_tests: [unique, not_null]
+  - name: dim_campaign
+    columns:
+      - name: campaign_id
+        data_tests: [unique, not_null]
+  - name: dim_experiment
+    columns:
+      - name: experiment_id
+        data_tests: [unique, not_null]
+  # ------------------------------------------------------------------ facts
+  - name: fct_orders
+    description: >
+      Grain: ONE ROW PER ORDER (accumulating snapshot). Governed measures are pre-filtered: they are 0 unless
+      is_countable (completed AND reportable), so SUM() always returns the governed value.
+    data_tests:
+      - dbt_utils.expression_is_true:
+          arguments: {expression: "net_revenue <= gross_revenue + 0.01"}
+    columns:
+      - name: order_id
+        data_tests: [unique, not_null]
+      - name: customer_version_key
+        description: "As-of customer version (SCD2 point-in-time join on order_at)."
+        data_tests:
+          - relationships: {arguments: {to: ref('dim_customer'), field: customer_version_key}}
+      - name: geo_id
+        data_tests:
+          - relationships: {arguments: {to: ref('dim_geography'), field: geo_id}}
+      - name: order_date_key
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_date'), field: date_key}
+              config: {where: "is_valid_order_date"}
+      - name: attributed_channel
+        description: "Last non-direct touch: session UTM campaign > signup campaign (first orders) > session channel > direct."
+        data_tests:
+          - relationships: {arguments: {to: ref('dim_channel'), field: channel}}
+      - name: campaign_id
+        data_tests:
+          - relationships: {arguments: {to: ref('dim_campaign'), field: campaign_id}}
+      - name: is_countable
+        description: "is_completed AND is_reportable (valid order date, not an internal test order)."
+      - name: net_revenue
+        description: "Gross revenue - coupon discount - processed return refunds (governed)."
+      - name: contribution_margin
+        description: "Gross profit + shipping fee collected - shipping cost - payment fees - marketplace commission (governed, before marketing)."
+      - name: source_row_count
+        data_tests:
+          - dbt_utils.accepted_range: {arguments: {min_value: 1, max_value: 3}, config: {severity: warn}}
+  - name: fct_order_items
+    description: "Grain: ONE ROW PER ORDER LINE. Coupons allocated pro-rata to lines."
+    columns:
+      - name: order_item_id
+        data_tests: [unique, not_null]
+      - name: product_version_key
+        data_tests:
+          - relationships: {arguments: {to: ref('dim_product'), field: product_version_key}}
+  - name: fct_payments
+    description: "Grain: ONE ROW PER PAYMENT ATTEMPT."
+    columns:
+      - name: payment_id
+        data_tests: [unique, not_null]
+  - name: fct_refunds
+    description: "Grain: ONE ROW PER REFUND TRANSACTION. Cancellation refunds are flagged and excluded from refund_rate."
+    columns:
+      - name: refund_id
+        data_tests: [unique, not_null]
+  - name: fct_sessions
+    description: "Grain: ONE ROW PER WEB/APP SESSION. Bots flagged (is_bot), not deleted."
+    columns:
+      - name: session_id
+        data_tests: [unique, not_null]
+  - name: fct_funnel_steps
+    description: "Grain: ONE ROW PER (SESSION, FUNNEL STEP REACHED). Non-bot sessions only."
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments: {combination_of_columns: [session_id, step_number]}
+  - name: fct_marketing_spend
+    description: "Grain: ONE ROW PER (DATE, CAMPAIGN). Net of credit notes."
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments: {combination_of_columns: [spend_date, campaign_id]}
+  - name: fct_support_tickets
+    columns:
+      - name: ticket_id
+        data_tests: [unique, not_null]
+  - name: fct_experiment_exposures
+    description: "Grain: ONE ROW PER (EXPERIMENT, CUSTOMER). Outcomes measured strictly after assignment."
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments: {combination_of_columns: [experiment_id, customer_id]}
+  - name: fct_customer_monthly
+    description: "Grain: ONE ROW PER (CUSTOMER, MONTH) from first-order month. Periodic snapshot."
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments: {combination_of_columns: [customer_id, month]}
+  - name: fct_subscriptions
+    columns:
+      - name: subscription_id
+        data_tests: [unique, not_null]
+  # ------------------------------------------------------------------ analytic marts
+  - name: mart_customer_ltv
+    description: "Grain: ONE ROW PER BUYING CUSTOMER. LTV windows with maturity flags."
+    columns:
+      - name: customer_id
+        data_tests: [unique, not_null]
+  - name: mart_cohort_retention
+    description: "Grain: (cohort_month, acquisition_segment, months_since_first). Additive counts."
+  - name: mart_channel_monthly_economics
+    description: "Grain: (month, channel). Spend, CAC, ROAS, CM after marketing, LTV:CAC."
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments: {combination_of_columns: [month, channel]}
+  - name: mart_product_monthly
+    description: "Grain: (month, product_id)."
+  - name: mart_funnel_daily
+    description: "Grain: (date, device, state, traffic_channel, app_version). Non-bot sessions."

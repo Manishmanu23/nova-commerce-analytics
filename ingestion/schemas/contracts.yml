@@ -1,0 +1,21 @@
+# Data contracts for source extracts.
+# The raw layer stores everything as TEXT (so a bad value never breaks ingestion);
+# these contracts define what the *source* promised. Violations are logged in raw._ingestion_audit.
+#   required: columns that must exist in the file header (missing -> file REJECTED)
+#   primary_key: natural key (documented here, enforced in dbt staging tests)
+customers:        {primary_key: [customer_id, updated_at], required: [customer_id, email, signup_ts, geo_id, acquisition_channel, updated_at]}
+products:         {primary_key: [product_id, updated_at], required: [product_id, category, brand, list_price, unit_cost, updated_at]}
+orders:           {primary_key: [order_id], required: [order_id, customer_id, order_ts, order_status, subtotal_inr, order_total_inr, _extracted_at]}
+order_items:      {primary_key: [order_item_id], required: [order_item_id, order_id, product_id, quantity, unit_sale_price]}
+payments:         {primary_key: [payment_id], required: [payment_id, order_id, payment_ts, amount, status, gateway_txn_ref]}
+refunds:          {primary_key: [refund_id], required: [refund_id, order_id, refund_ts, refund_amount, refund_status]}
+subscriptions:    {primary_key: [subscription_id], required: [subscription_id, customer_id, plan_type, start_ts]}
+marketing_campaigns: {primary_key: [campaign_id], required: [campaign_id, channel, start_date, end_date]}
+marketing_spend:  {primary_key: [spend_date, campaign_id], required: [spend_date, campaign_id, spend_inr]}
+web_sessions:     {primary_key: [session_id], required: [session_id, session_start_ts, device_type, traffic_channel]}
+funnel_events:    {primary_key: [event_id], required: [event_id, session_id, event_ts, event_name]}
+customer_support: {primary_key: [ticket_id], required: [ticket_id, created_ts, category]}
+experiments:      {primary_key: [experiment_id], required: [experiment_id, start_date, end_date, planned_split]}
+experiment_assignments: {primary_key: [assignment_id], required: [experiment_id, customer_id, variant, assigned_ts]}
+geography:        {primary_key: [geo_id], required: [geo_id, city, state, city_tier]}
+dates:            {primary_key: [date_day], required: [date_day]}

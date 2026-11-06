@@ -1,0 +1,10 @@
+raw_value,payment_method,is_prepaid
+upi,UPI,true
+upi_intent,UPI,true
+card,Card,true
+credit_card,Card,true
+debit_card,Card,true
+wallet,Wallet,true
+emi,EMI,true
+cod,COD,false
+cash on delivery,COD,false

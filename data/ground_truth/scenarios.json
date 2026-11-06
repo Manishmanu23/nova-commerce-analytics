@@ -1,0 +1,67 @@
+{
+  "S1_CAMPAIGN_ID": "CMP-PSO-BLITZ40",
+  "S1_START": "2025-08-01",
+  "S1_END": "2025-10-31",
+  "S1_DISCOUNT": 0.4,
+  "S1_SHARE_OF_CUSTOMERS": 0.08,
+  "S1_LAMBDA_MEAN": 0.16,
+  "S1_MONTHLY_CHURN": 0.3,
+  "S1_REFUND_MULT": 1.35,
+  "S2_STATES": [
+    "Uttar Pradesh",
+    "Bihar",
+    "West Bengal"
+  ],
+  "S2_START": "2025-11-12",
+  "S2_END": "2025-12-03",
+  "S2_UPI_FAIL_PROB": 0.7,
+  "S2_UPI_FAIL_PROB_OTHER": 0.22,
+  "S2_APP_VERSION_BAD": "5.2.0",
+  "S2_APP_VERSION_FIX": "5.2.1",
+  "S3_BRAND": "VoltEdge",
+  "S3_START": "2025-06-01",
+  "S3_REFUND_PROB_END": 0.22,
+  "S4_DUP_DAY": "2025-03-18",
+  "EXPERIMENTS": [
+    {
+      "experiment_id": "EXP-2025-01",
+      "name": "one_page_checkout",
+      "hypothesis": "A single-page checkout increases 14-day purchase rate of active customers by >= 5% relative.",
+      "primary_metric": "purchase_rate",
+      "start": "2025-06-02",
+      "end": "2025-07-13",
+      "true_lift": "0.1",
+      "planned_split": "0.5",
+      "srm_bug": "False"
+    },
+    {
+      "experiment_id": "EXP-2025-02",
+      "name": "free_shipping_threshold_299",
+      "hypothesis": "Lowering the free-shipping threshold from 499 to 299 INR increases purchase rate without hurting contribution margin.",
+      "primary_metric": "purchase_rate",
+      "start": "2025-09-01",
+      "end": "2025-09-28",
+      "true_lift": "0.02",
+      "planned_split": "0.5",
+      "srm_bug": "True"
+    },
+    {
+      "experiment_id": "EXP-2025-03",
+      "name": "homepage_reco_widget",
+      "hypothesis": "A personalised recommendation widget on the homepage increases purchase rate.",
+      "primary_metric": "purchase_rate",
+      "start": "2025-02-03",
+      "end": "2025-03-02",
+      "true_lift": "0.0",
+      "planned_split": "0.5",
+      "srm_bug": "False"
+    }
+  ],
+  "S5_SRM_DROP_PROB": 0.25,
+  "MEMBERSHIP_LAUNCH": "2024-04-01",
+  "MEMBER_TRUE_RATE_LIFT": 1.15,
+  "MEMBER_TRUE_LIFETIME_EXT": 1.25,
+  "LEGACY_SHARE": 0.3,
+  "LEGACY_DAYS": 365,
+  "DQ_BOT_SPIKE_DAY": "2025-05-22"
+}

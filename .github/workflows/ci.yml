@@ -1,0 +1,25 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env: {POSTGRES_USER: nova, POSTGRES_PASSWORD: nova, POSTGRES_DB: nova}
+        ports: ["5432:5432"]
+        options: --health-cmd pg_isready --health-interval 5s --health-retries 10
+    env: {PGHOST: localhost, PGUSER: nova, PGPASSWORD: nova, PGDATABASE: nova, PYTHONPATH: python}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install -e ".[dev]"
+      - run: ruff check python ingestion tests
+      - name: Generate small sample + load
+        run: |
+          python -m nova.generator.run --customers 1500 --session-mult 0.1 --out data/sample/landing
+          python ingestion/load_raw.py --landing data/sample/landing --full-refresh
+      - name: dbt build (models + tests)
+        run: cd dbt/nova_dbt && dbt deps --profiles-dir . && dbt build --profiles-dir . --target ci
+      - run: pytest -q

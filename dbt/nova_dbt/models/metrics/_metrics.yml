@@ -1,0 +1,32 @@
+version: 2
+models:
+  - name: metrics_daily
+    description: "Governed daily metrics. Grain: one row per date. Ratios stored with numerator & denominator."
+    columns:
+      - name: date_day
+        data_tests: [unique, not_null]
+      - name: net_revenue
+        data_tests:
+          - sum_reconciles: {arguments: {compare_model: ref('fct_orders'), compare_column: net_revenue}}
+          - sum_reconciles: {arguments: {compare_model: ref('fct_order_items'), compare_column: net_revenue, tolerance: 1.0}}
+      - name: conversion_rate
+        data_tests:
+          - dbt_utils.accepted_range: {arguments: {min_value: 0, max_value: 1}}
+      - name: payment_success_rate
+        data_tests:
+          - dbt_utils.accepted_range: {arguments: {min_value: 0, max_value: 1}}
+  - name: metrics_daily_by_dimension
+    description: "Grain: (date, dimension_name, dimension_value). Components only."
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments: {combination_of_columns: [date_day, dimension_name, dimension_value]}
+  - name: metrics_monthly
+    description: "Grain: one row per month. Executive roll-up incl. retention/churn/LTV and MoM/YoY."
+    columns:
+      - name: month
+        data_tests: [unique, not_null]
+  - name: metric_catalog
+    description: "Certified metric catalogue (source of truth for Power BI and the Copilot)."
+    columns:
+      - name: metric_name
+        data_tests: [unique, not_null]

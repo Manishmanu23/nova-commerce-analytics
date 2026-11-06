@@ -1,0 +1,13 @@
+parameter,value,value_type
+base_customers,5522.0,observed
+churn_m,0.1997223186170619,observed
+orders_per_customer,0.6472896293613425,observed
+aov_gross,2260.417105241999,observed
+discount_rate,0.031487568908704335,observed
+refund_rate,0.06411163702880811,observed
+cogs_pct,0.6670242539579397,observed
+variable_cost_per_order,151.5506863750816,observed
+marketing_spend,396647.1966666666,observed
+acq_spend,382402.58,observed
+cac,531.7301228273465,observed
+organic_new,232.0,observed

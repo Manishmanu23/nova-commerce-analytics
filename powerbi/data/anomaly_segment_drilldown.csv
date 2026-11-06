@@ -1,0 +1,21 @@
+metric,segment,start_date,dimension,dimension_value,baseline_rate,current_rate,share_of_deviation
+checkout_conversion,traffic_channel=paid_social,2025-11-03,state,Uttar Pradesh,0.3377926421404682,0.09826589595375723,0.14856599885880553
+checkout_conversion,traffic_channel=paid_social,2025-11-03,state,Maharashtra,0.2692664809656453,0.15772870662460567,0.1267653458307911
+checkout_conversion,traffic_channel=paid_social,2025-11-03,state,Tamil Nadu,0.27099236641221375,0.11538461538461539,0.08703123242391334
+checkout_conversion,traffic_channel=paid_social,2025-11-03,app_version,n/a,0.25724381625441695,0.13168395849960096,0.6036479077188275
+checkout_conversion,traffic_channel=paid_social,2025-11-03,app_version,5.2.0,,0.12010443864229765,0.23772528155377465
+checkout_conversion,traffic_channel=paid_social,2025-11-03,app_version,5.1.2,0.3232963549920761,0.18456375838926176,0.15862681072739776
+checkout_conversion,traffic_channel=paid_social,2025-11-03,browser,NovaApp,0.3232963549920761,0.14831130690161526,0.43238990895639223
+checkout_conversion,traffic_channel=paid_social,2025-11-03,browser,chrome,0.2640218878248974,0.13012048192771083,0.40326518155837326
+checkout_conversion,traffic_channel=paid_social,2025-11-03,browser,safari,0.23394495412844038,0.13106796116504854,0.07689763420954869
+checkout_conversion,traffic_channel=paid_social,2025-11-03,device_type,mobile_app,0.3232963549920761,0.14831130690161526,0.4307974293637873
+checkout_conversion,traffic_channel=paid_social,2025-11-03,device_type,mobile_web,0.259691538140892,0.12465753424657534,0.3563617272500902
+checkout_conversion,traffic_channel=paid_social,2025-11-03,device_type,desktop,0.2540628385698808,0.14149139579349904,0.2128408433861224
+payment_success_rate,device_type=mobile_app,2025-11-10,state,Uttar Pradesh,0.9149797570850202,0.5443037974683544,0.24270237940706876
+payment_success_rate,device_type=mobile_app,2025-11-10,state,West Bengal,0.9135802469135802,0.5490196078431373,0.15409639375188863
+payment_success_rate,device_type=mobile_app,2025-11-10,state,Bihar,0.8974358974358975,0.48148148148148145,0.09308121118141971
+payment_success_rate,device_type=mobile_app,2025-11-10,payment_method,UPI,0.9309984317825405,0.6680672268907563,1.0439517898302757
+payment_success_rate,device_type=mobile_app,2025-11-10,payment_method,Card,0.9142857142857143,0.9317073170731708,-0.02979019373361866
+payment_success_rate,device_type=mobile_app,2025-11-10,payment_method,Wallet,0.9422222222222222,0.96875,-0.01416159609665709
+payment_success_rate,device_type=mobile_app,2025-11-10,app_version,5.2.0,,0.7594728171334432,0.8544174658233014
+payment_success_rate,device_type=mobile_app,2025-11-10,app_version,5.1.2,0.9283216783216783,0.8095238095238095,0.14558253417669864

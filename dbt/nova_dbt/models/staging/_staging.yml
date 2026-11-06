@@ -1,0 +1,145 @@
+version: 2
+# Staging tests describe what the SOURCE should look like after light cleaning.
+# severity: warn  -> known, tolerated source defects we monitor (they feed the DQ scorecard)
+# severity: error -> contract violations that must stop the pipeline
+models:
+  - name: stg_geography
+    columns:
+      - name: geo_id
+        data_tests: [unique, not_null]
+      - name: city_tier
+        data_tests:
+          - accepted_values: {arguments: {values: [1, 2, 3]}}
+  - name: stg_customers
+    description: "One row per customer version. Email normalised; PII hashed downstream."
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments: {combination_of_columns: [customer_id, updated_at]}
+    columns:
+      - name: customer_id
+        data_tests: [not_null]
+      - name: geo_id
+        data_tests:
+          - max_null_rate: {arguments: {max_rate: 0.06}}
+          - relationships: {arguments: {to: ref('stg_geography'), field: geo_id}}
+      - name: acquisition_channel
+        data_tests:
+          - accepted_values:
+              arguments: {values: [organic, paid_search, paid_social, referral, affiliate, marketplace]}
+  - name: stg_products
+    columns:
+      - name: category
+        data_tests:
+          - accepted_values:
+              arguments: {values: [Electronics, Fashion, "Home & Kitchen", "Beauty & Personal Care", "Grocery & Gourmet", "Sports & Fitness"]}
+      - name: unit_cost
+        data_tests:
+          - max_null_rate: {arguments: {max_rate: 0.05}}
+      - name: list_price
+        data_tests: [not_null, not_negative]
+  - name: stg_orders
+    columns:
+      - name: order_id
+        data_tests: [unique, not_null]
+      - name: order_status
+        data_tests:
+          - accepted_values:
+              arguments: {values: [delivered, shipped, processing, cancelled, payment_failed]}
+      - name: payment_method
+        data_tests:
+          - accepted_values: {arguments: {values: [UPI, Card, COD, Wallet, EMI]}}
+      - name: order_at
+        data_tests:
+          - within_data_window: {config: {severity: warn}}
+      - name: delivered_at
+        data_tests:
+          - not_before: {arguments: {other_column: order_at}, config: {severity: warn}}
+      - name: customer_id
+        data_tests:
+          - relationships:
+              arguments: {to: ref('stg_customers'), field: customer_id}
+              config: {severity: warn}
+      - name: source_row_count
+        description: "How many raw rows existed for this order_id (>1 = duplicates were removed)."
+      - name: subtotal_inr
+        data_tests: [not_negative]
+  - name: stg_order_items
+    columns:
+      - name: order_item_id
+        data_tests: [unique, not_null]
+      - name: order_id
+        data_tests:
+          - relationships: {arguments: {to: ref('stg_orders'), field: order_id}}
+      - name: product_id
+        data_tests:
+          - relationships:
+              arguments: {to: ref('stg_products'), field: product_id}
+              config: {severity: warn}
+      - name: quantity
+        data_tests:
+          - dbt_utils.accepted_range: {arguments: {min_value: 1}}
+  - name: stg_payments
+    columns:
+      - name: payment_id
+        data_tests: [unique, not_null]
+      - name: gateway_txn_ref
+        data_tests: [unique]
+      - name: payment_status
+        data_tests:
+          - accepted_values: {arguments: {values: [success, failed, pending]}}
+      - name: amount_inr
+        data_tests: [not_negative]
+  - name: stg_refunds
+    columns:
+      - name: refund_id
+        data_tests: [unique, not_null]
+      - name: refund_amount_inr
+        data_tests: [not_negative]
+      - name: order_id
+        data_tests:
+          - relationships: {arguments: {to: ref('stg_orders'), field: order_id}}
+      - name: refund_status
+        data_tests:
+          - accepted_values: {arguments: {values: [processed, pending, rejected]}}
+  - name: stg_marketing_spend
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments: {combination_of_columns: [spend_date, campaign_id]}
+    columns:
+      - name: campaign_id
+        data_tests:
+          - relationships: {arguments: {to: ref('stg_marketing_campaigns'), field: campaign_id}}
+  - name: stg_marketing_campaigns
+    columns:
+      - name: campaign_id
+        data_tests: [unique, not_null]
+      - name: channel
+        data_tests:
+          - accepted_values: {arguments: {values: [paid_search, paid_social, affiliate, marketplace, email]}}
+  - name: stg_web_sessions
+    columns:
+      - name: session_id
+        data_tests: [unique, not_null]
+  - name: stg_funnel_events
+    columns:
+      - name: event_id
+        data_tests: [unique, not_null]
+      - name: event_name
+        data_tests:
+          - accepted_values:
+              arguments: {values: [product_view, add_to_cart, begin_checkout, payment_attempt, purchase]}
+  - name: stg_customer_support
+    columns:
+      - name: ticket_id
+        data_tests: [unique, not_null]
+      - name: resolved_at
+        data_tests:
+          - not_before: {arguments: {other_column: created_at}, config: {severity: warn}}
+  - name: stg_experiment_assignments
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments: {combination_of_columns: [experiment_id, customer_id]}
+    columns:
+      - name: variant
+        data_tests:
+          - accepted_values: {arguments: {values: [control, treatment]}}

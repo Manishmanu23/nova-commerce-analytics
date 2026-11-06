@@ -1,0 +1,451 @@
+product_version_key,product_id,product_name,category,subcategory,brand,list_price,unit_cost,is_current
+c5643e0fffbcc2e1e78b6f24a14052bf,PRD-00001,Vesti Men Apparel 177,Fashion,Men Apparel,Vesti,509.0,245.48,false
+93576edf86bdd0523edbbc558dd17ecc,PRD-00001,Vesti Men Apparel 177,Fashion,Men Apparel,Vesti,549.0,272.98,true
+99e50c55a024107850ce8c6d3cad64ec,PRD-00002,StrideX Footwear 977,Fashion,Footwear,StrideX,959.0,456.24,false
+8600e8abfbcd9869683af4c13fd19246,PRD-00002,StrideX Footwear 977,Fashion,Footwear,StrideX,1004.0,500.3,true
+5cdfc3b3c47738c27364aae185ace20c,PRD-00003,Kaya Accessories 802,Fashion,Accessories,Kaya,1459.0,712.59,true
+d86196241cf4c6fa4cc7b9b2b1d14c03,PRD-00004,StrideX Footwear 498,Fashion,Footwear,StrideX,559.0,254.3,true
+e00ead1da32b465488962ce73827bf03,PRD-00005,Vesti Accessories 729,Fashion,Accessories,Vesti,869.0,411.24,true
+3041e6955384e6fedf1cd433ae68d839,PRD-00006,Kaya Women Apparel 902,Fashion,Women Apparel,Kaya,709.0,299.56,true
+81f58085bcec3c26eb5334ee02e047c0,PRD-00007,UrbanLoom Women Apparel 929,Fashion,Women Apparel,UrbanLoom,1129.0,526.65,true
+12d3f0217669763fdc41b7d3f3393ac7,PRD-00008,Kaya Footwear 392,Fashion,Footwear,Kaya,569.0,254.49,true
+32d19e640a472adc4b9e607f8401f8f6,PRD-00009,UrbanLoom Women Apparel 607,Fashion,Women Apparel,UrbanLoom,569.0,242.07,true
+03fcc7280d38ab649ad95b0099b918b2,PRD-00010,UrbanLoom Footwear 848,Fashion,Footwear,UrbanLoom,469.0,203.13,true
+4c62a60d810de933bdcf5fdcba5c86ff,PRD-00011,Vesti Women Apparel 315,Fashion,Women Apparel,Vesti,959.0,413.28,false
+46bf3ac63074e24664c237ae1661967d,PRD-00011,Vesti Women Apparel 315,Fashion,Women Apparel,Vesti,1023.0,441.2,true
+5d414aa7088f80413ca290f8bc58f02c,PRD-00012,Vesti Footwear 279,Fashion,Footwear,Vesti,929.0,442.04,true
+eae1d778b5eddbd4c0f845215106cf13,PRD-00013,StrideX Women Apparel 554,Fashion,Women Apparel,StrideX,749.0,334.28,true
+bc2d0ab11a5c19fca82a82a830331491,PRD-00014,UrbanLoom Footwear 202,Fashion,Footwear,UrbanLoom,559.0,250.1,false
+41854a329620eceffab859cff14f8f4c,PRD-00014,UrbanLoom Footwear 202,Fashion,Footwear,UrbanLoom,591.0,277.87,true
+4c004820df48f1a63589d190dad15b39,PRD-00015,Vesti Men Apparel 181,Fashion,Men Apparel,Vesti,979.0,445.27,true
+f70186c9c28cc5c2b388b030a9e77471,PRD-00016,StrideX Footwear 127,Fashion,Footwear,StrideX,699.0,296.59,true
+6ae8bc6f2aade7f3a78d46f8f7450215,PRD-00017,Vesti Accessories 869,Fashion,Accessories,Vesti,479.0,196.51,false
+b7438819564ccd8c06dd46e085dccc6c,PRD-00017,Vesti Accessories 869,Fashion,Accessories,Vesti,509.0,215.88,true
+f52e402c95e9ab975c0072a782f3b07b,PRD-00018,Kaya Women Apparel 695,Fashion,Women Apparel,Kaya,709.0,337.17,false
+a192995d1ed8385aac7029f9e370908a,PRD-00018,Kaya Women Apparel 695,Fashion,Women Apparel,Kaya,765.0,374.04,true
+8852d72d33584368c70e5cff2110096b,PRD-00019,Kaya Women Apparel 400,Fashion,Women Apparel,Kaya,1159.0,486.81,true
+0d312a7f41f6c3b5abe607aef0bbe4ac,PRD-00020,Vesti Men Apparel 749,Fashion,Men Apparel,Vesti,1179.0,494.61,true
+5e2d49eb573cb38de0443790e7011847,PRD-00021,UrbanLoom Accessories 249,Fashion,Accessories,UrbanLoom,1149.0,511.48,false
+d6d8397bd436c1b96263dcc3a2dab7f9,PRD-00021,UrbanLoom Accessories 249,Fashion,Accessories,UrbanLoom,1212.0,537.36,true
+953bb7c668f5edd22bf05c70aad5144a,PRD-00022,StrideX Women Apparel 666,Fashion,Women Apparel,StrideX,359.0,148.23,true
+466902c58892db44b50f6a966a634f48,PRD-00023,Vesti Women Apparel 511,Fashion,Women Apparel,Vesti,1119.0,523.66,true
+d3e3d4fb1bf488af2519da4b6a76aba6,PRD-00024,Kaya Women Apparel 800,Fashion,Women Apparel,Kaya,1349.0,600.9,true
+0810c254487c908940b38d0d8713eeae,PRD-00025,UrbanLoom Men Apparel 732,Fashion,Men Apparel,UrbanLoom,749.0,334.07,false
+69737c7e6971d8ae3bc618afa42beea7,PRD-00025,UrbanLoom Men Apparel 732,Fashion,Men Apparel,UrbanLoom,796.0,351.82,true
+b2d47cc4c55e6972aa81020f7e6c1d9c,PRD-00026,Vesti Men Apparel 620,Fashion,Men Apparel,Vesti,649.0,312.88,false
+a36c728b0c4ace548a920a3fc8758750,PRD-00026,Vesti Men Apparel 620,Fashion,Men Apparel,Vesti,696.0,344.91,true
+8cc559983e8f675047b247013d628f52,PRD-00027,StrideX Women Apparel 226,Fashion,Women Apparel,StrideX,1019.0,470.23,true
+d8d7d6571c14b8c33108f04e11039ed0,PRD-00028,StrideX Footwear 175,Fashion,Footwear,StrideX,989.0,404.25,true
+d2c6fc7c692907bfbf79fac58ad772bd,PRD-00029,Kaya Men Apparel 257,Fashion,Men Apparel,Kaya,1089.0,451.18,true
+87b58cf8882d223e7c2c859f81898a36,PRD-00030,Kaya Footwear 931,Fashion,Footwear,Kaya,729.0,318.0,true
+36b2141f1602c12c434320316bbb0f80,PRD-00031,UrbanLoom Women Apparel 519,Fashion,Women Apparel,UrbanLoom,399.0,178.91,false
+4585b762740b74deaf983fd631271463,PRD-00031,UrbanLoom Women Apparel 519,Fashion,Women Apparel,UrbanLoom,425.0,187.99,true
+1d50a0b048cd8dba002a045aa579bff8,PRD-00032,Kaya Accessories 537,Fashion,Accessories,Kaya,4459.0,2182.25,true
+22116c49bc0a281b66be816151f8d8d8,PRD-00033,Kaya Footwear 589,Fashion,Footwear,Kaya,1039.0,451.8,true
+a34bf4ed0da216cf9c46c021f80f038a,PRD-00034,Kaya Footwear 119,Fashion,Footwear,Kaya,1619.0,786.27,true
+0ec0297e88640e5fbb3a753403670125,PRD-00035,StrideX Women Apparel 206,Fashion,Women Apparel,StrideX,359.0,167.12,true
+4d8ebd526ba4486d03a6a0e663ff63b9,PRD-00036,StrideX Women Apparel 753,Fashion,Women Apparel,StrideX,969.0,401.84,true
+c08097ad51235f84d094bb401226a162,PRD-00037,UrbanLoom Accessories 591,Fashion,Accessories,UrbanLoom,529.0,236.64,true
+916202016d2311f3480009b2c4310afe,PRD-00038,Kaya Women Apparel 826,Fashion,Women Apparel,Kaya,549.0,269.43,true
+94adcd936aeae88cac5c9c7effdf257e,PRD-00039,StrideX Footwear 262,Fashion,Footwear,StrideX,879.0,430.05,true
+a8350b0ebf426ba971e0d3a9dfa2849c,PRD-00040,Kaya Men Apparel 491,Fashion,Men Apparel,Kaya,449.0,217.88,true
+4aa0bcf957bdf4cb7f7508171017c58b,PRD-00041,Vesti Accessories 522,Fashion,Accessories,Vesti,839.0,378.97,true
+346944e96f143e50af12aa00ec62e0fd,PRD-00042,Kaya Women Apparel 694,Fashion,Women Apparel,Kaya,1649.0,681.86,false
+2dbc709fbda0f2e709f413d2fcac6169,PRD-00042,Kaya Women Apparel 694,Fashion,Women Apparel,Kaya,1812.0,754.41,true
+38bdf5ff73d95b64fea3937770d16045,PRD-00043,Kaya Women Apparel 128,Fashion,Women Apparel,Kaya,459.0,195.85,false
+61756c519be97f865553c6f3c9b02a6f,PRD-00043,Kaya Women Apparel 128,Fashion,Women Apparel,Kaya,479.0,214.27,true
+d4959eb3e6c0fa09c61118376b4bbb54,PRD-00044,Vesti Men Apparel 237,Fashion,Men Apparel,Vesti,729.0,334.57,true
+10069d8a2553cf8f59dbf5f63c8eba38,PRD-00045,UrbanLoom Men Apparel 388,Fashion,Men Apparel,UrbanLoom,549.0,260.76,true
+c28c6f1fe598e7cbe7cfc3a65ac47630,PRD-00046,Kaya Accessories 229,Fashion,Accessories,Kaya,1079.0,459.3,true
+411183fdadf4884d8da7dff8c5b18bd6,PRD-00047,StrideX Men Apparel 933,Fashion,Men Apparel,StrideX,289.0,130.21,true
+4c07374bbbe0304c280cd1b4b585538b,PRD-00048,Kaya Footwear 279,Fashion,Footwear,Kaya,749.0,351.57,true
+3c4d6c62dc0bfa8d8664bf07207c1142,PRD-00049,UrbanLoom Accessories 218,Fashion,Accessories,UrbanLoom,689.0,297.71,true
+160c9a32bf53a3ee9e2aaa3cae7e7de5,PRD-00050,Kaya Women Apparel 959,Fashion,Women Apparel,Kaya,829.0,404.74,false
+5fd8dd8685b87182a9c7c29e90377ef3,PRD-00050,Kaya Women Apparel 959,Fashion,Women Apparel,Kaya,885.0,436.79,true
+b061a2eb40c3bb1d64b92523c4f35f2e,PRD-00051,StrideX Footwear 750,Fashion,Footwear,StrideX,989.0,409.97,true
+311b6a2d103ac8eb158fdc3f43ffdb29,PRD-00052,UrbanLoom Men Apparel 968,Fashion,Men Apparel,UrbanLoom,2519.0,1231.72,true
+815a2f0526ea742012fd9595e6342946,PRD-00053,Kaya Women Apparel 696,Fashion,Women Apparel,Kaya,649.0,263.89,true
+acd0916ea895c270641c5b1223c7182c,PRD-00054,Kaya Men Apparel 816,Fashion,Men Apparel,Kaya,279.0,126.32,false
+beacfb0a89ac0638e6e3e4eb6cd108fa,PRD-00054,Kaya Men Apparel 816,Fashion,Men Apparel,Kaya,307.0,134.73,true
+e0e4c15f90195a0766378227a056e807,PRD-00055,Vesti Accessories 206,Fashion,Accessories,Vesti,3029.0,1339.22,true
+aed34bf08315a89915d9ad6a98d4308e,PRD-00056,UrbanLoom Women Apparel 686,Fashion,Women Apparel,UrbanLoom,339.0,151.14,true
+4eb7c819df33ee4eb6c6a59ed292724c,PRD-00057,UrbanLoom Women Apparel 962,Fashion,Women Apparel,UrbanLoom,489.0,233.98,true
+4fc8636c724ccfd261b724fe4bfabb22,PRD-00058,Kaya Men Apparel 634,Fashion,Men Apparel,Kaya,1079.0,517.08,true
+1f9ad511afb192270201d35bacc2503c,PRD-00059,UrbanLoom Accessories 240,Fashion,Accessories,UrbanLoom,1379.0,579.04,true
+46497a55d9c6e1e43a2d2254c647708a,PRD-00060,Kaya Women Apparel 203,Fashion,Women Apparel,Kaya,789.0,323.48,true
+c460bea53d8435f4d19c53edcf494f09,PRD-00061,Zentra Audio 844,Electronics,Audio,Zentra,3849.0,2938.35,true
+36b27039e5608a00de5c599fc692483d,PRD-00062,Zentra Audio 886,Electronics,Audio,Zentra,1049.0,743.51,true
+817d4a4352faa4d38e63caa368254d9b,PRD-00063,VoltEdge Smart Home 953,Electronics,Smart Home,VoltEdge,8649.0,6842.33,true
+8df7ea410ef378078d32d14897388a5b,PRD-00064,VoltEdge Audio 435,Electronics,Audio,VoltEdge,2189.0,1571.4,false
+2bb7de1d0f863c865c8fe4aa42d69e8c,PRD-00064,VoltEdge Audio 435,Electronics,Audio,VoltEdge,2343.0,1657.52,true
+ee1ccfeb9d75381b17b9661a026a9a70,PRD-00065,VoltEdge Mobile Accessories 852,Electronics,Mobile Accessories,VoltEdge,2579.0,1850.33,true
+34009d03a5355f350462594ae9c74716,PRD-00066,VoltEdge Smart Home 980,Electronics,Smart Home,VoltEdge,1259.0,1036.91,true
+4421450a414e3dba3cc2af6593956f5a,PRD-00067,Kraftel Wearables 390,Electronics,Wearables,Kraftel,1669.0,1311.21,true
+e724c7b7bfe0b2f5cb1ad45e0c0ccf40,PRD-00068,Kraftel Wearables 516,Electronics,Wearables,Kraftel,1509.0,1209.87,true
+cb737993cd5fd48dfcec7fdb8a7be7c0,PRD-00069,VoltEdge Mobile Accessories 643,Electronics,Mobile Accessories,VoltEdge,479.0,367.41,true
+f2f2d813260fb6090180e0fafa358da0,PRD-00070,Zentra Mobile Accessories 429,Electronics,Mobile Accessories,Zentra,1409.0,1072.53,true
+59811f41909f2be6caed1558802f266e,PRD-00071,Sonique Mobile Accessories 867,Electronics,Mobile Accessories,Sonique,4769.0,4029.57,true
+3ea00d8e218b73500cbd63e311e624ad,PRD-00072,Sonique Audio 581,Electronics,Audio,Sonique,6659.0,5352.53,true
+281d9fa460e4c81e44c871d39c5c82d0,PRD-00073,Zentra Wearables 258,Electronics,Wearables,Zentra,1889.0,1410.99,true
+e1ff535e0d11560e09ab9bed3bfe31df,PRD-00074,Zentra Wearables 724,Electronics,Wearables,Zentra,1559.0,1243.84,true
+dc7db7a60fb486402b0edc8fe967d255,PRD-00075,Zentra Wearables 750,Electronics,Wearables,Zentra,3109.0,2636.45,true
+ffd2cf9c6d7766538e9937ac393adf4f,PRD-00076,VoltEdge Mobile Accessories 819,Electronics,Mobile Accessories,VoltEdge,5589.0,4605.84,true
+5b2f7d3978f6c5545d9d4d03e7e400a6,PRD-00077,Kraftel Smart Home 145,Electronics,Smart Home,Kraftel,1839.0,1460.26,true
+38c0f28cdb0199db6aacc9313033c4bd,PRD-00078,VoltEdge Mobile Accessories 253,Electronics,Mobile Accessories,VoltEdge,4279.0,3385.97,false
+eab531398acb1e69991163e0d88f358e,PRD-00078,VoltEdge Mobile Accessories 253,Electronics,Mobile Accessories,VoltEdge,4551.0,3791.73,true
+0b0354abc5ffbd97534a70262de25a22,PRD-00079,Zentra Wearables 565,Electronics,Wearables,Zentra,1899.0,1569.87,false
+88ce3c5f8b0f1dea0f88c3e2b3c6ba58,PRD-00079,Zentra Wearables 565,Electronics,Wearables,Zentra,1998.0,1665.99,true
+781a47fa5164fb129c90b7fd5cc64850,PRD-00080,VoltEdge Audio 937,Electronics,Audio,VoltEdge,2799.0,2016.03,true
+4c6e4e0bfaa821db72483cd5664c2727,PRD-00081,Zentra Audio 287,Electronics,Audio,Zentra,3399.0,2796.68,true
+c31416c1d24e61088dde6ad1e5b788cc,PRD-00082,Zentra Wearables 907,Electronics,Wearables,Zentra,2149.0,1599.29,true
+ec9c681e3ed502e14ab7dd3e0bbb3c3f,PRD-00083,Sonique Wearables 177,Electronics,Wearables,Sonique,1609.0,1166.61,false
+616b51812987b5734034435ba87a3016,PRD-00083,Sonique Wearables 177,Electronics,Wearables,Sonique,1699.0,1271.62,true
+b4ab302c902424818b4977c6ec49324f,PRD-00084,Zentra Smart Home 444,Electronics,Smart Home,Zentra,5469.0,4311.03,true
+55d49152d453ff8ee940f75132f9cd3d,PRD-00085,Kraftel Audio 686,Electronics,Audio,Kraftel,3389.0,2578.05,true
+d3378c20a06162bc235fcb6a73f7d5fd,PRD-00086,Kraftel Smart Home 955,Electronics,Smart Home,Kraftel,2729.0,2277.85,false
+782b1e40138fed67b14268cf7bb62976,PRD-00086,Kraftel Smart Home 955,Electronics,Smart Home,Kraftel,2956.0,2484.7,true
+9438502b95eb0a1f608d5c0503ebc077,PRD-00087,VoltEdge Mobile Accessories 589,Electronics,Mobile Accessories,VoltEdge,5999.0,4853.38,true
+c5eb84fe3f9838cf2d30404d7bfaabaf,PRD-00088,Zentra Mobile Accessories 842,Electronics,Mobile Accessories,Zentra,699.0,540.7,true
+f43e88516778c9e8a58439e25935c022,PRD-00089,Sonique Mobile Accessories 589,Electronics,Mobile Accessories,Sonique,2669.0,2198.94,false
+f4b2b2cd24c392ad5a1c26f24a2281ab,PRD-00089,Sonique Mobile Accessories 589,Electronics,Mobile Accessories,Sonique,2912.0,2419.75,true
+4782e8ff43575b72e3c4cbe12b5241bc,PRD-00090,Kraftel Mobile Accessories 852,Electronics,Mobile Accessories,Kraftel,3049.0,2615.62,true
+f99049172bce82f691cedeadb516a996,PRD-00091,Zentra Mobile Accessories 876,Electronics,Mobile Accessories,Zentra,3179.0,2676.52,true
+8dfcba21c8e26f721dc971a2b03c6378,PRD-00092,Sonique Mobile Accessories 228,Electronics,Mobile Accessories,Sonique,2089.0,1531.07,true
+e5d06480bc3fbfa8f8b3756d25f39d7a,PRD-00093,Zentra Audio 240,Electronics,Audio,Zentra,1469.0,1032.48,true
+0165e726a5d359326b1905d751833483,PRD-00094,Kraftel Mobile Accessories 820,Electronics,Mobile Accessories,Kraftel,589.0,491.53,true
+d60ec75407d16c135da9c8c842ef5a64,PRD-00095,Kraftel Wearables 860,Electronics,Wearables,Kraftel,1449.0,1191.73,false
+3bc0c617c8066eabb85ae6b208e7c635,PRD-00095,Kraftel Wearables 860,Electronics,Wearables,Kraftel,1550.0,1259.76,true
+ea36b0ca5245795b3d7af9fee404d11b,PRD-00096,Sonique Wearables 136,Electronics,Wearables,Sonique,1009.0,727.98,true
+3608d5a0a314976221377bf82a85daaa,PRD-00097,Zentra Wearables 503,Electronics,Wearables,Zentra,1929.0,1610.28,true
+6b2571b7a3d83d0bbf75dca78e3c16df,PRD-00098,VoltEdge Mobile Accessories 273,Electronics,Mobile Accessories,VoltEdge,1379.0,1120.78,false
+43dde53ac729ed2335194c33e3b1dacb,PRD-00098,VoltEdge Mobile Accessories 273,Electronics,Mobile Accessories,VoltEdge,1496.0,1245.31,true
+a818ccba339410c24384d4aab32a8c01,PRD-00099,Zentra Wearables 103,Electronics,Wearables,Zentra,2419.0,1930.71,false
+1f676dc78850a7b9f344b54b86192407,PRD-00099,Zentra Wearables 103,Electronics,Wearables,Zentra,2535.0,2119.02,true
+0f0e2c18579c54b3d460f000475677fe,PRD-00100,Sonique Mobile Accessories 737,Electronics,Mobile Accessories,Sonique,3609.0,2585.16,false
+4962e6ccc40ead2fa916fb1e6ddb5d31,PRD-00100,Sonique Mobile Accessories 737,Electronics,Mobile Accessories,Sonique,3928.0,2730.78,true
+c8bbaf3c53a010ed5fecdf0c6dcf2b5e,PRD-00101,Kraftel Audio 328,Electronics,Audio,Kraftel,1099.0,905.92,true
+0092643904376f9766d43eb78f47a83a,PRD-00102,Sonique Wearables 230,Electronics,Wearables,Sonique,4849.0,3843.68,true
+c56ca573f959e96bbdc59be53b761aab,PRD-00103,Zentra Wearables 241,Electronics,Wearables,Zentra,1399.0,1187.38,true
+03850932dd9b1af1e816f91b78f7db12,PRD-00104,Zentra Mobile Accessories 463,Electronics,Mobile Accessories,Zentra,7779.0,5605.53,true
+c9e110612549563bd35ff003cedc5c47,PRD-00105,Sonique Smart Home 806,Electronics,Smart Home,Sonique,4029.0,3097.31,true
+4e18a6f7a78456d2c19ccfa9df0fd97c,PRD-00106,Kraftel Wearables 470,Electronics,Wearables,Kraftel,959.0,705.78,true
+ff0616b6a45f6682bc595b2901269f15,PRD-00107,Sonique Wearables 529,Electronics,Wearables,Sonique,1279.0,981.34,true
+4408cfe66a17f08bafba1fa00f30ec77,PRD-00108,VoltEdge Audio 614,Electronics,Audio,VoltEdge,2339.0,1898.13,true
+bfc58fddb8199b8140ed2a4aa2a8a7d8,PRD-00109,Zentra Wearables 408,Electronics,Wearables,Zentra,2859.0,2358.22,false
+c76ac910cb94d83a2a5569d9e29367b7,PRD-00109,Zentra Wearables 408,Electronics,Wearables,Zentra,3065.0,2618.77,true
+771c88e8520dbeb4bea245325178e015,PRD-00110,Zentra Wearables 662,Electronics,Wearables,Zentra,12629.0,10010.7,true
+502fe8cd3761447ec2d04e730b9eb2c8,PRD-00111,Kraftel Wearables 759,Electronics,Wearables,Kraftel,2779.0,2169.19,true
+725ed7369635c23d6f56a3a0cb1bcb03,PRD-00112,VoltEdge Wearables 382,Electronics,Wearables,VoltEdge,949.0,739.35,true
+5fbb7b2ecd7486670eebcd0660c64d6a,PRD-00113,VoltEdge Mobile Accessories 169,Electronics,Mobile Accessories,VoltEdge,4059.0,2884.6,true
+356a531ea28ad7db833c7946381b4521,PRD-00114,Sonique Audio 255,Electronics,Audio,Sonique,3629.0,2968.01,false
+34b6a8ff5691160d3353bbac5f96baa6,PRD-00114,Sonique Audio 255,Electronics,Audio,Sonique,3832.0,3146.12,true
+219a1773cb999a4f4aa9520f04e975b5,PRD-00115,Kraftel Audio 737,Electronics,Audio,Kraftel,589.0,447.68,true
+a5a0401f40dab764ae3036b04745010b,PRD-00116,Zentra Mobile Accessories 207,Electronics,Mobile Accessories,Zentra,189.0,160.94,true
+de3482788beb04c55e6c649bba6f2523,PRD-00117,Zentra Smart Home 932,Electronics,Smart Home,Zentra,559.0,426.24,true
+7efcc139bbedf0b69fd9045637cd322d,PRD-00118,Zentra Wearables 287,Electronics,Wearables,Zentra,2329.0,1694.45,true
+b1d7e53469d5083d57bab88e54a68a8e,PRD-00119,Kraftel Audio 280,Electronics,Audio,Kraftel,6109.0,4818.36,false
+71844321f7b204773c79633ee2905d05,PRD-00119,Kraftel Audio 280,Electronics,Audio,Kraftel,6365.0,5138.49,true
+cebdb9bec26ce4dff9a122448309e033,PRD-00120,Zentra Smart Home 502,Electronics,Smart Home,Zentra,1289.0,920.97,false
+11879284a4823ea8d951565713594f6f,PRD-00120,Zentra Smart Home 502,Electronics,Smart Home,Zentra,1362.0,973.84,true
+fca496545f8beb85c4def9024798c77a,PRD-00121,PureRoot Skincare 375,Beauty & Personal Care,Skincare,PureRoot,1089.0,405.17,false
+1438ddbab700727b58af1466fc8c459d,PRD-00121,PureRoot Skincare 375,Beauty & Personal Care,Skincare,PureRoot,1145.0,435.02,true
+11b4d21cfef19e6e5bf48955108331d9,PRD-00122,Aurelle Skincare 140,Beauty & Personal Care,Skincare,Aurelle,229.0,87.79,false
+03faddcfd8d51cc35d25b3c59680fe19,PRD-00122,Aurelle Skincare 140,Beauty & Personal Care,Skincare,Aurelle,243.0,97.19,true
+873d09ee73797d6a109b29741467b0a9,PRD-00123,PureRoot Fragrance 341,Beauty & Personal Care,Fragrance,PureRoot,149.0,54.64,false
+1b3eaf1c5402adbfa1c45180dd92b8dc,PRD-00123,PureRoot Fragrance 341,Beauty & Personal Care,Fragrance,PureRoot,158.0,58.84,true
+373592f16bcb1a72159cc8839b494553,PRD-00124,Aurelle Skincare 673,Beauty & Personal Care,Skincare,Aurelle,459.0,189.85,true
+b6d54a59904b8582670f8fbb2e8636a8,PRD-00125,Glowveda Haircare 892,Beauty & Personal Care,Haircare,Glowveda,299.0,120.55,false
+cd7462d47646cd1a2de659915018597f,PRD-00125,Glowveda Haircare 892,Beauty & Personal Care,Haircare,Glowveda,317.0,133.35,true
+20ad57e5e03e44e2def3b4234fd1cecf,PRD-00126,Glowveda Haircare 533,Beauty & Personal Care,Haircare,Glowveda,579.0,247.91,false
+7ab2896d1a20371bfe93a1ec14ea218d,PRD-00126,Glowveda Haircare 533,Beauty & Personal Care,Haircare,Glowveda,605.0,262.23,true
+ed4f25f2397159d864a792723b2f317e,PRD-00127,Aurelle Haircare 445,Beauty & Personal Care,Haircare,Aurelle,339.0,145.1,true
+d4d599300dd894661baee78a238ab49c,PRD-00128,Glowveda Haircare 458,Beauty & Personal Care,Haircare,Glowveda,589.0,241.76,true
+4071ab719f55bc0def257cfb2605d76e,PRD-00129,PureRoot Skincare 646,Beauty & Personal Care,Skincare,PureRoot,719.0,260.27,true
+1a015a8a604ddaebbb7442e3911ebbb9,PRD-00130,PureRoot Fragrance 376,Beauty & Personal Care,Fragrance,PureRoot,239.0,86.18,true
+a79f59cff1cdcc0d7506deb9133a4a01,PRD-00131,Aurelle Skincare 821,Beauty & Personal Care,Skincare,Aurelle,549.0,240.76,true
+246b24100e7519e5f06c793b2bf3386b,PRD-00132,Aurelle Haircare 784,Beauty & Personal Care,Haircare,Aurelle,599.0,250.18,true
+c148bea8f8f7e8d6e9bacaef83af7af8,PRD-00133,Aurelle Haircare 555,Beauty & Personal Care,Haircare,Aurelle,289.0,106.68,true
+c4a8a801120e928738cf1aa306168541,PRD-00134,PureRoot Fragrance 597,Beauty & Personal Care,Fragrance,PureRoot,559.0,244.61,true
+3e43a27fb77c8da8123c00c406eef09c,PRD-00135,Glowveda Skincare 672,Beauty & Personal Care,Skincare,Glowveda,1239.0,520.38,true
+56abf40a55d4b295a34b32620c958f99,PRD-00136,Glowveda Haircare 136,Beauty & Personal Care,Haircare,Glowveda,399.0,159.27,true
+fccd414ff02285d173602b430a8033f4,PRD-00137,PureRoot Fragrance 166,Beauty & Personal Care,Fragrance,PureRoot,209.0,82.12,true
+66817892a81f8a9fc142a5a31717227a,PRD-00138,Glowveda Fragrance 599,Beauty & Personal Care,Fragrance,Glowveda,359.0,155.8,false
+911d52fa8acdf1bdc80922acef4050d6,PRD-00138,Glowveda Fragrance 599,Beauty & Personal Care,Fragrance,Glowveda,393.0,163.96,true
+01566e3f91086f793552ff573f6a04fc,PRD-00139,Glowveda Skincare 431,Beauty & Personal Care,Skincare,Glowveda,209.0,76.05,true
+fabf9fb17e37c3494a3fd8db9c9c5743,PRD-00140,Aurelle Skincare 741,Beauty & Personal Care,Skincare,Aurelle,619.0,265.7,true
+b4e334d4a660455f3e57375d2a84cf8b,PRD-00141,Aurelle Haircare 191,Beauty & Personal Care,Haircare,Aurelle,559.0,211.73,false
+151c5bfef89f34a9e5ea51572d0d4645,PRD-00141,Aurelle Haircare 191,Beauty & Personal Care,Haircare,Aurelle,608.0,234.61,true
+fe7e061c3313475195459a9003d34268,PRD-00142,PureRoot Haircare 104,Beauty & Personal Care,Haircare,PureRoot,569.0,235.67,false
+68257447aab56772779c17ad619f7287,PRD-00142,PureRoot Haircare 104,Beauty & Personal Care,Haircare,PureRoot,602.0,252.03,true
+957ce5dca6e0608965991f29d19adc03,PRD-00143,PureRoot Fragrance 328,Beauty & Personal Care,Fragrance,PureRoot,409.0,169.22,true
+d30bcab1078ac4d5b96c25b8534ecb01,PRD-00144,PureRoot Skincare 412,Beauty & Personal Care,Skincare,PureRoot,1789.0,686.82,true
+143afc50e977482f06f9edf6e4e1c5b5,PRD-00145,PureRoot Haircare 878,Beauty & Personal Care,Haircare,PureRoot,429.0,184.87,true
+0200eb03853d6056bc83c219a6a30ea6,PRD-00146,Aurelle Skincare 407,Beauty & Personal Care,Skincare,Aurelle,239.0,101.48,true
+1b2a56fabdb79b3a7b2286ab18336926,PRD-00147,Glowveda Haircare 869,Beauty & Personal Care,Haircare,Glowveda,679.0,298.63,false
+0e90bd7cf22941e0bfb42d1bec815b9e,PRD-00147,Glowveda Haircare 869,Beauty & Personal Care,Haircare,Glowveda,710.0,326.99,true
+42178def82b0a2c9a6d03e521dd64c89,PRD-00148,Glowveda Fragrance 452,Beauty & Personal Care,Fragrance,Glowveda,409.0,163.5,true
+3e4e080d9b1db634153fbaa54af6f3f0,PRD-00149,PureRoot Skincare 598,Beauty & Personal Care,Skincare,PureRoot,289.0,108.71,true
+435ff97c0e1a200ab1f87ebd004ad138,PRD-00150,Aurelle Skincare 670,Beauty & Personal Care,Skincare,Aurelle,909.0,357.81,false
+5b98d6d14959d0f9282efb4a42df74b7,PRD-00150,Aurelle Skincare 670,Beauty & Personal Care,Skincare,Aurelle,987.0,378.69,true
+658d7bfdb60f9fed3d93ca905556b108,PRD-00151,Aurelle Fragrance 411,Beauty & Personal Care,Fragrance,Aurelle,319.0,122.1,true
+50fe07035ae165f4f68e80dafac2b96d,PRD-00152,PureRoot Fragrance 392,Beauty & Personal Care,Fragrance,PureRoot,639.0,257.11,true
+384943d75dd638fb602536883d6628e9,PRD-00153,PureRoot Skincare 868,Beauty & Personal Care,Skincare,PureRoot,569.0,218.47,true
+7a87b34459b8c4e4b4a607f7999fc92d,PRD-00154,Glowveda Skincare 239,Beauty & Personal Care,Skincare,Glowveda,1639.0,663.66,true
+678b8cd1abf3ede25797ed06296479d3,PRD-00155,Aurelle Haircare 953,Beauty & Personal Care,Haircare,Aurelle,749.0,298.18,true
+010232075103db7eef24e2abaa7cf9de,PRD-00156,Glowveda Fragrance 832,Beauty & Personal Care,Fragrance,Glowveda,389.0,164.55,true
+592784dbe05c1f0e293a9c0614fb96fc,PRD-00157,PureRoot Skincare 386,Beauty & Personal Care,Skincare,PureRoot,1059.0,436.56,true
+08179e9fc9ca01c35af8438fd1a57cd4,PRD-00158,Aurelle Fragrance 489,Beauty & Personal Care,Fragrance,Aurelle,799.0,348.99,true
+f9a00c737f3b5ac612415a83b45f9e92,PRD-00159,Glowveda Skincare 985,Beauty & Personal Care,Skincare,Glowveda,159.0,58.07,true
+595f131405bbe66a6c68a513a883923e,PRD-00160,Aurelle Haircare 381,Beauty & Personal Care,Haircare,Aurelle,439.0,161.96,false
+a2d0883ba8b43f15c7531c86ee92c24a,PRD-00160,Aurelle Haircare 381,Beauty & Personal Care,Haircare,Aurelle,467.0,174.23,true
+75873d401d552462cf1fa3a8cc6c8ba0,PRD-00161,Glowveda Fragrance 978,Beauty & Personal Care,Fragrance,Glowveda,309.0,123.43,true
+dd65fa62244ce8ac302b92c0ecedb6aa,PRD-00162,Glowveda Skincare 474,Beauty & Personal Care,Skincare,Glowveda,499.0,184.11,true
+4a5ec80c55af0b2ce37f1a538b18ecb4,PRD-00163,Glowveda Skincare 126,Beauty & Personal Care,Skincare,Glowveda,449.0,179.22,true
+f96f68462434e1a8dd4fb391e7427d5b,PRD-00164,PureRoot Skincare 801,Beauty & Personal Care,Skincare,PureRoot,299.0,113.87,false
+ece45e502ea0ef2da6db2ea97253c120,PRD-00164,PureRoot Skincare 801,Beauty & Personal Care,Skincare,PureRoot,327.0,126.84,true
+c02cc25129b322236aebe86a5dcd1083,PRD-00165,Glowveda Haircare 399,Beauty & Personal Care,Haircare,Glowveda,239.0,99.1,true
+227faebd35f1c9d96952f9b95c4e8ca6,PRD-00166,Glowveda Skincare 936,Beauty & Personal Care,Skincare,Glowveda,279.0,110.72,true
+d1d22de623f22a574644272d0c35e288,PRD-00167,Glowveda Skincare 118,Beauty & Personal Care,Skincare,Glowveda,659.0,244.53,false
+54cf4737fa3ea990b58ba0ae2f6080a4,PRD-00167,Glowveda Skincare 118,Beauty & Personal Care,Skincare,Glowveda,705.0,267.56,true
+f67d267b20bb9956d218fb8dca726c02,PRD-00168,Aurelle Fragrance 269,Beauty & Personal Care,Fragrance,Aurelle,749.0,276.27,false
+c28ef10491c3d9c716f00032629a932a,PRD-00168,Aurelle Fragrance 269,Beauty & Personal Care,Fragrance,Aurelle,798.0,302.08,true
+f6a0d9e48bc40647b0fb99916fefe319,PRD-00169,Glowveda Haircare 718,Beauty & Personal Care,Haircare,Glowveda,899.0,366.09,true
+8f99b324de9fb47befa9d590f838d4f0,PRD-00170,Glowveda Fragrance 867,Beauty & Personal Care,Fragrance,Glowveda,1229.0,458.44,true
+acc841b726e38777e1a98129b09a5da0,PRD-00171,Aurelle Fragrance 600,Beauty & Personal Care,Fragrance,Aurelle,499.0,216.32,false
+72bc33e272e05b85f7fdc6d3b9db9a1d,PRD-00171,Aurelle Fragrance 600,Beauty & Personal Care,Fragrance,Aurelle,524.0,227.39,true
+bc5570448d456ec3c752e18301248896,PRD-00172,Aurelle Haircare 985,Beauty & Personal Care,Haircare,Aurelle,879.0,373.62,true
+8dbaeaa5f0e2b2ed62c0eee61791a757,PRD-00173,Aurelle Haircare 563,Beauty & Personal Care,Haircare,Aurelle,619.0,233.55,true
+2989ae82955cdb8a97d2380188386d03,PRD-00174,Aurelle Haircare 170,Beauty & Personal Care,Haircare,Aurelle,589.0,228.37,true
+ed64fd3627799f6b3c7fb9486e174de8,PRD-00175,Glowveda Fragrance 371,Beauty & Personal Care,Fragrance,Glowveda,259.0,107.91,true
+489b1aa35dca3a0792b840a235570d38,PRD-00176,Glowveda Fragrance 900,Beauty & Personal Care,Fragrance,Glowveda,979.0,362.31,true
+00c92f57a377caa49d8189a8cf9772d6,PRD-00177,Aurelle Fragrance 209,Beauty & Personal Care,Fragrance,Aurelle,609.0,243.96,true
+fa305890e5b38f856a7c7e5d553c4db9,PRD-00178,Aurelle Fragrance 114,Beauty & Personal Care,Fragrance,Aurelle,1229.0,499.92,true
+c0de43f8efe9f5ea989c47d719fac9d3,PRD-00179,Aurelle Haircare 248,Beauty & Personal Care,Haircare,Aurelle,509.0,205.07,true
+da16b6ceb0b98b848630e0b76176fc31,PRD-00180,Aurelle Haircare 145,Beauty & Personal Care,Haircare,Aurelle,269.0,103.18,true
+2e71afe83f8f68e39a0adfffed098088,PRD-00181,Kitchora Appliances 240,Home & Kitchen,Appliances,Kitchora,1019.0,571.18,true
+8f89527e6eb8fa24f252b1bdf748515c,PRD-00182,Kitchora Cookware 328,Home & Kitchen,Cookware,Kitchora,639.0,355.21,true
+6653841ab5560b49fe32c34d33f8f032,PRD-00183,Kitchora Appliances 340,Home & Kitchen,Appliances,Kitchora,2539.0,1415.15,false
+e5020c8c247d3e5594d13db1f14cd089,PRD-00183,Kitchora Appliances 340,Home & Kitchen,Appliances,Kitchora,2666.0,1523.08,true
+bd98a4fb9042cd8ad87de1b036b227e0,PRD-00184,Hearthly Appliances 476,Home & Kitchen,Appliances,Hearthly,1269.0,629.9,true
+c181c93e842cd230590a019a503c4b87,PRD-00185,Casa Nova Decor 794,Home & Kitchen,Decor,Casa Nova,789.0,398.72,true
+275c075c29d443986fb44b4b711e4270,PRD-00186,Hearthly Appliances 713,Home & Kitchen,Appliances,Hearthly,1309.0,786.41,true
+7949130aaee5dae4a0a7891d7689eb51,PRD-00187,Hearthly Storage 891,Home & Kitchen,Storage,Hearthly,519.0,283.73,true
+aa7447f3d621a4d913c84fd0017e8433,PRD-00188,Casa Nova Storage 440,Home & Kitchen,Storage,Casa Nova,1019.0,587.54,true
+8c4f51afca1aeb70e3a565aec4b59dc2,PRD-00189,Kitchora Storage 800,Home & Kitchen,Storage,Kitchora,3039.0,1539.28,true
+3075d831efad863aaec634b374346e11,PRD-00190,Kitchora Appliances 817,Home & Kitchen,Appliances,Kitchora,889.0,460.04,true
+94463586ce65c7b2f07d5814c71c71b0,PRD-00191,Hearthly Decor 823,Home & Kitchen,Decor,Hearthly,3789.0,2032.75,false
+66f59f20f9529435fb2011fd2c1c716d,PRD-00191,Hearthly Decor 823,Home & Kitchen,Decor,Hearthly,3954.0,2269.57,true
+d218be1db80649a202a3bd5931d70b1d,PRD-00192,Casa Nova Storage 454,Home & Kitchen,Storage,Casa Nova,1389.0,780.56,false
+13010d6e403e489445fdd181d37d765d,PRD-00192,Casa Nova Storage 454,Home & Kitchen,Storage,Casa Nova,1494.0,835.17,true
+f7d949f972bd4ad60bd56a2b40dffea9,PRD-00193,Casa Nova Decor 553,Home & Kitchen,Decor,Casa Nova,2069.0,1237.04,false
+3a5b7d94f51b81e80eb91b6bcc104862,PRD-00193,Casa Nova Decor 553,Home & Kitchen,Decor,Casa Nova,2253.0,1358.88,true
+75fdf9b502e1e2ae7cc853ee392fe109,PRD-00194,Casa Nova Decor 439,Home & Kitchen,Decor,Casa Nova,1319.0,671.93,false
+05607a0da82ad212db55545208d5bbc3,PRD-00194,Casa Nova Decor 439,Home & Kitchen,Decor,Casa Nova,1377.0,706.7,true
+df6292d78491e71caf15c7abc4cd022f,PRD-00195,Kitchora Decor 753,Home & Kitchen,Decor,Kitchora,309.0,185.41,true
+cebcc371fa58291d707f30184c75d9e7,PRD-00196,Casa Nova Cookware 777,Home & Kitchen,Cookware,Casa Nova,1159.0,609.16,true
+696881f6ae11a98246988352df0ae6b4,PRD-00197,Hearthly Appliances 508,Home & Kitchen,Appliances,Hearthly,839.0,458.54,true
+d1606b023926891a18b1532e8f0238df,PRD-00198,Hearthly Decor 532,Home & Kitchen,Decor,Hearthly,1759.0,996.96,false
+3e4181418fe8c4a7407e8c17964e5eda,PRD-00198,Hearthly Decor 532,Home & Kitchen,Decor,Hearthly,1842.0,1089.91,true
+42d4a62866420733912f46ecbdb3bc64,PRD-00199,Hearthly Appliances 381,Home & Kitchen,Appliances,Hearthly,1089.0,574.37,true
+0f78978d705ecccc5163526fd7433d98,PRD-00200,Kitchora Appliances 910,Home & Kitchen,Appliances,Kitchora,2039.0,1229.64,false
+edc6d9b23d3f52be55db6731eafa242f,PRD-00200,Kitchora Appliances 910,Home & Kitchen,Appliances,Kitchora,2230.0,1355.4,true
+a56e5257da2fc66631d087aabf348b68,PRD-00201,Hearthly Storage 299,Home & Kitchen,Storage,Hearthly,1329.0,702.36,true
+32950a77f44d53d168fdcaace630306c,PRD-00202,Kitchora Storage 860,Home & Kitchen,Storage,Kitchora,639.0,354.43,false
+a5648f08bb7d4b0ba25d5ed930c1d19f,PRD-00202,Kitchora Storage 860,Home & Kitchen,Storage,Kitchora,677.0,387.14,true
+2adb81616f916630afd3d12a8ea2e5dd,PRD-00203,Hearthly Cookware 437,Home & Kitchen,Cookware,Hearthly,899.0,529.25,true
+8cf5f7b633a5471e0a6915d8f9208e1e,PRD-00204,Kitchora Storage 366,Home & Kitchen,Storage,Kitchora,409.0,220.67,true
+8e35e601a3da946626b1aca431f67ae9,PRD-00205,Kitchora Cookware 467,Home & Kitchen,Cookware,Kitchora,3089.0,1848.98,true
+4caf19547f6c4e798f93e9ddf6c506b3,PRD-00206,Kitchora Cookware 190,Home & Kitchen,Cookware,Kitchora,1149.0,675.74,true
+7956ef893acef2fe17cc61eb39323305,PRD-00207,Casa Nova Storage 890,Home & Kitchen,Storage,Casa Nova,1579.0,824.2,true
+85dcf8db5c9b7ed0547ac37b52da73ac,PRD-00208,Casa Nova Storage 886,Home & Kitchen,Storage,Casa Nova,589.0,325.95,false
+58773b80cf572756bfe8671dc18b3e27,PRD-00208,Casa Nova Storage 886,Home & Kitchen,Storage,Casa Nova,648.0,342.61,true
+cad2a0a0dd8d811994b03c623330aed5,PRD-00209,Hearthly Decor 166,Home & Kitchen,Decor,Hearthly,889.0,531.98,true
+1836d6139a148f7737b992aa7e44fe4c,PRD-00210,Hearthly Appliances 565,Home & Kitchen,Appliances,Hearthly,3739.0,2068.68,true
+51c8ed0afc16650e558b56d4fe1f1185,PRD-00211,Casa Nova Appliances 264,Home & Kitchen,Appliances,Casa Nova,1159.0,589.73,true
+8a96a6af70ff8e2a8c92e559d6103209,PRD-00212,Kitchora Appliances 956,Home & Kitchen,Appliances,Kitchora,1349.0,750.02,true
+8220d0e6d8590aad392fe41505d89663,PRD-00213,Hearthly Cookware 241,Home & Kitchen,Cookware,Hearthly,2029.0,1030.9,true
+32a549a326f8a2846c9b30d2cb08a916,PRD-00214,Kitchora Appliances 646,Home & Kitchen,Appliances,Kitchora,2399.0,1293.18,false
+7d73a01ecf5ce723320725cf941a4f1e,PRD-00214,Kitchora Appliances 646,Home & Kitchen,Appliances,Kitchora,2511.0,1420.91,true
+b5c2b17acdf8805b5a54192604f67631,PRD-00215,Hearthly Storage 834,Home & Kitchen,Storage,Hearthly,159.0,93.02,true
+b0bc0a77b6b62139390ed558789ae43c,PRD-00216,Kitchora Storage 237,Home & Kitchen,Storage,Kitchora,1499.0,798.3,true
+9c7871c1a537f2839a164a0b05d348ac,PRD-00217,Casa Nova Appliances 148,Home & Kitchen,Appliances,Casa Nova,799.0,450.23,true
+0e2dfa168a8f22864c1160c91db70f08,PRD-00218,Kitchora Appliances 290,Home & Kitchen,Appliances,Kitchora,1199.0,651.27,true
+78a06ee9adeadaf07b578ee3b985d7b8,PRD-00219,Hearthly Appliances 889,Home & Kitchen,Appliances,Hearthly,449.0,236.13,true
+1e5ae46752b6375d865fe76e135ef94b,PRD-00220,Kitchora Cookware 215,Home & Kitchen,Cookware,Kitchora,919.0,518.82,true
+32f0ded1354fe1bbb72fa3ae20f079e0,PRD-00221,Kitchora Cookware 746,Home & Kitchen,Cookware,Kitchora,569.0,327.11,true
+df6f97a6bcd3732d6b351989a3a6b7cb,PRD-00222,Casa Nova Decor 639,Home & Kitchen,Decor,Casa Nova,1469.0,880.68,true
+d7f69bce0be0ef58386829e3f0368522,PRD-00223,Hearthly Storage 624,Home & Kitchen,Storage,Hearthly,1769.0,1040.28,true
+d0bff2c754dcf8e695cd195c234601fc,PRD-00224,Hearthly Cookware 902,Home & Kitchen,Cookware,Hearthly,899.0,510.27,true
+5b62d73e0711af5966b1dc808fe137f1,PRD-00225,Kitchora Decor 454,Home & Kitchen,Decor,Kitchora,3529.0,2033.54,false
+7a23e54c6d177baf34c2f68c42c9fa10,PRD-00225,Kitchora Decor 454,Home & Kitchen,Decor,Kitchora,3684.0,2158.85,true
+69d7f8a2b165809901419cd2d1876ec7,PRD-00226,Hearthly Decor 747,Home & Kitchen,Decor,Hearthly,1189.0,707.19,true
+b9e18bdefbc42f26a6bef11c68d594ce,PRD-00227,Casa Nova Cookware 517,Home & Kitchen,Cookware,Casa Nova,679.0,366.59,true
+3c1f84613be4b13fef348622c5d082de,PRD-00228,Kitchora Decor 182,Home & Kitchen,Decor,Kitchora,1699.0,963.51,true
+714ab42fb205d6719d926327214e7841,PRD-00229,Hearthly Decor 246,Home & Kitchen,Decor,Hearthly,489.0,252.7,true
+f3a5611c47d7ba0f8ba3992b3406b965,PRD-00230,Kitchora Appliances 321,Home & Kitchen,Appliances,Kitchora,569.0,289.75,true
+507819ba88993f99d6be6be023b5b85e,PRD-00231,Hearthly Appliances 922,Home & Kitchen,Appliances,Hearthly,1649.0,938.65,true
+0bdfc3c8b9e7c0653f4d17b1cf9252be,PRD-00232,Kitchora Appliances 587,Home & Kitchen,Appliances,Kitchora,279.0,167.35,true
+ccfeec657846be68092dafea6a64acbf,PRD-00233,Hearthly Storage 745,Home & Kitchen,Storage,Hearthly,1099.0,582.75,true
+8c298502fc8950b32db4b11f88a6d4a3,PRD-00234,Casa Nova Appliances 716,Home & Kitchen,Appliances,Casa Nova,1509.0,813.36,true
+6a056eaa0322a0479e50cffcf49945bb,PRD-00235,Casa Nova Appliances 861,Home & Kitchen,Appliances,Casa Nova,769.0,459.83,true
+5974e6db2ea317f8b865bcb1ce1f0bef,PRD-00236,Kitchora Appliances 589,Home & Kitchen,Appliances,Kitchora,1729.0,976.09,true
+08ea50867bb1eeacaa35955c2fd2c70f,PRD-00237,Hearthly Appliances 384,Home & Kitchen,Appliances,Hearthly,779.0,464.77,true
+de7d41cbdc7ef0d66e3335d28e95709a,PRD-00238,Hearthly Appliances 769,Home & Kitchen,Appliances,Hearthly,959.0,555.15,true
+b16b6822f926f4a529503b64f6dbde7b,PRD-00239,Casa Nova Storage 669,Home & Kitchen,Storage,Casa Nova,2859.0,1617.99,true
+7affaba5c23319ceb436bb4ec4b05799,PRD-00240,Casa Nova Decor 626,Home & Kitchen,Decor,Casa Nova,999.0,518.56,true
+a2a20b38da2baad1d10a458571b6bffd,PRD-00241,NutriBite Snacks 135,Grocery & Gourmet,Snacks,NutriBite,259.0,186.79,true
+cc0d32e111f3243ad0579ee8d64edeff,PRD-00242,Annapurna Farms Beverages 854,Grocery & Gourmet,Beverages,Annapurna Farms,339.0,286.08,true
+192210474b2f53211d6a1f6de9d29290,PRD-00243,Chai Co Snacks 950,Grocery & Gourmet,Snacks,Chai Co,169.0,137.85,true
+7e31e485f42403a19d79ff66e8f61416,PRD-00244,Chai Co Snacks 657,Grocery & Gourmet,Snacks,Chai Co,269.0,235.89,false
+31ca06a54a5779ef4ce1115eafd588d9,PRD-00244,Chai Co Snacks 657,Grocery & Gourmet,Snacks,Chai Co,284.0,257.83,true
+dfb6c8f9e050a573b3cdbfb7b0bfd834,PRD-00245,Annapurna Farms Staples 528,Grocery & Gourmet,Staples,Annapurna Farms,419.0,319.82,false
+5394c7b63cc4a75b3509ce380359ca6b,PRD-00245,Annapurna Farms Staples 528,Grocery & Gourmet,Staples,Annapurna Farms,452.0,341.02,true
+8dce67fc659fff42ea7916bc0fd0f35c,PRD-00246,Chai Co Staples 200,Grocery & Gourmet,Staples,Chai Co,169.0,126.45,true
+aecb6f8e6d7ebcba2712f6d864087712,PRD-00247,Chai Co Beverages 816,Grocery & Gourmet,Beverages,Chai Co,349.0,284.67,true
+923e16407cd70cf8460df2c5b3cfbe9e,PRD-00248,Annapurna Farms Beverages 185,Grocery & Gourmet,Beverages,Annapurna Farms,439.0,384.68,false
+2df83e1be4fa0ac7c63be4e15d76696b,PRD-00248,Annapurna Farms Beverages 185,Grocery & Gourmet,Beverages,Annapurna Farms,471.0,427.79,true
+ff3b95238b5253306c6585cd1e066f82,PRD-00249,Chai Co Snacks 431,Grocery & Gourmet,Snacks,Chai Co,459.0,334.26,true
+1213656defd4880b1e737b669a36db7b,PRD-00250,Annapurna Farms Staples 807,Grocery & Gourmet,Staples,Annapurna Farms,189.0,160.91,true
+4bb73e3c7f3fae01457de581b1551cc1,PRD-00251,Annapurna Farms Beverages 250,Grocery & Gourmet,Beverages,Annapurna Farms,679.0,575.94,false
+5546fc074f3caa903e73fec0982895bc,PRD-00251,Annapurna Farms Beverages 250,Grocery & Gourmet,Beverages,Annapurna Farms,730.0,635.9,true
+174a71c60cea0501870088066c10bc27,PRD-00252,Annapurna Farms Beverages 229,Grocery & Gourmet,Beverages,Annapurna Farms,359.0,264.0,true
+b6dc1edf7d0e8fea8522acb6ac0e5af6,PRD-00253,Chai Co Snacks 303,Grocery & Gourmet,Snacks,Chai Co,219.0,159.53,false
+50f62dbce915aad3836e33e290acab95,PRD-00253,Chai Co Snacks 303,Grocery & Gourmet,Snacks,Chai Co,235.0,173.03,true
+46afda188dbe0305f567315061917c3d,PRD-00254,NutriBite Snacks 796,Grocery & Gourmet,Snacks,NutriBite,319.0,262.97,true
+4ecf73749d813b225ce874abac1664e8,PRD-00255,Annapurna Farms Beverages 341,Grocery & Gourmet,Beverages,Annapurna Farms,309.0,265.04,true
+830a498854dbedd3350891aabf916786,PRD-00256,Chai Co Staples 836,Grocery & Gourmet,Staples,Chai Co,649.0,508.24,false
+5d1cd65f5b38f22052d8af8bdf131285,PRD-00256,Chai Co Staples 836,Grocery & Gourmet,Staples,Chai Co,677.0,562.93,true
+3f585b41225558fc28cf99b61ac3d75a,PRD-00257,Annapurna Farms Beverages 584,Grocery & Gourmet,Beverages,Annapurna Farms,349.0,284.67,false
+c01d2e9362c5c0c84cea95cbda05afa3,PRD-00257,Annapurna Farms Beverages 584,Grocery & Gourmet,Beverages,Annapurna Farms,372.0,311.05,true
+74df42fcc2428f22eb40156d7e07f0a2,PRD-00258,Annapurna Farms Staples 430,Grocery & Gourmet,Staples,Annapurna Farms,139.0,104.71,true
+ce8fa80f4d039a9b69a4250d80b6ecef,PRD-00259,Annapurna Farms Staples 245,Grocery & Gourmet,Staples,Annapurna Farms,429.0,320.98,false
+e51cfd5406e9f386ab8da35566eefad9,PRD-00259,Annapurna Farms Staples 245,Grocery & Gourmet,Staples,Annapurna Farms,472.0,358.59,true
+5c2852ee4d644f9eb3b136d1f6b02e96,PRD-00260,Annapurna Farms Snacks 458,Grocery & Gourmet,Snacks,Annapurna Farms,539.0,399.91,true
+38fdf386656a7af86d9c52a7ec4e5216,PRD-00261,Chai Co Snacks 956,Grocery & Gourmet,Snacks,Chai Co,369.0,317.34,false
+744f832bd524ebfb3db5bb3b245cf0d7,PRD-00261,Chai Co Snacks 956,Grocery & Gourmet,Snacks,Chai Co,386.0,353.91,true
+49ea3e3be7b3ad770066e9a0eb623b57,PRD-00262,Chai Co Staples 272,Grocery & Gourmet,Staples,Chai Co,199.0,164.17,true
+59b8cbcd62ed03f31356db0a92ec428f,PRD-00263,NutriBite Snacks 445,Grocery & Gourmet,Snacks,NutriBite,219.0,176.98,true
+055f14da304a4f086484395469f5bce3,PRD-00264,Chai Co Staples 123,Grocery & Gourmet,Staples,Chai Co,299.0,244.06,true
+4330101c91d5824a55db410024a37de7,PRD-00265,Annapurna Farms Beverages 193,Grocery & Gourmet,Beverages,Annapurna Farms,219.0,184.24,false
+12478f3d762080fa5881dfb9ce01050a,PRD-00265,Annapurna Farms Beverages 193,Grocery & Gourmet,Beverages,Annapurna Farms,234.0,197.87,true
+ccdc34c2d3c47e6abeca9a8016838789,PRD-00266,Annapurna Farms Staples 446,Grocery & Gourmet,Staples,Annapurna Farms,409.0,328.63,true
+88818b828f35995f49c14b2509119581,PRD-00267,Chai Co Beverages 425,Grocery & Gourmet,Beverages,Chai Co,239.0,174.61,true
+4c704a347ec5a3fb4ac4043c59697ccc,PRD-00268,Chai Co Snacks 904,Grocery & Gourmet,Snacks,Chai Co,409.0,305.73,false
+1c08578a632d9113cd7df1aa1643b5f3,PRD-00268,Chai Co Snacks 904,Grocery & Gourmet,Snacks,Chai Co,441.0,359.71,true
+c4fbcfa340a5ea9f98a10afc598f2c3f,PRD-00269,Chai Co Snacks 526,Grocery & Gourmet,Snacks,Chai Co,549.0,477.46,false
+85fa3a68073dfb3be82e3d3c4b652630,PRD-00269,Chai Co Snacks 526,Grocery & Gourmet,Snacks,Chai Co,591.0,517.93,true
+d35ebd6ad83a28e3bd376f7bd65eee92,PRD-00270,Chai Co Snacks 626,Grocery & Gourmet,Snacks,Chai Co,199.0,164.92,true
+bfeb0d05218b0062d78a4d972ffe4213,PRD-00271,Annapurna Farms Staples 568,Grocery & Gourmet,Staples,Annapurna Farms,189.0,148.86,true
+c3376ad5168e9fa31924f45e72aa3a5c,PRD-00272,Chai Co Snacks 873,Grocery & Gourmet,Snacks,Chai Co,259.0,201.43,false
+5b8c908f648e341229acf8443e49fc08,PRD-00272,Chai Co Snacks 873,Grocery & Gourmet,Snacks,Chai Co,283.0,218.85,true
+af8fd9399251f0f4312c6c3e48649f80,PRD-00273,Chai Co Beverages 476,Grocery & Gourmet,Beverages,Chai Co,399.0,326.25,false
+cb00c24491f3e05f68febae43ec5f563,PRD-00273,Chai Co Beverages 476,Grocery & Gourmet,Beverages,Chai Co,416.0,352.35,true
+494f53d588f7a5ed457d23445867c63f,PRD-00274,Annapurna Farms Snacks 935,Grocery & Gourmet,Snacks,Annapurna Farms,109.0,80.35,true
+70053ec98f5feca345d06ea834a31b4a,PRD-00275,Chai Co Beverages 965,Grocery & Gourmet,Beverages,Chai Co,199.0,170.42,true
+e66e12be1165a5c31d5d71d44a145523,PRD-00276,NutriBite Staples 572,Grocery & Gourmet,Staples,NutriBite,499.0,362.81,true
+70a4daff06e63506b4a1c4444128830a,PRD-00277,Annapurna Farms Snacks 923,Grocery & Gourmet,Snacks,Annapurna Farms,269.0,218.51,true
+56e0d86b9069a2662134ef87413e7bce,PRD-00278,NutriBite Staples 979,Grocery & Gourmet,Staples,NutriBite,199.0,159.0,true
+d4499859b48dd8d2504614939a11eaf2,PRD-00279,Chai Co Staples 522,Grocery & Gourmet,Staples,Chai Co,399.0,324.61,true
+3cd2c2fdfc4ff8025bc9c334fae8add3,PRD-00280,Annapurna Farms Snacks 273,Grocery & Gourmet,Snacks,Annapurna Farms,699.0,600.15,true
+a53daa9e64140dac39e8fa44392c7200,PRD-00281,Chai Co Beverages 819,Grocery & Gourmet,Beverages,Chai Co,269.0,212.25,true
+312ee5a157bd231c09180438c781cd83,PRD-00282,NutriBite Beverages 938,Grocery & Gourmet,Beverages,NutriBite,319.0,246.49,false
+c9b501ed05db4cd2e02546d566a7aad4,PRD-00282,NutriBite Beverages 938,Grocery & Gourmet,Beverages,NutriBite,336.0,263.84,true
+01487547f4fc13c862d28da62f130ebd,PRD-00283,Chai Co Staples 415,Grocery & Gourmet,Staples,Chai Co,239.0,197.27,false
+2ce7054702cfda458f9eeb800a494e92,PRD-00283,Chai Co Staples 415,Grocery & Gourmet,Staples,Chai Co,250.0,219.31,true
+a7db4f64e28a1599ec574ab1d6960558,PRD-00284,NutriBite Beverages 410,Grocery & Gourmet,Beverages,NutriBite,339.0,249.21,true
+f43bfd5634e4de1405322d410fe7ef0e,PRD-00285,NutriBite Beverages 801,Grocery & Gourmet,Beverages,NutriBite,359.0,270.8,true
+65862bde8d6e79baeb77c2e6eb63863f,PRD-00286,Chai Co Beverages 331,Grocery & Gourmet,Beverages,Chai Co,239.0,207.55,false
+e2d1c69f50aa5a60fb7240aaae911ec6,PRD-00286,Chai Co Beverages 331,Grocery & Gourmet,Beverages,Chai Co,251.0,227.58,true
+00775a0a68316722658e588ff2746e0e,PRD-00287,NutriBite Snacks 861,Grocery & Gourmet,Snacks,NutriBite,699.0,609.03,true
+02678c5cd5b470aadd46debf8d446ccd,PRD-00288,NutriBite Beverages 104,Grocery & Gourmet,Beverages,NutriBite,269.0,222.97,true
+ba6d4d513ff1feddcda7c85dad25ed81,PRD-00289,Annapurna Farms Snacks 315,Grocery & Gourmet,Snacks,Annapurna Farms,599.0,512.95,true
+e0ec98b6c33e417a9376512be457eaa4,PRD-00290,Chai Co Beverages 104,Grocery & Gourmet,Beverages,Chai Co,389.0,300.66,true
+87164a3046c667040263e9703a6577ff,PRD-00291,Chai Co Staples 704,Grocery & Gourmet,Staples,Chai Co,509.0,388.5,true
+99bedf2e666e052ba67ff7e9d9cfb4b9,PRD-00292,Annapurna Farms Snacks 546,Grocery & Gourmet,Snacks,Annapurna Farms,389.0,340.17,true
+8d0e00e70420a4bf71ec71cae26e576e,PRD-00293,NutriBite Staples 964,Grocery & Gourmet,Staples,NutriBite,209.0,170.35,false
+e0aa2d6bc44614013b573b3576d6369d,PRD-00293,NutriBite Staples 964,Grocery & Gourmet,Staples,NutriBite,218.0,189.92,true
+f019575bb18dd08f387f55fc9fb70fae,PRD-00294,Annapurna Farms Staples 190,Grocery & Gourmet,Staples,Annapurna Farms,459.0,365.86,true
+9d873dd57e21ab9c5535b8102bf47adb,PRD-00295,NutriBite Beverages 940,Grocery & Gourmet,Beverages,NutriBite,219.0,172.57,true
+24782c37187b15d5a3ac1cd38045871d,PRD-00296,Annapurna Farms Beverages 206,Grocery & Gourmet,Beverages,Annapurna Farms,499.0,426.16,false
+c244d2731eeef0adbc8020156ca808c2,PRD-00296,Annapurna Farms Beverages 206,Grocery & Gourmet,Beverages,Annapurna Farms,519.0,450.63,true
+86289686311e8866a5b08177a26f0648,PRD-00297,Annapurna Farms Staples 945,Grocery & Gourmet,Staples,Annapurna Farms,799.0,651.71,false
+d02573d6549b897aed9e2a82475d8e9c,PRD-00297,Annapurna Farms Staples 945,Grocery & Gourmet,Staples,Annapurna Farms,866.0,616.4,true
+576415ebde513edc16fa21c1da540b9a,PRD-00298,Chai Co Beverages 720,Grocery & Gourmet,Beverages,Chai Co,249.0,205.91,false
+f87a16996df9b92aa4b53541f12f8546,PRD-00298,Chai Co Beverages 720,Grocery & Gourmet,Beverages,Chai Co,273.0,228.32,true
+0374143f871cdd323da575b45e2584b9,PRD-00299,Chai Co Staples 963,Grocery & Gourmet,Staples,Chai Co,389.0,308.82,true
+0a312a5db80a1da355feeebb59b58d65,PRD-00300,Chai Co Beverages 225,Grocery & Gourmet,Beverages,Chai Co,489.0,379.01,true
+3eb81042511910b8c8efee71909597b0,PRD-00301,Trailox Gym 472,Sports & Fitness,Gym,Trailox,1409.0,822.84,false
+146e7ea8b3c0d7c12b1fe110228f7514,PRD-00301,Trailox Gym 472,Sports & Fitness,Gym,Trailox,1506.0,878.15,true
+76f7b88355904af43c7d5a44d48a5457,PRD-00302,Trailox Outdoor 685,Sports & Fitness,Outdoor,Trailox,6099.0,3444.51,true
+d86ac21fbb9b6d8abe4898c848af150d,PRD-00303,FitForge Yoga 432,Sports & Fitness,Yoga,FitForge,1559.0,863.38,true
+72fd30e48db76db2a821cae8ca3d5682,PRD-00304,Trailox Outdoor 136,Sports & Fitness,Outdoor,Trailox,769.0,406.18,false
+b6eab2a4b4da50019a01ef725eaca2d8,PRD-00304,Trailox Outdoor 136,Sports & Fitness,Outdoor,Trailox,824.0,451.94,true
+175c9cea53edbec216ebdb35d010404f,PRD-00305,FitForge Gym 919,Sports & Fitness,Gym,FitForge,1679.0,985.78,true
+243bfde5f78e8ef1eb5018b08bc7f1cb,PRD-00306,FitForge Yoga 850,Sports & Fitness,Yoga,FitForge,1589.0,882.91,false
+eeee10f3353e51007e963d0eaf38b90d,PRD-00306,FitForge Yoga 850,Sports & Fitness,Yoga,FitForge,1710.0,959.46,true
+9ea1f7ca0eab12b6d4420da3281be559,PRD-00307,Trailox Outdoor 989,Sports & Fitness,Outdoor,Trailox,1029.0,559.73,true
+4842487d0f81da22b9a119f099185daf,PRD-00308,FitForge Yoga 379,Sports & Fitness,Yoga,FitForge,959.0,504.88,true
+4335686cb3ae8e2da7d42ab933f1885c,PRD-00309,FitForge Yoga 586,Sports & Fitness,Yoga,FitForge,2529.0,1448.77,false
+7535314b17d24f4c0ae86a5bb51d53a3,PRD-00309,FitForge Yoga 586,Sports & Fitness,Yoga,FitForge,2642.0,1566.57,true
+7c28fb428a650b8f93dea8a238967038,PRD-00310,Trailox Outdoor 214,Sports & Fitness,Outdoor,Trailox,1489.0,826.43,true
+43b6ea192ef8036fab1fcb0dc26076d1,PRD-00311,Trailox Outdoor 787,Sports & Fitness,Outdoor,Trailox,2909.0,1665.5,true
+07375a9570e9c7fcf1ea4c290f51caf4,PRD-00312,Trailox Gym 447,Sports & Fitness,Gym,Trailox,419.0,225.45,true
+429cdea45073eb6a43df8bc39be37d89,PRD-00313,FitForge Outdoor 274,Sports & Fitness,Outdoor,FitForge,1469.0,799.24,true
+8ff06d34490299460666b48e29bc272c,PRD-00314,FitForge Outdoor 131,Sports & Fitness,Outdoor,FitForge,1579.0,817.35,true
+1ac7bfd5f83ab32bd8a804309040f91b,PRD-00315,FitForge Outdoor 883,Sports & Fitness,Outdoor,FitForge,1079.0,645.22,false
+d7cce92ca0e0689fbb51d2c6cdb21f33,PRD-00315,FitForge Outdoor 883,Sports & Fitness,Outdoor,FitForge,1172.0,714.42,true
+f0362fd23e4d0d263bff4591e49f5ae4,PRD-00316,Trailox Outdoor 144,Sports & Fitness,Outdoor,Trailox,1059.0,531.58,true
+2f78f09f76f37875558e3bd2b80d30fe,PRD-00317,Trailox Yoga 693,Sports & Fitness,Yoga,Trailox,1399.0,775.18,true
+45148e17b1adcde765b109c05fa12f47,PRD-00318,Trailox Gym 819,Sports & Fitness,Gym,Trailox,4569.0,2695.96,true
+fa66fe44683f914ab3f05e7261b95749,PRD-00319,FitForge Yoga 466,Sports & Fitness,Yoga,FitForge,719.0,373.77,true
+178b13a1fb3caeaa9c0287985d4865b0,PRD-00320,Trailox Gym 440,Sports & Fitness,Gym,Trailox,1049.0,581.62,true
+c43f052844ad438590283916cc0d00bc,PRD-00321,FitForge Gym 245,Sports & Fitness,Gym,FitForge,1339.0,761.91,false
+452128493623800ae2109903cacb2f17,PRD-00321,FitForge Gym 245,Sports & Fitness,Gym,FitForge,1399.0,831.08,true
+45f6bfef98d302caf9a142bbb51acf40,PRD-00322,Trailox Gym 748,Sports & Fitness,Gym,Trailox,1879.0,1123.71,true
+4219d3f3954957caa182ae8eae4db18c,PRD-00323,FitForge Outdoor 128,Sports & Fitness,Outdoor,FitForge,449.0,247.92,false
+4a288b42cfb41284d3ea63d06a359414,PRD-00323,FitForge Outdoor 128,Sports & Fitness,Outdoor,FitForge,494.0,273.14,true
+5037d48f9c2b583e24eb972096507bda,PRD-00324,FitForge Gym 994,Sports & Fitness,Gym,FitForge,569.0,311.57,true
+4a9ea10c31899afd722f261c530d6acd,PRD-00325,FitForge Outdoor 746,Sports & Fitness,Outdoor,FitForge,519.0,269.92,true
+7b0e5ae995f2c9ae380abf4be1ff8c14,PRD-00326,Trailox Gym 982,Sports & Fitness,Gym,Trailox,2979.0,1768.46,true
+10f48093340e78ce2a118b3a8ff286da,PRD-00327,FitForge Outdoor 772,Sports & Fitness,Outdoor,FitForge,1629.0,922.5,true
+64f312a4be983937501ac27101d4b19d,PRD-00328,FitForge Outdoor 673,Sports & Fitness,Outdoor,FitForge,4769.0,2691.71,true
+11bacc026e518eb6a9051172c231d026,PRD-00329,Trailox Gym 733,Sports & Fitness,Gym,Trailox,2139.0,1284.82,true
+07655d2bb1b795a446d1e54da8aec511,PRD-00330,Trailox Gym 830,Sports & Fitness,Gym,Trailox,1229.0,707.93,true
+67d4b1d62ca1c89da2b142bfefa94aec,PRD-00331,FitForge Gym 447,Sports & Fitness,Gym,FitForge,419.0,213.45,true
+f7261b58b6f090dc5f91dd0874878feb,PRD-00332,FitForge Yoga 771,Sports & Fitness,Yoga,FitForge,1069.0,561.21,false
+92779e2a5db8fc3f86bc32fa3e58f9ce,PRD-00332,FitForge Yoga 771,Sports & Fitness,Yoga,FitForge,1139.0,623.64,true
+dfc8182ac45eabb43d7874e62928f879,PRD-00333,Trailox Yoga 455,Sports & Fitness,Yoga,Trailox,949.0,490.39,false
+1098401fbf2b27fdab12e9e46f3a49b5,PRD-00333,Trailox Yoga 455,Sports & Fitness,Yoga,Trailox,1026.0,520.6,true
+52aae9c70dbf95f42381b21c370d0932,PRD-00334,FitForge Yoga 893,Sports & Fitness,Yoga,FitForge,1459.0,835.86,true
+c0873c318297bec61d75372583d5215f,PRD-00335,FitForge Outdoor 449,Sports & Fitness,Outdoor,FitForge,529.0,270.43,true
+7216ce2e5b6dbda2027f255a3554a6fb,PRD-00336,FitForge Yoga 214,Sports & Fitness,Yoga,FitForge,829.0,474.65,true
+df045d6292ae7f77a804e530f7ffc837,PRD-00337,FitForge Gym 198,Sports & Fitness,Gym,FitForge,1459.0,810.68,false
+0e6c5028be3ee55b5ecd54d856521e5c,PRD-00337,FitForge Gym 198,Sports & Fitness,Gym,FitForge,1523.0,935.7,true
+166bf8537fe660484c11acf1b5e21152,PRD-00338,FitForge Outdoor 837,Sports & Fitness,Outdoor,FitForge,819.0,437.91,true
+a606395c372baabb4e6e10c44f1a27da,PRD-00339,FitForge Yoga 917,Sports & Fitness,Yoga,FitForge,1619.0,844.31,true
+2bfc2b4bd5e11b5f6105d1ed900597f5,PRD-00340,FitForge Outdoor 345,Sports & Fitness,Outdoor,FitForge,1249.0,678.54,true
+020a379c90b7b87baf5981cb6202d8fa,PRD-00341,FitForge Outdoor 153,Sports & Fitness,Outdoor,FitForge,439.0,254.16,false
+ccd6d5e064a1a3a0e02073d2d76a30d4,PRD-00341,FitForge Outdoor 153,Sports & Fitness,Outdoor,FitForge,464.0,281.32,true
+3e70b0d0c9bdd7cf228f68fc2d8b62c9,PRD-00342,Trailox Outdoor 678,Sports & Fitness,Outdoor,Trailox,379.0,229.25,true
+778640021ff2660b3afd647821b40bdc,PRD-00343,Trailox Gym 422,Sports & Fitness,Gym,Trailox,1069.0,622.22,true
+bfcde107fed1a1c46562ac8bc08207f9,PRD-00344,Trailox Gym 114,Sports & Fitness,Gym,Trailox,329.0,180.74,true
+1254de96ce1527ab0b0528bcd71ae9e5,PRD-00345,Trailox Gym 989,Sports & Fitness,Gym,Trailox,2159.0,1267.39,true
+2378229990b73413ea0efdeff9f3854d,PRD-00346,FitForge Yoga 812,Sports & Fitness,Yoga,FitForge,439.0,265.35,true
+096f26c534dd795ac26667034df35390,PRD-00347,Trailox Yoga 773,Sports & Fitness,Yoga,Trailox,1989.0,1072.43,false
+943d5d59eed1647ed06f19d38d91be07,PRD-00347,Trailox Yoga 773,Sports & Fitness,Yoga,Trailox,2071.0,1174.31,true
+b038f444c3b48210814ac0f9e7bc8e78,PRD-00348,Trailox Yoga 943,Sports & Fitness,Yoga,Trailox,409.0,227.51,false
+962fcecb58f66f0e524ebc5a0f97bf82,PRD-00348,Trailox Yoga 943,Sports & Fitness,Yoga,Trailox,427.0,254.37,true
+6040e2fa95c83397690251e92cb76c1e,PRD-00349,FitForge Yoga 665,Sports & Fitness,Yoga,FitForge,469.0,235.14,true
+26e8ac61a9e5d441a899dd22b9d26205,PRD-00350,FitForge Outdoor 849,Sports & Fitness,Outdoor,FitForge,819.0,422.7,true
+021f3721548774615cb04b569cc86523,PRD-00351,Trailox Yoga 791,Sports & Fitness,Yoga,Trailox,1099.0,654.41,false
+356614cc39368ff29dd38a9c393d2149,PRD-00351,Trailox Yoga 791,Sports & Fitness,Yoga,Trailox,1179.0,693.52,true
+594db4ed1db67208f476af8c55fce9c9,PRD-00352,Trailox Yoga 832,Sports & Fitness,Yoga,Trailox,679.0,356.73,true
+af8b05de8096234d5049c86622a22822,PRD-00353,FitForge Gym 728,Sports & Fitness,Gym,FitForge,1859.0,1008.65,true
+1b4a6b38194567b5e2b65f4b4b245af6,PRD-00354,Trailox Yoga 793,Sports & Fitness,Yoga,Trailox,1189.0,697.78,true
+545cd3f1802c5d7a375fcdb0f265ca51,PRD-00355,FitForge Outdoor 893,Sports & Fitness,Outdoor,FitForge,2219.0,1341.05,true
+b71d8f6ea04bd37c360d74892572f829,PRD-00356,Trailox Yoga 566,Sports & Fitness,Yoga,Trailox,1669.0,842.5,true
+802438f7a30df06b398560d7b49e60c2,PRD-00357,Trailox Gym 255,Sports & Fitness,Gym,Trailox,289.0,149.06,true
+cfecca737704317b842806b3b4d806f1,PRD-00358,FitForge Yoga 530,Sports & Fitness,Yoga,FitForge,509.0,287.91,true
+e2f38c5887f1b5b42e98f7727d5f1419,PRD-00359,Trailox Yoga 318,Sports & Fitness,Yoga,Trailox,1569.0,846.27,true
+6f6ec254ccd63c975267bf54b2cd1ef1,PRD-00360,Trailox Outdoor 756,Sports & Fitness,Outdoor,Trailox,1159.0,586.17,true
+unknown,,Unknown product,Unknown,Unknown,Unknown,,,true

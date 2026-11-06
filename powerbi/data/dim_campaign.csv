@@ -1,0 +1,46 @@
+campaign_id,campaign_name,campaign_channel,objective,first_order_discount_pct,start_date,end_date,is_deep_discount
+CMP-PSE-2025Q1,Google Ads Always-On 2025 Q1,paid_search,acquisition,0.1,2025-01-01,2025-03-31,false
+CMP-PSE-2025Q2,Google Ads Always-On 2025 Q2,paid_search,acquisition,0.1,2025-04-01,2025-06-30,false
+CMP-PSE-FEST2024,Google Ads Festive Mega Sale 2024,paid_search,acquisition,0.2,2024-10-01,2024-11-05,false
+CMP-PSE-FEST2025,Google Ads Festive Mega Sale 2025,paid_search,acquisition,0.2,2025-09-20,2025-10-24,false
+CMP-PSE-2024Q1,Google Ads Always-On 2024 Q1,paid_search,acquisition,0.1,2024-01-01,2024-03-31,false
+CMP-PSE-2024Q2,Google Ads Always-On 2024 Q2,paid_search,acquisition,0.1,2024-04-01,2024-06-30,false
+CMP-PSE-2024Q3,Google Ads Always-On 2024 Q3,paid_search,acquisition,0.1,2024-07-01,2024-09-30,false
+CMP-PSE-2024Q4,Google Ads Always-On 2024 Q4,paid_search,acquisition,0.1,2024-10-01,2024-12-31,false
+CMP-PSE-2025Q3,Google Ads Always-On 2025 Q3,paid_search,acquisition,0.1,2025-07-01,2025-09-30,false
+CMP-PSE-2025Q4,Google Ads Always-On 2025 Q4,paid_search,acquisition,0.1,2025-10-01,2025-12-31,false
+CMP-PSO-2025Q2,Meta Always-On 2025 Q2,paid_social,acquisition,0.1,2025-04-01,2025-06-30,false
+CMP-PSO-2025Q3,Meta Always-On 2025 Q3,paid_social,acquisition,0.1,2025-07-01,2025-09-30,false
+CMP-PSO-FEST2024,Meta Festive Mega Sale 2024,paid_social,acquisition,0.2,2024-10-01,2024-11-05,false
+CMP-PSO-FEST2025,Meta Festive Mega Sale 2025,paid_social,acquisition,0.2,2025-09-20,2025-10-24,false
+CMP-PSO-2024Q1,Meta Always-On 2024 Q1,paid_social,acquisition,0.1,2024-01-01,2024-03-31,false
+CMP-PSO-2024Q2,Meta Always-On 2024 Q2,paid_social,acquisition,0.1,2024-04-01,2024-06-30,false
+CMP-PSO-2024Q3,Meta Always-On 2024 Q3,paid_social,acquisition,0.1,2024-07-01,2024-09-30,false
+CMP-PSO-2024Q4,Meta Always-On 2024 Q4,paid_social,acquisition,0.1,2024-10-01,2024-12-31,false
+CMP-PSO-2025Q1,Meta Always-On 2025 Q1,paid_social,acquisition,0.1,2025-01-01,2025-03-31,false
+CMP-PSO-2025Q4,Meta Always-On 2025 Q4,paid_social,acquisition,0.1,2025-10-01,2025-12-31,false
+CMP-PSO-BLITZ40,Meta Social Blitz - 40% off first order,paid_social,acquisition,0.4,2025-08-01,2025-10-31,true
+CMP-AFF-2024Q1,Affiliate Always-On 2024 Q1,affiliate,acquisition,0.1,2024-01-01,2024-03-31,false
+CMP-AFF-2024Q2,Affiliate Always-On 2024 Q2,affiliate,acquisition,0.1,2024-04-01,2024-06-30,false
+CMP-AFF-2024Q3,Affiliate Always-On 2024 Q3,affiliate,acquisition,0.1,2024-07-01,2024-09-30,false
+CMP-AFF-2024Q4,Affiliate Always-On 2024 Q4,affiliate,acquisition,0.1,2024-10-01,2024-12-31,false
+CMP-AFF-2025Q1,Affiliate Always-On 2025 Q1,affiliate,acquisition,0.1,2025-01-01,2025-03-31,false
+CMP-AFF-2025Q2,Affiliate Always-On 2025 Q2,affiliate,acquisition,0.1,2025-04-01,2025-06-30,false
+CMP-AFF-2025Q3,Affiliate Always-On 2025 Q3,affiliate,acquisition,0.1,2025-07-01,2025-09-30,false
+CMP-AFF-2025Q4,Affiliate Always-On 2025 Q4,affiliate,acquisition,0.1,2025-10-01,2025-12-31,false
+CMP-MKT-2024Q1,Marketplace Ads Always-On 2024 Q1,marketplace,acquisition,0.1,2024-01-01,2024-03-31,false
+CMP-MKT-2024Q2,Marketplace Ads Always-On 2024 Q2,marketplace,acquisition,0.1,2024-04-01,2024-06-30,false
+CMP-MKT-2024Q3,Marketplace Ads Always-On 2024 Q3,marketplace,acquisition,0.1,2024-07-01,2024-09-30,false
+CMP-MKT-2024Q4,Marketplace Ads Always-On 2024 Q4,marketplace,acquisition,0.1,2024-10-01,2024-12-31,false
+CMP-MKT-2025Q1,Marketplace Ads Always-On 2025 Q1,marketplace,acquisition,0.1,2025-01-01,2025-03-31,false
+CMP-MKT-2025Q2,Marketplace Ads Always-On 2025 Q2,marketplace,acquisition,0.1,2025-04-01,2025-06-30,false
+CMP-MKT-2025Q3,Marketplace Ads Always-On 2025 Q3,marketplace,acquisition,0.1,2025-07-01,2025-09-30,false
+CMP-MKT-2025Q4,Marketplace Ads Always-On 2025 Q4,marketplace,acquisition,0.1,2025-10-01,2025-12-31,false
+CMP-EML-2024Q1,Email Always-On 2024 Q1,email,retention,0.0,2024-01-01,2024-03-31,false
+CMP-EML-2024Q2,Email Always-On 2024 Q2,email,retention,0.0,2024-04-01,2024-06-30,false
+CMP-EML-2024Q3,Email Always-On 2024 Q3,email,retention,0.0,2024-07-01,2024-09-30,false
+CMP-EML-2024Q4,Email Always-On 2024 Q4,email,retention,0.0,2024-10-01,2024-12-31,false
+CMP-EML-2025Q1,Email Always-On 2025 Q1,email,retention,0.0,2025-01-01,2025-03-31,false
+CMP-EML-2025Q2,Email Always-On 2025 Q2,email,retention,0.0,2025-04-01,2025-06-30,false
+CMP-EML-2025Q3,Email Always-On 2025 Q3,email,retention,0.0,2025-07-01,2025-09-30,false
+CMP-EML-2025Q4,Email Always-On 2025 Q4,email,retention,0.0,2025-10-01,2025-12-31,false

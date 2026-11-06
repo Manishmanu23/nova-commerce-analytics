@@ -1,0 +1,18 @@
+{
+  "customers": 32996,
+  "products": 449,
+  "orders": 60302,
+  "order_items": 92735,
+  "payments": 60459,
+  "subscriptions": 4155,
+  "marketing_campaigns": 45,
+  "marketing_spend": 3895,
+  "web_sessions": 1693216,
+  "funnel_events": 2766191,
+  "customer_support": 4776,
+  "experiments": 3,
+  "experiment_assignments": 11032,
+  "geography": 38,
+  "dates": 731,
+  "refunds": 7812
+}

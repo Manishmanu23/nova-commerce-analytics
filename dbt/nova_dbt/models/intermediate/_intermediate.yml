@@ -1,0 +1,32 @@
+version: 2
+models:
+  - name: int_customers__scd2
+    description: "Type-2 customer dimension source. valid_from inclusive, valid_to exclusive."
+    columns:
+      - name: customer_version_key
+        data_tests: [unique, not_null]
+  - name: int_products__scd2
+    columns:
+      - name: product_version_key
+        data_tests: [unique, not_null]
+      - name: unit_cost
+        data_tests: [not_null, not_negative]
+  - name: int_orders__enriched
+    description: "Order status resolution, reportability, attribution, membership and sequencing."
+    columns:
+      - name: order_id
+        data_tests: [unique, not_null]
+      - name: attributed_channel
+        data_tests:
+          - relationships: {arguments: {to: ref('dim_channel_seed'), field: channel}}
+  - name: int_order_items__priced
+    columns:
+      - name: order_item_id
+        data_tests: [unique, not_null]
+      - name: product_version_key
+        data_tests:
+          - max_null_rate: {arguments: {max_rate: 0.005}}
+  - name: int_sessions__funnel
+    columns:
+      - name: session_id
+        data_tests: [unique]

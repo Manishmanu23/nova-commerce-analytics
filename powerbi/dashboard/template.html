@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NovaCommerce · Decision Intelligence Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.js" integrity="sha384-iU8HYtnGQ8Cy4zl7gbNMOhsDTTKX02BTXptVP/vqAWIaTfM7isw76iyZCsjL2eVi" crossorigin="anonymous"></script>
+<style>
+:root { color-scheme: light; --navy:#1F4E79; --navy2:#16385a; --red:#C0504D; --amber:#E08E0B; --green:#2E8B57; --grey:#7F7F7F;
+        --bg:#F3F2F1; --card:#FFFFFF; --ink:#1B1B1B; --muted:#605E5C; --line:#E1DFDD; }
+* { box-sizing: border-box; }
+body { margin:0; font-family:"Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif; color:var(--ink); background:var(--bg); font-size:13px; }
+#app { display:flex; min-height:100vh; }
+nav { width:220px; background:var(--navy2); color:#fff; display:flex; flex-direction:column; flex-shrink:0; }
+nav .brand { padding:18px 16px 14px; border-bottom:1px solid rgba(255,255,255,.12); }
+nav .brand b { font-size:16px; display:block; } nav .brand span { font-size:11px; opacity:.75; }
+nav button { all:unset; cursor:pointer; padding:11px 16px; display:flex; gap:10px; align-items:center; font-size:13px; opacity:.85; border-left:3px solid transparent; }
+nav button:hover { background:rgba(255,255,255,.07); opacity:1; }
+nav button.active { background:rgba(255,255,255,.12); border-left-color:#F39C12; opacity:1; font-weight:600; }
+nav .num { width:20px; height:20px; border-radius:4px; background:rgba(255,255,255,.15); display:inline-flex; align-items:center; justify-content:center; font-size:11px; }
+nav .foot { margin-top:auto; padding:14px 16px; font-size:11px; opacity:.7; line-height:1.5; border-top:1px solid rgba(255,255,255,.12); }
+main { flex:1; min-width:0; }
+header { background:#fff; border-bottom:1px solid var(--line); padding:10px 20px; display:flex; align-items:center; gap:14px; flex-wrap:wrap; position:sticky; top:0; z-index:5; }
+header h1 { font-size:18px; margin:0; font-weight:600; } header .sub { color:var(--muted); font-size:12px; }
+header .spacer { flex:1; }
+.ctl { display:flex; gap:6px; align-items:center; font-size:12px; color:var(--muted); }
+select, input[type=range] { font:inherit; }
+#preset { max-width:170px; } header { flex-wrap:nowrap; } header > div:first-child { min-width:0; }
+select { border:1px solid var(--line); border-radius:4px; padding:4px 6px; background:#fff; color:var(--ink); }
+.badge { padding:4px 10px; border-radius:12px; font-size:12px; font-weight:600; white-space:nowrap; }
+.b-fit { background:#E3F1E8; color:var(--green);} .b-cav { background:#FDF1DC; color:#9a5b00;} .b-no { background:#F8E1E0; color:var(--red);}
+.page { display:none; padding:16px 20px 30px; } .page.active { display:block; }
+.grid { display:grid; gap:12px; }
+.kpis { display:grid; grid-template-columns:repeat(auto-fit, minmax(122px, 1fr)); gap:10px; margin-bottom:12px; }
+.kpi { background:var(--card); border-radius:6px; padding:10px 12px; box-shadow:0 1px 2px rgba(0,0,0,.08); border-top:3px solid var(--navy); position:relative; }
+.kpi .t { color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.3px; display:flex; justify-content:space-between; gap:4px; }
+.kpi .v { font-size:21px; font-weight:600; margin:4px 0 2px; color:var(--navy2); }
+.kpi .d { font-size:11px; color:var(--muted); display:flex; gap:8px; flex-wrap:wrap; }
+.kpi.est { border-top-color:var(--amber); } .kpi.obs { border-top-color:var(--grey); }
+.up { color:var(--green); font-weight:600; } .down { color:var(--red); font-weight:600; } .flat { color:var(--muted); }
+.info { cursor:help; color:#8a8886; font-size:11px; }
+.card { background:var(--card); border-radius:6px; box-shadow:0 1px 2px rgba(0,0,0,.08); padding:12px 14px; min-width:0; }
+.card h3 { margin:0 0 2px; font-size:13px; font-weight:600; } .card .hint { color:var(--muted); font-size:11px; margin-bottom:8px; }
+.card .row { display:flex; justify-content:space-between; align-items:center; gap:8px; }
+.chart { position:relative; height:260px; } .chart.tall { height:320px; } .chart.short { height:210px; }
+.g2 { grid-template-columns: 1fr 1fr; } .g3 { grid-template-columns: 2fr 1fr; } .g3r { grid-template-columns: 1fr 2fr; } .g31 { grid-template-columns:1fr 1fr 1fr; }
+@media (max-width: 1100px) { .g2, .g3, .g3r, .g31 { grid-template-columns: 1fr; } nav { width:64px; } nav .lbl, nav .brand span, nav .foot { display:none; } }
+table { width:100%; border-collapse:collapse; font-size:12px; }
+th { text-align:left; color:var(--muted); font-weight:600; border-bottom:1px solid var(--line); padding:5px 6px; white-space:nowrap; }
+td { border-bottom:1px solid #f0efee; padding:5px 6px; } td.n, th.n { text-align:right; font-variant-numeric: tabular-nums; }
+.scroll { max-height:300px; overflow:auto; }
+.chip { padding:1px 7px; border-radius:10px; font-size:11px; font-weight:600; }
+.c-pass { background:#E3F1E8; color:var(--green);} .c-warn { background:#FDF1DC; color:#9a5b00;} .c-fail { background:#F8E1E0; color:var(--red);}
+.c-biz { background:#E6EEF6; color:var(--navy);} .c-dq { background:#F8E1E0; color:var(--red);} .c-sea { background:#EFEFEF; color:#555;} .c-one { background:#F3E8F8; color:#7a3e96;}
+.alert { border-left:4px solid var(--red); background:#fff; padding:8px 10px; margin-bottom:8px; border-radius:4px; box-shadow:0 1px 2px rgba(0,0,0,.06); }
+.alert.med { border-left-color:var(--amber);} .alert.low { border-left-color:var(--grey);}
+.alert .h { font-weight:600; } .alert .m { color:var(--muted); font-size:11px; } .alert ul { margin:4px 0 0; padding-left:16px; }
+.heat td { text-align:center; font-size:11px; padding:3px 2px; min-width:34px; }
+.banner { background:#FFF8E6; border:1px solid #F5D98B; color:#6b4d00; padding:6px 10px; border-radius:4px; font-size:12px; margin-bottom:12px; }
+.banner.blue { background:#EEF4FA; border-color:#C6D8EA; color:var(--navy2); }
+.sim-panel { background:#FFF8E6; border:1px solid #F5D98B; }
+.slider { display:grid; grid-template-columns: 1fr 60px; gap:4px 10px; align-items:center; margin:8px 0; }
+.slider label { font-size:12px; } .slider output { text-align:right; font-weight:600; font-variant-numeric:tabular-nums; }
+.slider input { grid-column: 1 / span 2; width:100%; accent-color: var(--amber); }
+.lab { font-size:10px; font-weight:700; letter-spacing:.5px; padding:2px 6px; border-radius:3px; }
+.lab.obs { background:#EDEBE9; color:#444; } .lab.ass { background:#FDF1DC; color:#9a5b00; } .lab.est { background:#FDE7C8; color:#8a4b00; } .lab.fc { background:#E6EEF6; color:var(--navy); }
+.bar-cell { position:relative; } .bar-cell i { position:absolute; left:0; top:3px; bottom:3px; background:#DCE7F2; z-index:0; border-radius:2px; }
+.bar-cell span { position:relative; z-index:1; }
+.foot-note { color:var(--muted); font-size:11px; margin-top:6px; }
+button.btn { border:1px solid var(--line); background:#fff; border-radius:4px; padding:4px 10px; cursor:pointer; font:inherit; }
+button.btn:hover { background:#f5f5f5; }
+</style>
+</head>
+<body>
+<div id="app">
+<nav>
+  <div class="brand"><b>NovaCommerce</b><span>Decision Intelligence Platform</span></div>
+  <button data-p="1" class="active"><span class="num">1</span><span class="lbl">Executive Command Center</span></button>
+  <button data-p="2"><span class="num">2</span><span class="lbl">Customer Intelligence</span></button>
+  <button data-p="3"><span class="num">3</span><span class="lbl">Product &amp; Profitability</span></button>
+  <button data-p="4"><span class="num">4</span><span class="lbl">Marketing &amp; Funnel</span></button>
+  <button data-p="5"><span class="num">5</span><span class="lbl">Data Quality &amp; Anomalies</span></button>
+  <button data-p="6"><span class="num">6</span><span class="lbl">Decision Simulator</span></button>
+  <div class="foot" id="navFoot"></div>
+</nav>
+<main>
+<header>
+  <div><h1 id="pgTitle">Executive Command Center</h1><div class="sub" id="pgSub"></div></div>
+  <div class="spacer"></div>
+  <div class="ctl" id="periodCtl">Period
+    <select id="preset">
+      <option value="all">All (Jan 2024 – Dec 2025)</option>
+      <option value="2025">Calendar 2025</option>
+      <option value="h2">H2 2025</option>
+      <option value="q4">Q4 2025</option>
+      <option value="last" selected>Last month (Dec 2025)</option>
+      <option value="custom">Custom…</option>
+    </select>
+    <select id="fromM"></select> → <select id="toM"></select>
+  </div>
+  <span class="badge" id="dqBadge"></span>
+</header>
+
+<!-- ============ PAGE 1 ============ -->
+<section class="page active" id="p1">
+  <div class="kpis" id="k1"></div>
+  <div class="grid g3">
+    <div class="card"><h3>Growth vs profitability</h3><div class="hint">Monthly net revenue (bars; selected period highlighted) and contribution margin % (line)</div><div class="chart tall"><canvas id="c1a"></canvas></div></div>
+    <div class="card"><h3>Profit waterfall: selected period</h3><div class="hint">Gross revenue → CM after marketing</div><div class="chart tall"><canvas id="c1b"></canvas></div></div>
+  </div>
+  <div class="grid g3" style="margin-top:12px">
+    <div class="card"><div class="row"><div><h3>What moved net revenue?</h3><div class="hint" id="h1c">Contribution to change vs previous period</div></div>
+      <select id="dim1"><option value="channel">Channel</option><option value="customer_type">Customer type</option><option value="device_type">Device</option><option value="category">Category</option><option value="state">State</option><option value="payment_method">Payment method</option></select></div>
+      <div class="chart"><canvas id="c1c"></canvas></div></div>
+    <div class="card"><h3>Active alerts</h3><div class="hint">Non-seasonal incidents overlapping the period (from the anomaly system)</div><div class="scroll" id="alerts1" style="max-height:270px"></div></div>
+  </div>
+</section>
+
+<!-- ============ PAGE 2 ============ -->
+<section class="page" id="p2">
+  <div class="banner blue">Legacy customers (signed up before 2024; history not migrated) are excluded from cohort, retention, repeat and LTV metrics. Immature cohorts are not shown in LTV or repeat rates.</div>
+  <div class="kpis" id="k2"></div>
+  <div class="grid g3">
+    <div class="card"><div class="row"><div><h3>Cohort retention heatmap</h3><div class="hint">% of each first-order cohort active N months later</div></div>
+      <select id="seg2"></select></div><div class="scroll" style="max-height:330px" id="heat2"></div></div>
+    <div class="card"><h3>Retention curves by acquisition segment</h3><div class="hint">Cohorts Jun 2024 – Sep 2025, weighted by cohort size</div><div class="chart tall"><canvas id="c2a"></canvas></div></div>
+  </div>
+  <div class="grid g31" style="margin-top:12px">
+    <div class="card"><h3>New vs returning net revenue</h3><div class="hint">Monthly, selected period</div><div class="chart"><canvas id="c2b"></canvas></div></div>
+    <div class="card"><h3>RFM segments (as of 31 Dec 2025)</h3><div class="hint">Customers, lifetime CM, and the recommended CRM action</div><div class="scroll" id="rfm2"></div></div>
+    <div class="card"><h3>LTV (180-day CM) vs CAC by channel</h3><div class="hint">Mature cohorts only; organic has no CAC</div><div class="chart"><canvas id="c2c"></canvas></div></div>
+  </div>
+</section>
+
+<!-- ============ PAGE 3 ============ -->
+<section class="page" id="p3">
+  <div class="row" style="margin-bottom:10px"><div class="ctl">Category <select id="cat3"></select></div><div id="prov3"></div></div>
+  <div class="kpis" id="k3"></div>
+  <div class="grid g2">
+    <div class="card"><h3>Category profitability: selected period</h3><div class="hint">Net revenue, gross margin %, refund rate, share of net revenue</div><div id="tab3"></div></div>
+    <div class="card"><div class="row"><div><h3>Brand refund-rate trend (quarterly)</h3><div class="hint">Value-based refund rate by order quarter; latest quarter provisional</div></div><select id="bcat3"></select></div><div class="chart"><canvas id="c3a"></canvas></div></div>
+  </div>
+  <div class="grid g2" style="margin-top:12px">
+    <div class="card"><h3>Top &amp; bottom 8 products by gross profit (2025)</h3><div class="hint">Respects the category filter</div><div class="chart tall"><canvas id="c3b"></canvas></div></div>
+    <div class="card"><h3>Refund reasons by category</h3><div class="hint">Processed return refunds, count (all periods)</div><div class="chart tall"><canvas id="c3c"></canvas></div></div>
+  </div>
+</section>
+
+<!-- ============ PAGE 4 ============ -->
+<section class="page" id="p4">
+  <div class="kpis" id="k4"></div>
+  <div class="grid g3">
+    <div class="card"><h3>Channel unit economics: selected period</h3><div class="hint">CAC and ROAS for the period; LTV = 180-day CM of mature cohorts acquired by the channel</div><div class="scroll" id="tab4"></div></div>
+    <div class="card"><h3>Campaigns: CAC vs 90-day CM per customer</h3><div class="hint">Bubble = customers; below the dashed line = not paid back in 90 days</div><div class="chart"><canvas id="c4a"></canvas></div></div>
+  </div>
+  <div class="grid g31" style="margin-top:12px">
+    <div class="card"><div class="row"><div><h3>Funnel: selected period</h3><div class="hint">Non-bot sessions reaching each step</div></div><select id="dev4"><option value="all">All devices</option><option value="mobile_app">App</option><option value="mobile_web">Mobile web</option><option value="desktop">Desktop</option></select></div><div class="chart"><canvas id="c4b"></canvas></div></div>
+    <div class="card"><h3>App payment success by state (weekly)</h3><div class="hint">Shaded: app v5.2.0 (12 Nov – 3 Dec 2025)</div><div class="chart"><canvas id="c4c"></canvas></div></div>
+    <div class="card"><h3>Checkout conversion by device (weekly)</h3><div class="hint">Purchase sessions / checkout sessions</div><div class="chart"><canvas id="c4d"></canvas></div></div>
+  </div>
+  <div class="card" style="margin-top:12px"><h3>Experiment readouts</h3><div class="hint">Validity (SRM) is checked before the lift is read. Full analysis: reports/experiment_readouts.md</div><div id="exp4"></div></div>
+</section>
+
+<!-- ============ PAGE 5 ============ -->
+<section class="page" id="p5">
+  <div class="kpis" id="k5"></div>
+  <div class="grid g3r">
+    <div class="card"><h3>DQ score by dimension</h3><div class="hint">warn = known &amp; mitigated defect (0.8 credit)</div><div class="chart"><canvas id="c5a"></canvas></div></div>
+    <div class="card"><h3>Data quality checks</h3><div class="hint">Observed value vs tolerance, and how the pipeline handles it</div><div class="scroll" id="tab5" style="max-height:260px"></div></div>
+  </div>
+  <div class="grid g3" style="margin-top:12px">
+    <div class="card"><h3>Anomaly timeline: daily net revenue</h3><div class="hint">Markers = incident start dates, coloured by classification</div><div class="chart"><canvas id="c5b"></canvas></div></div>
+    <div class="card"><h3>Raw → governed reconciliation</h3><div class="hint">Why raw counts differ from reported counts</div><div id="rec5"></div></div>
+  </div>
+  <div class="card" style="margin-top:12px"><div class="row"><div><h3>Incidents</h3><div class="hint">An alert localises a change. It does not establish the cause.</div></div>
+    <select id="cls5"><option value="focus">Segment + business + data quality</option><option value="all">All incidents</option><option value="expected_seasonal">Expected seasonal</option><option value="one_off_outlier">One-off outliers</option></select></div>
+    <div id="inc5" class="grid g2" style="margin-top:8px"></div></div>
+</section>
+
+<!-- ============ PAGE 6 ============ -->
+<section class="page" id="p6">
+  <div class="banner">Simulated values are <b>ESTIMATES</b> from a transparent unit-economics model. They are not actuals and not forecasts. There is no demand elasticity: if you change price or discounts, also set the conversion effect you believe in.</div>
+  <div class="grid g3r">
+    <div class="card sim-panel"><div class="row"><h3>Assumptions</h3><span class="lab ass">ASSUMPTION</span></div>
+      <div id="sliders"></div><button class="btn" id="reset6">Reset to baseline</button></div>
+    <div>
+      <div class="row" style="margin-bottom:4px"><b>Observed baseline (H2 2025, governed metrics)</b><span class="lab obs">OBSERVED</span></div>
+      <div class="kpis" id="k6obs"></div>
+      <div class="row" style="margin-bottom:4px"><b>Scenario: next 12 months</b><span class="lab est">ESTIMATE</span></div>
+      <div class="kpis" id="k6est"></div>
+    </div>
+  </div>
+  <div class="grid g31" style="margin-top:12px">
+    <div class="card"><div class="row"><h3>CM after marketing by month</h3><span class="lab est">ESTIMATE</span></div><div class="hint">Baseline projection vs your scenario</div><div class="chart"><canvas id="c6a"></canvas></div></div>
+    <div class="card"><div class="row"><h3>Pre-computed scenarios</h3><span class="lab est">ESTIMATE</span></div><div class="hint">12-month CM after marketing; bar = P10–P90 (Monte Carlo), dot = estimate</div><div class="chart"><canvas id="c6b"></canvas></div></div>
+    <div class="card"><div class="row"><h3>Weekly net revenue forecast</h3><span class="lab fc">FORECAST</span></div><div class="hint" id="h6c"></div><div class="chart"><canvas id="c6c"></canvas></div></div>
+  </div>
+</section>
+</main>
+</div>
+
+<script>
+const DATA = /*__DATA__*/null;
+/* ------------------------------------------------------------------ helpers */
+const $ = s => document.querySelector(s);
+const C = { navy:'#1F4E79', red:'#C0504D', amber:'#E08E0B', green:'#2E8B57', grey:'#9E9E9E', light:'#C9D7E6',
+            pal:['#1F4E79','#C0504D','#E08E0B','#2E8B57','#8E44AD','#16A085','#5B9BD5','#7F7F7F','#D35400','#34495E'] };
+const num = v => (v === null || v === undefined || isNaN(v)) ? null : Number(v);
+const sum = (a, f) => a.reduce((s, r) => s + (num(typeof f === 'function' ? f(r) : r[f]) || 0), 0);
+const div = (a, b) => (b ? a / b : null);
+function inr(v, compact = true) {
+  if (v === null || v === undefined || isNaN(v)) return '–';
+  const a = Math.abs(v), s = v < 0 ? '−' : '';
+  if (compact && a >= 1e7) return s + '₹' + (a / 1e7).toFixed(2) + ' Cr';
+  if (compact && a >= 1e5) return s + '₹' + (a / 1e5).toFixed(1) + ' L';
+  return s + '₹' + Math.round(a).toLocaleString('en-IN');
+}
+const pct = (v, d = 1) => (v === null || v === undefined || isNaN(v)) ? '–' : (v * 100).toFixed(d) + '%';
+const int = v => (v === null || v === undefined || isNaN(v)) ? '–' : Math.round(v).toLocaleString('en-IN');
+const mlabel = m => new Date(m + 'T00:00:00').toLocaleString('en-GB', { month: 'short', year: '2-digit' });
+const CAT = Object.fromEntries(DATA.catalog.map(r => [r.metric_name, r.definition]));
+Chart.defaults.font.family = '"Segoe UI", system-ui, sans-serif'; Chart.defaults.font.size = 11;
+Chart.defaults.color = '#605E5C'; Chart.defaults.animation = false; Chart.defaults.maintainAspectRatio = false;
+Chart.defaults.plugins.legend.labels.boxWidth = 10;
+
+/* ------------------------------------------------------------------ state */
+const MONTHS = DATA.monthly.map(r => r.month);
+const S = { page: 1, from: MONTHS.length - 1, to: MONTHS.length - 1 };
+const charts = {};
+function chart(id, cfg) { if (charts[id]) charts[id].destroy(); charts[id] = new Chart(document.getElementById(id), cfg); return charts[id]; }
+const inRange = (m, f = S.from, t = S.to) => { const i = MONTHS.indexOf(m.slice(0, 7) + '-01'); return i >= f && i <= t; };
+const rows = (arr, key = 'month', f = S.from, t = S.to) => arr.filter(r => inRange(r[key], f, t));
+function prevRange() { const n = S.to - S.from + 1; return S.from - n >= 0 ? [S.from - n, S.from - 1] : null; }
+function pyRange() { return S.from - 12 >= 0 ? [S.from - 12, S.to - 12] : null; }
+const periodLabel = (f = S.from, t = S.to) => f === t ? mlabel(MONTHS[f]) : mlabel(MONTHS[f]) + ' – ' + mlabel(MONTHS[t]);
+
+/* KPI card: spec = {t, key, v(f,t) -> value, fmt, good:'up'|'down', delta:'pct'|'pp', cls} */
+function kpis(el, specs) {
+  const pr = prevRange(), py = pyRange();
+  $(el).innerHTML = specs.map(k => {
+    const cur = k.v(S.from, S.to);
+    const chips = [];
+    for (const [lab, r] of [['vs prev', pr], ['vs PY', py]]) {
+      if (!r || k.nodelta) continue;
+      const base = k.v(r[0], r[1]);
+      if (cur === null || base === null || base === 0) continue;
+      const d = k.delta === 'pp' ? (cur - base) * 100 : cur / base - 1;
+      const good = k.good === 'down' ? d < 0 : d > 0;
+      const shown = k.delta === 'pp' ? Math.round(d * 10) / 10 : Math.round(d * 1000) / 10;
+      const txt = (shown > 0 ? '+' : '') + shown.toFixed(1) + (k.delta === 'pp' ? 'pp' : '%');
+      chips.push(shown === 0 ? `<span class="flat">● 0.0${k.delta === 'pp' ? 'pp' : '%'}</span> ${lab}`
+                             : `<span class="${good ? 'up' : 'down'}">${d >= 0 ? '▲' : '▼'} ${txt}</span> ${lab}`);
+    }
+    const tip = CAT[k.key] ? `<span class="info" title="${CAT[k.key].replace(/"/g, "'")}">ⓘ</span>` : '';
+    return `<div class="kpi ${k.cls || ''}"><div class="t"><span>${k.t}</span>${tip}</div><div class="v">${k.fmt(cur)}</div><div class="d">${chips.join(' ') || (k.note || '&nbsp;')}</div></div>`;
+  }).join('');
+}
+const M = (key) => (f, t) => sum(DATA.monthly.filter(r => inRange(r.month, f, t)), key);
+const R = (a, b) => (f, t) => div(M(a)(f, t), M(b)(f, t));
+
+/* ------------------------------------------------------------------ PAGE 1 */
+function page1() {
+  kpis('#k1', [
+    { t: 'Net revenue', key: 'net_revenue', v: M('net_revenue'), fmt: inr },
+    { t: 'Contribution margin', key: 'contribution_margin', v: M('contribution_margin'), fmt: inr },
+    { t: 'CM %', key: 'cm_pct', v: R('contribution_margin', 'net_revenue'), fmt: pct, delta: 'pp' },
+    { t: 'CM after marketing', key: 'contribution_margin_after_marketing', v: M('contribution_margin_after_marketing'), fmt: inr },
+    { t: 'Orders', key: 'orders', v: M('orders'), fmt: int },
+    { t: 'AOV', key: 'aov', v: R('aov_order_value', 'aov_orders'), fmt: v => inr(v, false) },
+    { t: 'New customers', key: 'new_customers', v: M('new_customers'), fmt: int },
+    { t: 'CAC', key: 'cac', v: R('acquisition_spend', 'paid_new_customers'), fmt: v => inr(v, false), good: 'down' },
+    { t: 'Conversion', key: 'conversion_rate', v: R('purchase_sessions', 'sessions'), fmt: v => pct(v, 2), delta: 'pp' },
+  ]);
+  const m = DATA.monthly;
+  chart('c1a', { data: { labels: m.map(r => mlabel(r.month)), datasets: [
+      { type: 'line', label: 'CM %', data: m.map(r => div(r.contribution_margin, r.net_revenue) * 100), yAxisID: 'y2', borderColor: C.red, backgroundColor: C.red, pointRadius: 3, tension: .2 },
+      { type: 'bar', label: 'Net revenue', data: m.map(r => r.net_revenue), backgroundColor: m.map((r, i) => i >= S.from && i <= S.to ? C.navy : C.light), yAxisID: 'y' } ] },
+    options: { scales: { y: { ticks: { callback: v => inr(v) } }, y2: { position: 'right', min: 0, max: 30, grid: { display: false }, ticks: { callback: v => v + '%' } } },
+      plugins: { tooltip: { callbacks: { label: c => c.dataset.label === 'CM %' ? 'CM %: ' + c.raw.toFixed(1) + '%' : 'Net revenue: ' + inr(c.raw) } } } } });
+  // waterfall
+  const r = rows(m);
+  const g = sum(r, 'gross_revenue'), cp = sum(r, 'coupon_discount'), rf = sum(r, 'return_refund_amount'), net = sum(r, 'net_revenue'),
+        cogs = sum(r, 'net_cogs'), gp = sum(r, 'gross_profit'), sf = sum(r, 'shipping_fee_collected'), vc = sum(r, 'variable_fulfilment_cost'),
+        cm = sum(r, 'contribution_margin'), mk = sum(r, 'marketing_spend'), cam = sum(r, 'contribution_margin_after_marketing');
+  const steps = [['Gross', 0, g, 't'], ['Coupons', g - cp, g, 'n'], ['Refunds', net, g - cp, 'n'], ['Net rev', 0, net, 't'], ['COGS', gp, net, 'n'],
+                 ['Gross profit', 0, gp, 't'], ['Ship fees', gp, gp + sf, 'p'], ['Fulfil & fees', cm, gp + sf, 'n'], ['CM', 0, cm, 't'], ['Marketing', cam, cm, 'n'], ['CM after mkt', 0, cam, 't']];
+  chart('c1b', { type: 'bar', data: { labels: steps.map(s => s[0]), datasets: [{ data: steps.map(s => [s[1], s[2]]),
+      backgroundColor: steps.map(s => s[3] === 't' ? C.navy : s[3] === 'p' ? C.green : C.red) }] },
+    options: { plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => inr(c.raw[1] - c.raw[0]) } } },
+      scales: { y: { ticks: { callback: v => inr(v) } }, x: { ticks: { autoSkip: false, maxRotation: 50 } } } } });
+  // what moved
+  const dim = $('#dim1').value, pr = prevRange();
+  const dm = DATA.dim_monthly.filter(x => x.dim === dim);
+  const cur = {}, prev = {};
+  dm.filter(x => inRange(x.month)).forEach(x => cur[x.val] = (cur[x.val] || 0) + x.net_revenue);
+  if (pr) dm.filter(x => inRange(x.month, pr[0], pr[1])).forEach(x => prev[x.val] = (prev[x.val] || 0) + x.net_revenue);
+  const vals = [...new Set([...Object.keys(cur), ...Object.keys(prev)])].map(v => ({ v, d: (cur[v] || 0) - (prev[v] || 0) }))
+    .sort((a, b) => Math.abs(b.d) - Math.abs(a.d)).slice(0, 8);
+  const tot = sum(Object.values(cur), x => x) - sum(Object.values(prev), x => x);
+  $('#h1c').textContent = pr ? `Δ net revenue ${periodLabel()} vs ${periodLabel(pr[0], pr[1])}: ${inr(tot)} (${pct(div(tot, sum(Object.values(prev), x => x)))})`
+                             : 'No earlier period to compare';
+  chart('c1c', { type: 'bar', data: { labels: vals.map(x => x.v), datasets: [{ data: vals.map(x => x.d), backgroundColor: vals.map(x => x.d >= 0 ? C.green : C.red) }] },
+    options: { indexAxis: 'y', plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => inr(c.raw) + (tot ? ' (' + pct(c.raw / tot, 0) + ' of change)' : '') } } },
+      scales: { x: { ticks: { callback: v => inr(v) } } } } });
+  // alerts
+  const a = MONTHS[S.from], b = lastDay(MONTHS[S.to]);
+  const list = [...DATA.seg_alerts.map(x => ({ ...x, kind: 'segment' })), ...DATA.alerts.filter(x => ['business_signal', 'data_quality'].includes(x.classification))]
+    .filter(x => x.start_date <= b && x.end_date >= a);
+  $('#alerts1').innerHTML = list.length ? list.map(alertCard).join('') :
+    '<div class="foot-note">No segment, business or data-quality incidents in this period. Try <b>Q4 2025</b> or <b>All</b>.</div>';
+}
+function lastDay(m) { const d = new Date(m + 'T00:00:00'); d.setMonth(d.getMonth() + 1); d.setDate(0); return d.toISOString().slice(0, 10); }
+function isRate(metric) { return ['payment_success_rate', 'checkout_conversion', 'conversion_rate', 'refund_rate'].includes(metric); }
+function alertCard(x) {
+  const f = isRate(x.metric) ? (v => pct(v, 1)) : (x.metric === 'net_revenue' || x.metric === 'aov' ? v => inr(v) : int);
+  const sev = (x.severity || '').toLowerCase(); const segName = x.dimension ? `${x.dimension} = <b>${x.dimension_value}</b>` : '';
+  const drill = x.dimension ? DATA.seg_drill.filter(d => d.segment === `${x.dimension}=${x.dimension_value}` && d.start_date === x.start_date) : [];
+  const byDim = {}; drill.forEach(d => (byDim[d.dimension] = byDim[d.dimension] || []).push(d));
+  const drillHtml = Object.keys(byDim).length ? '<div class="m" style="margin-top:4px">Potential dimensions to investigate:</div><ul>' +
+    Object.entries(byDim).map(([k, v]) => `<li><b>${k}</b>: ` + v.filter(d => d.baseline_rate !== null).map(d => `${d.dimension_value} (${pct(d.share_of_deviation, 0)}; ${pct(d.baseline_rate)}→${pct(d.current_rate)})`).join(', ') + '</li>').join('') + '</ul>' : '';
+  const cls = x.classification ? `<span class="chip ${{ business_signal: 'c-biz', data_quality: 'c-dq', expected_seasonal: 'c-sea', one_off_outlier: 'c-one' }[x.classification]}">${x.classification}</span>` : '<span class="chip c-biz">segment</span>';
+  return `<div class="alert ${sev === 'high' ? '' : sev === 'medium' ? 'med' : 'low'}"><div class="row"><span class="h">${x.display} ${segName}</span>${cls}</div>
+    <div class="m">${x.start_date} → ${x.end_date} · Severity <b>${x.severity}</b></div>
+    <div>Expected <b>${f(x.expected)}</b> · Actual <b>${f(x.actual)}</b> · Deviation <b class="${x.deviation < 0 ? 'down' : 'up'}">${(x.deviation * 100).toFixed(1)}%</b></div>
+    ${x.evidence_note ? `<div class="m">${x.evidence_note}</div>` : ''}${drillHtml}</div>`;
+}
+
+/* ------------------------------------------------------------------ PAGE 2 */
+const ACTIONS = { 'Champions': 'VIP perks, referrals; no discounts', 'Loyal': 'Cross-sell, membership offer', 'New / Promising': 'Onboarding, 2nd-order nudge ≤30 days',
+  'At Risk (was loyal)': 'Personal win-back (non-discount first)', 'Cannot Lose (big spend, lapsed)': 'High-touch win-back, CX call',
+  'Hibernating': 'Low-cost reactivation only', 'Needs Attention': 'Light-touch nurture' };
+function page2() {
+  const last = (f, t) => num(DATA.monthly[t].active_customers);
+  const churn = (f, t) => { for (let i = t; i >= f; i--) { const r = DATA.monthly[i]; if (num(r.active_base)) return r.churned_customers / r.active_base; } return null; };
+  const ret = (f, t) => { const d = DATA.dim_monthly.filter(x => x.dim === 'customer_type' && inRange(x.month, f, t));
+    return div(sum(d.filter(x => x.val === 'returning'), 'net_revenue'), sum(d, 'net_revenue')); };
+  kpis('#k2', [
+    { t: 'Active customers (end month)', key: 'retention_rate', v: last, fmt: int },
+    { t: 'New customers', key: 'new_customers', v: M('new_customers'), fmt: int },
+    { t: 'Repeat rate 90d', key: 'repeat_purchase_rate_90d', v: R('repeaters_90d', 'cohort_customers_90d'), fmt: pct, delta: 'pp', note: 'cohorts not yet mature' },
+    { t: 'Churn 90d (latest)', key: 'churn_rate_90d', v: churn, fmt: pct, delta: 'pp', good: 'down', note: 'needs full 90-day window' },
+    { t: 'LTV 180d (CM)', key: 'ltv_180d_cm', v: R('cm_180d', 'cohort_customers_180d'), fmt: v => inr(v, false), note: 'cohorts not yet mature' },
+    { t: 'Returning revenue share', key: 'net_revenue', v: ret, fmt: pct, delta: 'pp' },
+  ]);
+  // heatmap
+  const seg = $('#seg2').value;
+  const co = DATA.cohorts.filter(x => seg === 'all' || x.seg === seg);
+  const agg = {}; co.forEach(x => { const k = x.cohort_month + '|' + x.m; agg[k] = agg[k] || { s: 0, a: 0 }; agg[k].s += x.size; agg[k].a += x.active; });
+  const cms = [...new Set(co.map(x => x.cohort_month))].sort();
+  const col = v => { if (v === undefined) return '#fff'; const t = Math.min(1, v / 0.6); return `rgba(31,78,121,${0.08 + 0.85 * t})`; };
+  let h = '<table class="heat"><tr><th>Cohort</th><th class="n">Size</th>' + [...Array(13).keys()].map(i => `<th>M${i}</th>`).join('') + '</tr>';
+  cms.forEach(c => { const s0 = agg[c + '|0']; h += `<tr><td style="text-align:left">${mlabel(c)}</td><td class="n">${s0 ? int(s0.s) : ''}</td>` +
+    [...Array(13).keys()].map(i => { const a = agg[c + '|' + i]; const v = a ? a.a / a.s : undefined;
+      return `<td style="background:${col(v)};color:${v > 0.35 ? '#fff' : '#333'}">${v === undefined ? '' : (v * 100).toFixed(0)}</td>`; }).join('') + '</tr>'; });
+  $('#heat2').innerHTML = h + '</table>';
+  // curves
+  const segs = [...new Set(DATA.cohorts.map(x => x.seg))];
+  chart('c2a', { type: 'line', data: { labels: [0, 1, 2, 3, 4, 5, 6].map(i => 'M' + i), datasets: segs.map((s, i) => {
+      const d = [0, 1, 2, 3, 4, 5, 6].map(m => { const x = DATA.cohorts.filter(r => r.seg === s && r.m === m && r.cohort_month >= '2024-06-01' && r.cohort_month <= '2025-09-01');
+        return x.length ? sum(x, 'active') / sum(x, 'size') * 100 : null; });
+      const hl = s === 'deep_discount_campaign';
+      return { label: s, data: d, borderColor: hl ? C.red : C.pal[(i + 2) % 10], borderWidth: hl ? 3 : 1.3, pointRadius: hl ? 3 : 1, tension: .2 }; }) },
+    options: { scales: { y: { ticks: { callback: v => v + '%' } } }, plugins: { tooltip: { callbacks: { label: c => c.dataset.label + ': ' + (c.raw ?? 0).toFixed(1) + '%' } } } } });
+  // new vs returning
+  const ms = MONTHS.filter((m, i) => i >= S.from && i <= S.to);
+  const ct = t => ms.map(m => sum(DATA.dim_monthly.filter(x => x.dim === 'customer_type' && x.val === t && x.month === m), 'net_revenue'));
+  chart('c2b', { type: 'bar', data: { labels: ms.map(mlabel), datasets: [{ label: 'Returning', data: ct('returning'), backgroundColor: C.navy },
+      { label: 'New', data: ct('new'), backgroundColor: C.amber }, { label: 'Guest / n/a', data: ct('n/a'), backgroundColor: C.grey }] },
+    options: { scales: { x: { stacked: true }, y: { stacked: true, ticks: { callback: v => inr(v) } } }, plugins: { tooltip: { callbacks: { label: c => c.dataset.label + ': ' + inr(c.raw) } } } } });
+  // RFM
+  const totcm = sum(DATA.segments, 'cm');
+  $('#rfm2').innerHTML = '<table><tr><th>Segment</th><th class="n">Customers</th><th class="n">CM share</th><th>Action</th></tr>' +
+    DATA.segments.map(s => `<tr><td><b>${s.segment}</b><div class="foot-note" style="margin:0">recency ${int(s.recency)}d · ${s.frequency} orders</div></td><td class="n">${int(s.customers)}</td>
+    <td class="n bar-cell"><i style="width:${s.cm / totcm * 100}%"></i><span>${pct(s.cm / totcm, 0)}</span></td><td>${ACTIONS[s.segment] || ''}</td></tr>`).join('') + '</table>';
+  // LTV vs CAC
+  const l = DATA.ltv_channel.filter(x => x.customers >= 30);
+  chart('c2c', { type: 'bar', data: { labels: l.map(x => x.channel), datasets: [{ label: 'LTV 180d CM', data: l.map(x => x.ltv_180d_cm), backgroundColor: C.navy },
+      { label: 'CAC', data: l.map(x => x.cac || null), backgroundColor: C.red }] },
+    options: { plugins: { tooltip: { callbacks: { label: c => c.dataset.label + ': ' + inr(c.raw, false), afterBody: it => { const x = l[it[0].dataIndex]; return x.cac ? 'LTV:CAC ' + (x.ltv_180d_cm / x.cac).toFixed(2) : 'no acquisition cost'; } } } },
+      scales: { y: { ticks: { callback: v => inr(v, false) } }, x: { ticks: { autoSkip: false, maxRotation: 45 } } } } });
+}
+
+/* ------------------------------------------------------------------ PAGE 3 */
+function page3() {
+  const cat = $('#cat3').value;
+  const pm = DATA.product_monthly.filter(x => cat === 'all' || x.category === cat);
+  const P = key => (f, t) => sum(pm.filter(r => inRange(r.month, f, t)), key);
+  const PR = (a, b) => (f, t) => div(P(a)(f, t), P(b)(f, t));
+  kpis('#k3', [
+    { t: 'Net revenue', key: 'net_revenue', v: P('net'), fmt: inr },
+    { t: 'Gross profit', key: 'gross_profit', v: P('gp'), fmt: inr },
+    { t: 'Gross margin %', key: 'gross_profit', v: PR('gp', 'net'), fmt: pct, delta: 'pp' },
+    { t: 'Coupon rate', key: 'net_revenue', v: PR('coupon', 'gross'), fmt: pct, delta: 'pp', good: 'down' },
+    { t: 'Refund rate (value)', key: 'refund_rate', v: PR('refunds', 'gross'), fmt: pct, delta: 'pp', good: 'down' },
+    { t: 'Units', key: 'orders', v: P('units'), fmt: int },
+    { t: 'Defective line rate', key: 'refund_rate', v: PR('defective_lines', 'lines'), fmt: v => pct(v, 2), delta: 'pp', good: 'down' },
+  ]);
+  $('#prov3').innerHTML = S.to === MONTHS.length - 1 ? '<span class="chip c-warn">Refund rate for the latest weeks is PROVISIONAL (late-arriving refunds)</span>' : '';
+  // category table (always all categories)
+  const cr = rows(DATA.product_monthly); const cats = [...new Set(cr.map(x => x.category))];
+  const tn = sum(cr, 'net');
+  const t = cats.map(c => { const x = cr.filter(r => r.category === c); return { c, net: sum(x, 'net'), gm: div(sum(x, 'gp'), sum(x, 'net')), rr: div(sum(x, 'refunds'), sum(x, 'gross')) }; })
+    .sort((a, b) => b.net - a.net);
+  const maxN = Math.max(...t.map(x => x.net));
+  $('#tab3').innerHTML = '<table><tr><th>Category</th><th class="n">Net revenue</th><th class="n">GM %</th><th class="n">Refund rate</th><th class="n">Share</th></tr>' +
+    t.map(x => `<tr${cat === x.c ? ' style="background:#EEF4FA"' : ''}><td>${x.c}</td><td class="n bar-cell"><i style="width:${x.net / maxN * 100}%"></i><span>${inr(x.net)}</span></td>
+      <td class="n">${pct(x.gm)}</td><td class="n" style="color:${x.rr > 0.1 ? C.red : 'inherit'}">${pct(x.rr)}</td><td class="n">${pct(x.net / tn)}</td></tr>`).join('') + '</table>';
+  // brand trend
+  const bcat = $('#bcat3').value;
+  const bq = DATA.brand_quarterly.filter(x => x.category === bcat && x.q >= '2024-01-01' && x.q <= '2025-10-01');
+  const qs = [...new Set(bq.map(x => x.q))].sort(); const brands = [...new Set(bq.map(x => x.brand))];
+  chart('c3a', { type: 'line', data: { labels: qs.map(q => { const d = new Date(q + 'T00:00:00'); return 'Q' + (Math.floor(d.getMonth() / 3) + 1) + ' ' + d.getFullYear(); }),
+      datasets: brands.map((b, i) => ({ label: b, data: qs.map(q => { const x = bq.find(r => r.q === q && r.brand === b); return x && x.gross ? x.refunds / x.gross * 100 : null; }),
+        borderColor: b === 'VoltEdge' ? C.red : C.pal[(i + 3) % 10], borderWidth: b === 'VoltEdge' ? 3 : 1.3, tension: .2 })) },
+    options: { scales: { y: { ticks: { callback: v => v + '%' } } }, plugins: { tooltip: { callbacks: { label: c => c.dataset.label + ': ' + (c.raw ?? 0).toFixed(1) + '%' } } } } });
+  // top/bottom products
+  const pp = DATA.products_2025.filter(x => x.brand !== 'Unknown' && (cat === 'all' || x.category === cat)).sort((a, b) => b.gp - a.gp);
+  const tb = [...pp.slice(0, 8), ...pp.slice(-8)].filter((v, i, a) => a.indexOf(v) === i);
+  chart('c3b', { type: 'bar', data: { labels: tb.map(x => x.product_id + ' · ' + x.brand), datasets: [{ data: tb.map(x => x.gp), backgroundColor: tb.map(x => x.gp >= 0 ? C.navy : C.red) }] },
+    options: { indexAxis: 'y', plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => 'Gross profit ' + inr(c.raw) + ' · ' + tb[c.dataIndex].category } } },
+      scales: { x: { ticks: { callback: v => inr(v) } }, y: { ticks: { autoSkip: false, font: { size: 10 } } } } } });
+  // refund reasons
+  const rr = DATA.refund_reasons; const reasons = [...new Set(rr.map(x => x.reason))]; const rc = [...new Set(rr.map(x => x.category))];
+  chart('c3c', { type: 'bar', data: { labels: rc, datasets: reasons.map((r, i) => ({ label: r, data: rc.map(c => (rr.find(x => x.category === c && x.reason === r) || {}).n || 0), backgroundColor: C.pal[i % 10] })) },
+    options: { indexAxis: 'y', scales: { x: { stacked: true }, y: { stacked: true } } } });
+}
+
+/* ------------------------------------------------------------------ PAGE 4 */
+function page4() {
+  kpis('#k4', [
+    { t: 'Marketing spend', key: 'cac', v: M('marketing_spend'), fmt: inr, good: 'down' },
+    { t: 'CAC (paid)', key: 'cac', v: R('acquisition_spend', 'paid_new_customers'), fmt: v => inr(v, false), good: 'down' },
+    { t: 'Blended CAC', key: 'blended_cac', v: R('acquisition_spend', 'new_customers'), fmt: v => inr(v, false), good: 'down' },
+    { t: 'ROAS', key: 'roas', v: R('attributed_net_revenue', 'marketing_spend'), fmt: v => v === null ? '–' : v.toFixed(2) + 'x' },
+    { t: 'Session conversion', key: 'conversion_rate', v: R('purchase_sessions', 'sessions'), fmt: v => pct(v, 2), delta: 'pp' },
+    { t: 'Checkout conversion', key: 'checkout_conversion_rate', v: R('purchase_sessions', 'checkout_sessions'), fmt: pct, delta: 'pp' },
+    { t: 'Payment success', key: 'payment_success_rate', v: R('successful_payment_attempts', 'payment_attempts'), fmt: pct, delta: 'pp' },
+    { t: 'Revenue / visitor', key: 'revenue_per_visitor', v: R('web_app_net_revenue', 'sessions'), fmt: v => inr(v, false) },
+  ]);
+  // channel econ
+  const ce = rows(DATA.channel_econ); const chs = [...new Set(ce.map(x => x.channel))];
+  const ltv = Object.fromEntries(DATA.ltv_channel.map(x => [x.channel, x.ltv_180d_cm]));
+  const t = chs.map(c => { const x = ce.filter(r => r.channel === c); const sp = sum(x, 'acquisition_spend'), nc = sum(x, 'new_customers'), ms = sum(x, 'marketing_spend');
+    return { c, sp: ms, nc, cac: sp > 0 ? div(sp, nc) : null, net: sum(x, 'net_revenue'), cam: sum(x, 'contribution_margin_after_marketing'),
+      roas: ms > 0 ? div(sum(x, 'campaign_attributed_net_revenue'), ms) : null, ltv: ltv[c] }; }).sort((a, b) => b.net - a.net);
+  $('#tab4').innerHTML = '<table><tr><th>Channel</th><th class="n">Spend</th><th class="n">New cust.</th><th class="n">CAC</th><th class="n">Net revenue</th><th class="n">CM after mkt</th><th class="n">ROAS</th><th class="n">LTV 180d</th><th class="n">LTV:CAC</th></tr>' +
+    t.map(x => { const lc = x.cac && x.ltv ? x.ltv / x.cac : null;
+      return `<tr><td>${x.c}</td><td class="n">${x.sp ? inr(x.sp) : '–'}</td><td class="n">${int(x.nc)}</td><td class="n">${x.cac ? inr(x.cac, false) : '–'}</td><td class="n">${inr(x.net)}</td>
+      <td class="n" style="color:${x.cam < 0 ? C.red : 'inherit'}">${inr(x.cam)}</td><td class="n">${x.roas ? x.roas.toFixed(2) + 'x' : '–'}</td><td class="n">${x.ltv ? inr(x.ltv, false) : '–'}</td>
+      <td class="n" style="color:${lc !== null && lc < 1.2 ? C.red : lc ? C.green : 'inherit'};font-weight:600">${lc ? lc.toFixed(2) : '–'}</td></tr>`; }).join('') + '</table>';
+  // campaign scatter
+  const cp = DATA.campaigns.filter(x => x.cm90 !== null);
+  const mx = Math.ceil(Math.max(...cp.map(x => Math.max(x.cac, x.cm90))) * 1.1 / 200) * 200;
+  chart('c4a', { data: { datasets: [
+      { type: 'bubble', label: 'Campaigns', data: cp.map(x => ({ x: x.cac, y: x.cm90, r: Math.max(4, Math.sqrt(x.customers) / 2.2), n: x })),
+        backgroundColor: cp.map(x => x.disc >= 0.3 ? 'rgba(192,80,77,.75)' : x.disc >= 0.2 ? 'rgba(224,142,11,.7)' : 'rgba(31,78,121,.6)') },
+      { type: 'line', label: '90-day payback', data: [{ x: 0, y: 0 }, { x: mx, y: mx }], borderColor: C.grey, borderDash: [5, 4], pointRadius: 0, borderWidth: 1 } ] },
+    options: { scales: { x: { type: 'linear', min: 0, max: mx, title: { display: true, text: 'CAC (₹)' } }, y: { min: 0, max: mx, title: { display: true, text: '90-day CM / customer (₹)' } } },
+      plugins: { tooltip: { callbacks: { label: c => { const n = c.raw.n; return n ? [n.campaign_name, `CAC ${inr(n.cac, false)} · CM90 ${inr(n.cm90, false)}`, `${int(n.customers)} customers · repeat ${pct(n.repeat90, 0)} · first-order discount ${pct(n.disc, 0)}`] : 'payback line'; } } } } } });
+  // funnel
+  const dv = $('#dev4').value; const fm = rows(DATA.funnel_monthly).filter(x => dv === 'all' || x.device_type === dv);
+  const st = [['Sessions', 's'], ['Product view', 'pv'], ['Add to cart', 'atc'], ['Checkout', 'co'], ['Payment attempt', 'pa'], ['Purchase', 'pu']].map(([l, k]) => [l, sum(fm, k)]);
+  chart('c4b', { type: 'bar', data: { labels: st.map((s, i) => s[0] + (i ? ` (${pct(div(s[1], st[i - 1][1]), 0)})` : '')), datasets: [{ data: st.map(s => s[1]), backgroundColor: st.map((s, i) => `rgba(31,78,121,${1 - i * 0.12})`) }] },
+    options: { indexAxis: 'y', plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => int(c.raw) + ' sessions · ' + pct(c.raw / st[0][1], 2) + ' of sessions' } } }, scales: { x: { type: 'logarithmic', ticks: { callback: v => ({ 1000: '1K', 10000: '10K', 100000: '100K', 1000000: '1M', 10000000: '10M' })[v] || '' } } } } });
+  // app payments by state
+  const pw = DATA.pay_weekly.filter(x => x.device_type === 'mobile_app' && x.wk >= '2025-08-01');
+  const wks = [...new Set(pw.map(x => x.wk))].sort(); const sts = ['Uttar Pradesh', 'Bihar', 'West Bengal', 'Other states'];
+  chart('c4c', { type: 'line', data: { labels: wks.map(w => w.slice(5)), datasets: sts.map((s, i) => ({ label: s, data: wks.map(w => { const x = pw.find(r => r.wk === w && r.st === s); return x ? x.ok / x.attempts * 100 : null; }),
+        borderColor: s === 'Other states' ? C.grey : C.pal[[1, 2, 4][i]], borderWidth: s === 'Other states' ? 2.5 : 1.6, tension: .15, pointRadius: 2 })) },
+    options: { scales: { y: { min: 30, max: 100, ticks: { callback: v => v + '%' } } }, plugins: { tooltip: { callbacks: { label: c => c.dataset.label + ': ' + (c.raw ?? 0).toFixed(1) + '%' } } } },
+    plugins: [shade(wks.map(w => w.slice(5)), wks.findIndex(w => w >= '2025-11-10'), wks.findIndex(w => w >= '2025-12-01'))] });
+  // checkout weekly
+  const cw = DATA.checkout_weekly.filter(x => x.wk >= '2025-01-01'); const cwk = [...new Set(cw.map(x => x.wk))].sort();
+  chart('c4d', { type: 'line', data: { labels: cwk.map(w => w.slice(2)), datasets: ['mobile_app', 'mobile_web', 'desktop'].map((d, i) => ({ label: d, data: cwk.map(w => { const x = cw.find(r => r.wk === w && r.device_type === d); return x && x.co ? x.pu / x.co * 100 : null; }), borderColor: C.pal[i], pointRadius: 0, tension: .2, borderWidth: 1.6 })) },
+    options: { scales: { y: { ticks: { callback: v => v + '%' } }, x: { ticks: { maxTicksLimit: 8 } } } } });
+  // experiments
+  $('#exp4').innerHTML = '<table><tr><th>Experiment</th><th class="n">n (T / C)</th><th class="n">SRM p</th><th class="n">Purchase rate C → T</th><th class="n">Relative lift (95% CI)</th><th class="n">p</th><th class="n">Power @ +5%</th><th>Decision</th></tr>' +
+    DATA.experiments.map(e => `<tr><td><b>${e.experiment_id}</b> ${e.experiment_name}</td><td class="n">${int(e.n_treatment)} / ${int(e.n_control)}</td>
+      <td class="n" style="color:${e.srm_p < 0.001 ? C.red : 'inherit'};font-weight:${e.srm_p < 0.001 ? 700 : 400}">${e.srm_p < 0.001 ? e.srm_p.toExponential(1) : e.srm_p.toFixed(2)}</td>
+      <td class="n">${pct(e.cr_control)} → ${pct(e.cr_treatment)}</td><td class="n">${(e.rel_lift * 100).toFixed(1)}% (${(e.rel_ci_low * 100).toFixed(1)}% to ${(e.rel_ci_high * 100).toFixed(1)}%)</td>
+      <td class="n">${e.p_value.toFixed(3)}</td><td class="n">${pct(e.power_at_mde, 0)}</td>
+      <td><span class="chip ${e.decision.startsWith('SHIP') ? 'c-pass' : e.decision.startsWith('INVALID') ? 'c-fail' : 'c-warn'}">${e.decision}</span></td></tr>`).join('') + '</table>';
+}
+function shade(labels, a, b) { return { id: 'shade', beforeDatasetsDraw(ch) { if (a < 0 || b < 0) return; const x = ch.scales.x, y = ch.chartArea, c = ch.ctx;
+  c.save(); c.fillStyle = 'rgba(192,80,77,.10)'; c.fillRect(x.getPixelForValue(a), y.top, x.getPixelForValue(b) - x.getPixelForValue(a), y.bottom - y.top); c.restore(); } }; }
+
+/* ------------------------------------------------------------------ PAGE 5 */
+function page5() {
+  const d = DATA.dq_dims.filter(x => x.dimension !== 'OVERALL');
+  const t = DATA.dbt_tests; const tc = s => sum(t.filter(x => x.status === s), 'n');
+  const ch = DATA.dq_checks; const cc = s => ch.filter(x => x.status === s).length;
+  const biz = DATA.alerts.filter(x => x.classification === 'business_signal').length;
+  $('#k5').innerHTML = [
+    ['DQ score', DATA.meta.dq_score.toFixed(1) + ' / 100', DATA.meta.dq_verdict],
+    ['DQ checks', `${cc('pass')} pass · ${cc('warn')} warn`, `${cc('fail')} failing`],
+    ['dbt tests (latest run)', `${int(tc('pass'))} pass`, `${int(tc('warn'))} warn · ${int(tc('fail') + tc('error'))} fail`],
+    ['Business-signal incidents', int(biz), 'top-line, need triage'],
+    ['Segment incidents', int(DATA.seg_alerts.length), 'weekly segment scan'],
+    ['Data window', '2024-01 → 2025-12', 'loaded ' + DATA.meta.generated_at],
+  ].map(([a, b, c]) => `<div class="kpi"><div class="t"><span>${a}</span></div><div class="v" style="font-size:18px">${b}</div><div class="d">${c}</div></div>`).join('');
+  chart('c5a', { type: 'bar', data: { labels: d.map(x => x.dimension), datasets: [{ data: d.map(x => x.score), backgroundColor: d.map(x => x.score >= 90 ? C.green : x.score >= 75 ? C.amber : C.red) }] },
+    options: { indexAxis: 'y', plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => c.raw + ' / 100 · ' + d[c.dataIndex].warns + ' warn, ' + d[c.dataIndex].fails + ' fail' } } }, scales: { x: { min: 0, max: 100 } } } });
+  $('#tab5').innerHTML = '<table><tr><th>ID</th><th>Check</th><th class="n">Observed</th><th class="n">Warn / fail at</th><th>Status</th><th>Handling</th></tr>' +
+    ch.map(x => `<tr><td>${x.check_id}</td><td>${x.description}<div class="foot-note" style="margin:0">${x.dimension} · ${x.table_name}</div></td>
+      <td class="n">${x.observed === null ? '–' : (Math.abs(x.observed) < 1 ? x.observed.toFixed(4) : int(x.observed))}</td><td class="n">${x.warn_threshold ?? ''} / ${x.fail_threshold ?? ''}</td>
+      <td><span class="chip c-${x.status}">${x.status}</span></td><td>${x.mitigation || ''}</td></tr>`).join('') + '</table>';
+  // timeline
+  const dr = DATA.daily_rev; const idx = Object.fromEntries(dr.map((x, i) => [x.d, i]));
+  const colr = { business_signal: C.navy, data_quality: C.red, expected_seasonal: '#B0B0B0', one_off_outlier: '#8E44AD' };
+  const pts = {}; DATA.alerts.forEach(a => { (pts[a.classification] = pts[a.classification] || []).push({ x: a.start_date, y: (dr[idx[a.start_date]] || {}).actual || 0, a }); });
+  chart('c5b', { data: { labels: dr.map(x => x.d), datasets: [
+      { type: 'line', label: 'Daily net revenue', data: dr.map(x => x.actual), borderColor: 'rgba(31,78,121,.45)', borderWidth: 1, pointRadius: 0 },
+      ...Object.entries(pts).map(([k, v]) => ({ type: 'scatter', label: k, data: v, backgroundColor: colr[k], pointRadius: 5, pointStyle: k === 'data_quality' ? 'triangle' : 'circle' })) ] },
+    options: { scales: { x: { type: 'category', ticks: { maxTicksLimit: 12 } }, y: { ticks: { callback: v => inr(v) } } },
+      plugins: { tooltip: { callbacks: { label: c => c.raw && c.raw.a ? [c.raw.a.display + ' · ' + c.raw.a.classification, c.raw.a.start_date + ' → ' + c.raw.a.end_date + ' · dev ' + (c.raw.a.deviation * 100).toFixed(0) + '%'] : inr(c.raw) } } } } });
+  const r = DATA.reconciliation[0];
+  $('#rec5').innerHTML = `<table>
+    <tr><td>Raw order rows (incl. re-sent duplicates)</td><td class="n">${int(r.raw_rows)}</td></tr>
+    <tr><td>− duplicate rows removed in staging</td><td class="n">${int(r.raw_rows - r.raw_distinct)}</td></tr>
+    <tr><td>= distinct orders</td><td class="n"><b>${int(r.raw_distinct)}</b></td></tr>
+    <tr><td>of which invalid order dates (excluded)</td><td class="n">${int(r.invalid_dates)}</td></tr>
+    <tr><td>of which internal test orders (excluded)</td><td class="n">${int(r.test_orders)}</td></tr>
+    <tr><td>of which cancelled / payment-failed</td><td class="n">${int(r.not_completed)}</td></tr>
+    <tr><td>Governed net revenue: fct_orders</td><td class="n">${inr(r.fct_net, false)}</td></tr>
+    <tr><td>Governed net revenue: metrics_daily</td><td class="n">${inr(r.metrics_net, false)}</td></tr>
+    <tr><td>Governed net revenue: fct_order_items</td><td class="n">${inr(r.items_net, false)}</td></tr></table>
+    <div class="foot-note">All three surfaces reconcile (dbt test <code>sum_reconciles</code>).</div>
+    <div style="margin-top:8px"><b style="font-size:12px">dbt warn-severity tests (planted source defects, all mitigated)</b><table>${DATA.dbt_warns.map(w => {
+      const n = w.test_name.startsWith('assert') ? w.test_name.replace('assert_', '').replace(/_/g, ' ') : w.test_name.split('_stg_')[0].replace(/_/g, ' ') + ' · ' + w.model;
+      return `<tr><td>${n}</td><td class="n">${int(w.failures)} rows</td></tr>`; }).join('')}</table></div>`;
+  const cls = $('#cls5').value;
+  let inc = cls === 'focus' ? [...DATA.seg_alerts, ...DATA.alerts.filter(x => ['business_signal', 'data_quality'].includes(x.classification))]
+          : cls === 'all' ? [...DATA.seg_alerts, ...DATA.alerts] : DATA.alerts.filter(x => x.classification === cls);
+  inc = inc.sort((a, b) => (b.start_date > a.start_date ? 1 : -1));
+  $('#inc5').innerHTML = inc.map(alertCard).join('') || '<div class="foot-note">none</div>';
+}
+
+/* ------------------------------------------------------------------ PAGE 6 */
+const B = Object.fromEntries(DATA.sim_baseline.map(r => [r.parameter, r.value]));
+const SL = [['ret', 'Retention: monthly churn change (pp, + = better)', -3, 3, 0.25], ['conv', 'Conversion change (%)', -10, 10, 0.5], ['aov', 'AOV change (%)', -10, 10, 0.5],
+            ['cac', 'CAC change (%)', -30, 30, 1], ['ref', 'Refund rate change (pp)', -3, 3, 0.25], ['disc', 'Discount rate change (pp)', -5, 5, 0.25], ['mkt', 'Marketing spend change (%)', -50, 50, 5]];
+const SC = Object.fromEntries(SL.map(s => [s[0], 0]));
+function project(s) {  // identical to python/nova/simulator/engine.py::project
+  const churn = Math.max(B.churn_m - s.ret / 100, 0.001), conv = 1 + s.conv / 100, aov = B.aov_gross * (1 + s.aov / 100);
+  const disc = Math.max(B.discount_rate + s.disc / 100, 0), refund = Math.max(B.refund_rate + s.ref / 100, 0), cac = B.cac * (1 + s.cac / 100);
+  const mkt = B.marketing_spend * (1 + s.mkt / 100), acq = B.acq_spend * (1 + s.mkt / 100);
+  let base = B.base_customers; const out = [];
+  for (let t = 1; t <= 12; t++) {
+    const nw = acq / cac + B.organic_new * conv, orders = base * B.orders_per_customer * conv, gross = orders * aov, net = gross * (1 - disc - refund);
+    const gp = net - gross * B.cogs_pct, cm = gp - orders * B.variable_cost_per_order;
+    out.push({ t, base, nw, orders, gross, net, gp, cm, mkt, cmam: cm - mkt, ltv: (cm / base) / churn, cac });
+    base = base * (1 - churn) + nw;
+  }
+  return out;
+}
+function page6init() {
+  $('#sliders').innerHTML = SL.map(([k, l, a, b, st]) => `<div class="slider"><label for="s_${k}">${l}</label><output id="o_${k}">0</output>
+    <input type="range" id="s_${k}" min="${a}" max="${b}" step="${st}" value="0"></div>`).join('');
+  SL.forEach(([k]) => $('#s_' + k).addEventListener('input', e => { SC[k] = Number(e.target.value); $('#o_' + k).textContent = (SC[k] > 0 ? '+' : '') + SC[k]; page6(); }));
+  $('#reset6').addEventListener('click', () => { SL.forEach(([k]) => { SC[k] = 0; $('#s_' + k).value = 0; $('#o_' + k).textContent = '0'; }); page6(); });
+}
+function page6() {
+  $('#k6obs').innerHTML = [['Active base (90-day)', int(B.base_customers)], ['Monthly churn', pct(B.churn_m)], ['Orders / customer / month', B.orders_per_customer.toFixed(2)],
+    ['AOV (gross)', inr(B.aov_gross, false)], ['CAC', inr(B.cac, false)], ['Marketing / month', inr(B.marketing_spend)], ['Refund rate', pct(B.refund_rate)], ['COGS % of gross', pct(B.cogs_pct)]]
+    .map(([a, b]) => `<div class="kpi obs"><div class="t"><span>${a}</span></div><div class="v" style="font-size:17px">${b}</div></div>`).join('');
+  const base = project(Object.fromEntries(SL.map(s => [s[0], 0]))), sc = project(SC);
+  const T = (a, k) => sum(a, k);
+  const cards = [['Net revenue (12m)', T(sc, 'net'), T(base, 'net'), inr], ['Contribution margin (12m)', T(sc, 'cm'), T(base, 'cm'), inr],
+    ['CM after marketing (12m)', T(sc, 'cmam'), T(base, 'cmam'), inr], ['Customers at month 12', sc[11].base, base[11].base, int],
+    ['LTV : CAC', sum(sc, r => r.ltv / r.cac) / 12, sum(base, r => r.ltv / r.cac) / 12, v => v.toFixed(2)]];
+  $('#k6est').innerHTML = cards.map(([a, v, b, f]) => { const d = v - b; const cl = Math.abs(d) < 1e-6 ? 'flat' : d > 0 ? 'up' : 'down';
+    return `<div class="kpi est"><div class="t"><span>${a}</span></div><div class="v">${f(v)}</div><div class="d"><span class="${cl}">Δ ${d >= 0 ? '+' : '−'}${f(Math.abs(d))}</span> vs baseline</div></div>`; }).join('');
+  chart('c6a', { type: 'line', data: { labels: base.map(r => 'M+' + r.t), datasets: [
+      { label: 'Baseline projection', data: base.map(r => r.cmam), borderColor: C.grey, borderDash: [4, 3], pointRadius: 0 },
+      { label: 'Scenario (estimate)', data: sc.map(r => r.cmam), borderColor: C.amber, backgroundColor: 'rgba(224,142,11,.15)', fill: '-1', pointRadius: 2 } ] },
+    options: { scales: { y: { ticks: { callback: v => inr(v) } } }, plugins: { tooltip: { callbacks: { label: c => c.dataset.label + ': ' + inr(c.raw) } } } } });
+  const ss = DATA.sim_summary;
+  chart('c6b', { data: { labels: ss.map(x => x.scenario.replace(/ \(.*/, '')), datasets: [
+      { type: 'bar', label: 'P10–P90', data: ss.map(x => [x.cm_after_mkt_p10, x.cm_after_mkt_p90]), backgroundColor: 'rgba(224,142,11,.35)', barPercentage: .5 },
+      { type: 'scatter', label: 'Estimate', data: ss.map((x, i) => ({ x: i, y: x.cm_after_mkt_12m })), backgroundColor: C.navy, pointRadius: 5 } ] },
+    options: { scales: { y: { ticks: { callback: v => inr(v) } }, x: { ticks: { autoSkip: false, maxRotation: 30, font: { size: 10 } } } },
+      plugins: { tooltip: { callbacks: { label: c => Array.isArray(c.raw) ? 'P10 ' + inr(c.raw[0]) + ' – P90 ' + inr(c.raw[1]) : 'Estimate ' + inr(c.raw.y) + ' (Δ ' + inr(ss[c.dataIndex].delta_cm_after_mkt_vs_base) + ')' } } } } });
+  const fc = DATA.forecast.filter(x => x.week >= '2025-01-01'); const model = (DATA.forecast.find(x => x.value_type === 'forecast') || {}).model;
+  $('#h6c').textContent = `Actuals (governed) + 13-week forecast (${model}, backtested); band = P10–P90`;
+  chart('c6c', { type: 'line', data: { labels: fc.map(x => x.week.slice(2)), datasets: [
+      { label: 'Actual', data: fc.map(x => x.value_type === 'actual' ? x.p50 : null), borderColor: C.navy, pointRadius: 0, borderWidth: 1.6 },
+      { label: 'P90', data: fc.map(x => x.value_type === 'forecast' ? x.p90 : null), borderColor: 'rgba(0,0,0,0)', pointRadius: 0, fill: false },
+      { label: 'P10–P90', data: fc.map(x => x.value_type === 'forecast' ? x.p10 : null), borderColor: 'rgba(0,0,0,0)', backgroundColor: 'rgba(91,155,213,.25)', pointRadius: 0, fill: '-1' },
+      { label: 'Forecast P50', data: fc.map(x => x.value_type === 'forecast' ? x.p50 : null), borderColor: '#5B9BD5', borderDash: [5, 3], pointRadius: 0, borderWidth: 2 } ] },
+    options: { scales: { y: { ticks: { callback: v => inr(v) } }, x: { ticks: { maxTicksLimit: 8 } } },
+      plugins: { legend: { labels: { filter: l => l.text !== 'P90' } }, tooltip: { callbacks: { label: c => c.dataset.label + ': ' + inr(c.raw) } } } } });
+}
+
+/* ------------------------------------------------------------------ shell */
+const TITLES = { 1: ['Executive Command Center', 'Is growth profitable, and what changed?'], 2: ['Customer Intelligence', 'Are we acquiring and keeping valuable customers?'],
+  3: ['Product & Profitability', 'Where do we make and lose money?'], 4: ['Marketing & Funnel', 'Is spend buying profitable growth? Where does the funnel leak?'],
+  5: ['Data Quality & Anomaly Center', 'Can we trust today’s numbers? What is unusual, and where?'], 6: ['Decision Simulator', 'Explore trade-offs before committing budget']};
+const RENDER = { 1: page1, 2: page2, 3: page3, 4: page4, 5: page5, 6: page6 };
+function render() {
+  document.querySelectorAll('.page').forEach(p => p.classList.toggle('active', p.id === 'p' + S.page));
+  document.querySelectorAll('nav button[data-p]').forEach(b => b.classList.toggle('active', Number(b.dataset.p) === S.page));
+  $('#pgTitle').textContent = TITLES[S.page][0];
+  $('#pgSub').textContent = TITLES[S.page][1] + (S.page <= 4 ? ' · Period: ' + periodLabel() : '');
+  $('#periodCtl').style.visibility = S.page <= 4 ? 'visible' : 'hidden';
+  try { RENDER[S.page](); } catch (e) { console.error('render page ' + S.page, e); }
+}
+function setPreset(p) {
+  const n = MONTHS.length - 1, ix = m => MONTHS.indexOf(m);
+  const P = { all: [0, n], '2025': [ix('2025-01-01'), n], h2: [ix('2025-07-01'), n], q4: [ix('2025-10-01'), n], last: [n, n] }[p];
+  if (P) { [S.from, S.to] = P; $('#fromM').value = S.from; $('#toM').value = S.to; }
+}
+function init() {
+  const opts = MONTHS.map((m, i) => `<option value="${i}">${mlabel(m)}</option>`).join('');
+  $('#fromM').innerHTML = opts; $('#toM').innerHTML = opts; setPreset('last');
+  $('#preset').addEventListener('change', e => { setPreset(e.target.value); render(); });
+  $('#fromM').addEventListener('change', e => { S.from = Math.min(Number(e.target.value), S.to); $('#fromM').value = S.from; $('#preset').value = 'custom'; render(); });
+  $('#toM').addEventListener('change', e => { S.to = Math.max(Number(e.target.value), S.from); $('#toM').value = S.to; $('#preset').value = 'custom'; render(); });
+  document.querySelectorAll('nav button[data-p]').forEach(b => b.addEventListener('click', () => { S.page = Number(b.dataset.p); render(); }));
+  const segs = [...new Set(DATA.cohorts.map(x => x.seg))].sort();
+  $('#seg2').innerHTML = '<option value="all">All segments</option>' + segs.map(s => `<option>${s}</option>`).join('');
+  const cats = [...new Set(DATA.product_monthly.map(x => x.category))].sort();
+  $('#cat3').innerHTML = '<option value="all">All categories</option>' + cats.map(c => `<option>${c}</option>`).join('');
+  $('#bcat3').innerHTML = cats.map(c => `<option${c === 'Electronics' ? ' selected' : ''}>${c}</option>`).join('');
+  ['#dim1', '#seg2', '#cat3', '#bcat3', '#dev4', '#cls5'].forEach(s => $(s).addEventListener('change', render));
+  const v = DATA.meta.dq_verdict; const bd = $('#dqBadge');
+  bd.textContent = `Data quality ${DATA.meta.dq_score.toFixed(1)} · ${v}`; bd.className = 'badge ' + (v === 'Fit' ? 'b-fit' : v === 'Not fit' ? 'b-no' : 'b-cav');
+  bd.title = 'From dq.dq_scorecard. Warnings are known, mitigated source defects. See page 5.';
+  $('#navFoot').innerHTML = `Governed data ${DATA.meta.data_start} → ${DATA.meta.data_end}<br>Built ${DATA.meta.generated_at}<br><b>Synthetic data: all results simulated</b>`;
+  page6init(); render();
+  console.log('NovaCommerce dashboard ready', Object.keys(DATA).length, 'datasets');
+}
+init();
+</script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+[
+  {
+    "table": "customers",
+    "defect": "unnormalised_email",
+    "rows_affected": 1620,
+    "note": "upper-case + whitespace"
+  },
+  {
+    "table": "customers",
+    "defect": "missing_values",
+    "rows_affected": 1308,
+    "note": "geo_id (address not captured at signup)"
+  },
+  {
+    "table": "customers",
+    "defect": "inconsistent_labels",
+    "rows_affected": 5889,
+    "note": "acquisition_channel: ['paid_social', 'paid_search', 'organic']..."
+  },
+  {
+    "table": "customers",
+    "defect": "duplicate_rows",
+    "rows_affected": 648,
+    "note": "exact duplicate CDC rows"
+  },
+  {
+    "table": "customers",
+    "defect": "late_arriving_dimension",
+    "rows_affected": 60,
+    "note": "customers missing from extract -> orphan orders"
+  },
+  {
+    "table": "products",
+    "defect": "inconsistent_labels",
+    "rows_affected": 53,
+    "note": "category: ['Electronics', 'Home & Kitchen', 'Beauty & Personal Care']..."
+  },
+  {
+    "table": "products",
+    "defect": "missing_values",
+    "rows_affected": 12,
+    "note": "unit_cost (cost not yet synced from ERP)"
+  },
+  {
+    "table": "orders",
+    "defect": "inconsistent_labels",
+    "rows_affected": 7486,
+    "note": "marketplace feed sends UPPERCASE status"
+  },
+  {
+    "table": "orders",
+    "defect": "inconsistent_labels",
+    "rows_affected": 5419,
+    "note": "payment_method: ['UPI', 'Card', 'COD']..."
+  },
+  {
+    "table": "orders",
+    "defect": "full_day_duplicate_batch",
+    "rows_affected": 72,
+    "note": "S4: all orders for 2025-03-18 re-sent"
+  },
+  {
+    "table": "orders",
+    "defect": "duplicate_rows",
+    "rows_affected": 714,
+    "note": "OMS retry duplicates (later _extracted_at)"
+  },
+  {
+    "table": "order_items",
+    "defect": "duplicate_rows",
+    "rows_affected": 369,
+    "note": "exact duplicate line items"
+  },
+  {
+    "table": "orders",
+    "defect": "invalid_dates",
+    "rows_affected": 231,
+    "note": "epoch/future order_ts, delivered before ordered"
+  },
+  {
+    "table": "order_items",
+    "defect": "referential_integrity",
+    "rows_affected": 185,
+    "note": "product_id not in product master"
+  },
+  {
+    "table": "payments",
+    "defect": "unit_mismatch",
+    "rows_affected": 6540,
+    "note": "marketplace settlement feed reports amount in paise"
+  },
+  {
+    "table": "payments",
+    "defect": "inconsistent_labels",
+    "rows_affected": 4740,
+    "note": "payment_method: ['UPI', 'Card']..."
+  },
+  {
+    "table": "payments",
+    "defect": "duplicate_transactions",
+    "rows_affected": 180,
+    "note": "same gateway_txn_ref, new payment_id (webhook replay)"
+  },
+  {
+    "table": "refunds",
+    "defect": "negative_values",
+    "rows_affected": 72,
+    "note": "sign convention differs in one source"
+  },
+  {
+    "table": "refunds",
+    "defect": "duplicate_rows",
+    "rows_affected": 38,
+    "note": "retry re-sent records"
+  },
+  {
+    "table": "marketing_campaigns",
+    "defect": "inconsistent_labels",
+    "rows_affected": 8,
+    "note": "channel: ['paid_social', 'paid_search']..."
+  },
+  {
+    "table": "marketing_spend",
+    "defect": "missing_values",
+    "rows_affected": 38,
+    "note": "impressions (API returned null)"
+  },
+  {
+    "table": "marketing_spend",
+    "defect": "negative_values",
+    "rows_affected": 6,
+    "note": "LEGIT: platform credit notes (negative spend) - do not drop"
+  },
+  {
+    "table": "customer_support",
+    "defect": "inconsistent_labels",
+    "rows_affected": 362,
+    "note": "category: ['payment_issue', 'return_refund']..."
+  },
+  {
+    "table": "customer_support",
+    "defect": "invalid_dates",
+    "rows_affected": 14,
+    "note": "resolved before created"
+  },
+  {
+    "table": "web_sessions",
+    "defect": "bot_traffic",
+    "rows_affected": 0,
+    "note": "~20k headless sessions on 2025-05-22"
+  }
+]

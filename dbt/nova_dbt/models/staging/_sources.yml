@@ -1,0 +1,33 @@
+version: 2
+sources:
+  - name: raw
+    description: "As-received source extracts loaded by ingestion/load_raw.py. All columns TEXT + load metadata."
+    schema: raw
+    loaded_at_field: _loaded_at
+    freshness:
+      warn_after: {count: 24, period: hour}
+      error_after: {count: 72, period: hour}
+    tables:
+      - name: customers
+        description: "CRM customer extract, CDC style: one row per customer VERSION (address changes create new rows)."
+      - name: products
+        description: "Product master from ERP; one row per product version (price/cost changes)."
+      - name: orders
+        description: "Order headers from 3 systems (web_oms, app_oms, mkt_feed). Contains retry duplicates."
+      - name: order_items
+      - name: payments
+        description: "Payment gateway attempts. Marketplace settlement amounts are in PAISE."
+      - name: refunds
+        description: "Refund transactions. Arrive up to 10 days late (see batch 2026-01-12)."
+      - name: subscriptions
+      - name: marketing_campaigns
+      - name: marketing_spend
+        description: "Daily ad-platform spend. Negative rows are legitimate platform credit notes."
+      - name: web_sessions
+        description: "Web/app analytics sessions (marketplace orders have no session)."
+      - name: funnel_events
+      - name: customer_support
+      - name: experiments
+      - name: experiment_assignments
+      - name: geography
+      - name: dates

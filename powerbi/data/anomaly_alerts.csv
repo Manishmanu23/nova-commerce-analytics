@@ -1,0 +1,24 @@
+metric,display,start_date,end_date,expected,actual,deviation,severity,classification,evidence_note,est_impact_inr
+net_revenue,Net Revenue,2024-08-21,2024-08-21,84795.0,170792.5,1.0141812606875407,High,business_signal,no data-quality marker on these dates,85997.5
+net_revenue,Net Revenue,2024-10-27,2024-10-27,129761.625,294142.0,1.2667872724312756,High,expected_seasonal,sale/festival window: Diwali,164380.375
+net_revenue,Net Revenue,2024-10-31,2024-10-31,101325.61,231639.8,1.2860933183624552,High,expected_seasonal,sale/festival window: Diwali,130314.18999999999
+net_revenue,Net Revenue,2025-05-13,2025-05-13,139739.47999999998,300042.8,1.1471584122110663,High,one_off_outlier,"B2B bulk order(s) worth ₹146,757 explain most of the excess; legitimate revenue, excluded from AOV, not a trend",160303.32
+net_revenue,Net Revenue,2025-05-31,2025-05-31,166299.865,338743.4,1.036943325239621,High,one_off_outlier,"B2B bulk order(s) worth ₹148,381 explain most of the excess; legitimate revenue, excluded from AOV, not a trend",172443.53500000003
+net_revenue,Net Revenue,2025-07-02,2025-07-02,149059.95,297298.66,0.9944905388737884,High,one_off_outlier,"B2B bulk order(s) worth ₹94,617 explain most of the excess; legitimate revenue, excluded from AOV, not a trend",148238.70999999996
+net_revenue,Net Revenue,2025-07-26,2025-07-26,189322.5,429619.3,1.269245863539727,High,one_off_outlier,"B2B bulk order(s) worth ₹263,612 explain most of the excess; legitimate revenue, excluded from AOV, not a trend",240296.8
+net_revenue,Net Revenue,2025-09-25,2025-09-25,176920.14,369306.21,1.0874175772187384,High,expected_seasonal,sale/festival window: Big Festive Sale,192386.07
+net_revenue,Net Revenue,2025-10-16,2025-10-21,866548.865,2137701.38,1.4669138306470462,High,expected_seasonal,sale/festival window: Diwali,1271152.515
+orders,Completed Orders,2024-03-30,2024-03-30,49.0,69.0,0.40816326530612246,High,business_signal,no data-quality marker on these dates,20.0
+orders,Completed Orders,2024-07-04,2024-07-04,40.5,73.0,0.8024691358024691,High,expected_seasonal,sale/festival window: End of Season Sale,32.5
+orders,Completed Orders,2024-10-03,2024-10-11,506.0,947.0,0.8715415019762847,High,expected_seasonal,sale/festival window: Big Festive Sale,441.0
+orders,Completed Orders,2024-10-27,2024-11-03,470.5,1034.0,1.197662061636557,High,expected_seasonal,sale/festival window: Diwali,563.5
+orders,Completed Orders,2025-01-27,2025-01-27,57.0,94.0,0.6491228070175439,High,expected_seasonal,sale/festival window: Republic Day Sale,37.0
+orders,Completed Orders,2025-09-23,2025-09-30,824.5,1620.0,0.9648271679805942,High,expected_seasonal,sale/festival window: Big Festive Sale,795.5
+orders,Completed Orders,2025-10-15,2025-10-22,848.0,2040.0,1.4056603773584904,High,expected_seasonal,sale/festival window: Diwali,1192.0
+sessions_incl_bots,Sessions (incl. bots),2024-10-03,2024-10-11,8246.0,16260.0,0.9718651467378123,High,expected_seasonal,sale/festival window: Big Festive Sale,8014.0
+sessions_incl_bots,Sessions (incl. bots),2024-10-27,2024-11-03,10693.5,25091.0,1.346378641230654,High,expected_seasonal,sale/festival window: Diwali,14397.5
+sessions_incl_bots,Sessions (incl. bots),2025-01-27,2025-01-27,1749.0,2808.0,0.6054888507718696,High,expected_seasonal,sale/festival window: Republic Day Sale,1059.0
+sessions_incl_bots,Sessions (incl. bots),2025-03-22,2025-03-22,1993.0,3123.0,0.5669844455594582,High,business_signal,no data-quality marker on these dates,1130.0
+sessions_incl_bots,Sessions (incl. bots),2025-05-22,2025-05-22,2264.0,22114.0,8.767667844522968,High,data_quality,"bot sessions = 90% of traffic (flagged is_bot, excluded from governed conversion)",19850.0
+sessions_incl_bots,Sessions (incl. bots),2025-09-23,2025-09-30,21685.5,43252.0,0.9945124622443569,High,expected_seasonal,sale/festival window: Big Festive Sale,21566.5
+sessions_incl_bots,Sessions (incl. bots),2025-10-15,2025-10-22,26116.0,62344.0,1.3871955889110126,High,expected_seasonal,sale/festival window: Diwali,36228.0

@@ -1,0 +1,7 @@
+payment_method,is_prepaid
+COD,false
+Wallet,true
+Card,true
+UPI,true
+EMI,true
+Unknown,

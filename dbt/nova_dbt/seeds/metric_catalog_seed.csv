@@ -1,0 +1,22 @@
+metric_name,display_name,owner,unit,direction,is_ratio,numerator,denominator,definition,certified
+gross_revenue,Gross Revenue,Finance,INR,higher_is_better,false,gross_revenue,,Sum of quantity x selling price of line items on completed reportable orders (after product markdowns; before coupons and refunds; GST-inclusive),true
+net_revenue,Net Revenue,Finance,INR,higher_is_better,false,net_revenue,,Gross revenue minus order-level coupon discounts minus processed return refunds (cancellation refunds excluded because cancelled orders are never in gross revenue),true
+orders,Completed Orders,Finance,count,higher_is_better,false,orders,,Count of distinct completed (delivered/shipped/processing) reportable orders,true
+gross_profit,Gross Profit,Finance,INR,higher_is_better,false,gross_profit,,Net revenue minus net COGS (COGS minus cost recovered from restockable returns),true
+contribution_margin,Contribution Margin,Finance,INR,higher_is_better,false,contribution_margin,,Gross profit plus shipping fees collected minus shipping cost minus payment gateway fees minus marketplace commission (before marketing),true
+contribution_margin_after_marketing,Contribution Margin after Marketing,Finance,INR,higher_is_better,false,contribution_margin_after_marketing,,Contribution margin minus net marketing spend (only valid at date/channel/campaign grain),true
+cm_pct,Contribution Margin %,Finance,pct,higher_is_better,true,contribution_margin,net_revenue,Contribution margin / net revenue,true
+aov,Average Order Value,Finance,INR,higher_is_better,true,aov_order_value,aov_orders,(Gross revenue - coupon discounts) / completed orders excluding B2B bulk orders,true
+conversion_rate,Session Conversion Rate,Product,pct,higher_is_better,true,purchase_sessions,sessions,Non-bot web/app sessions with a purchase event / non-bot web/app sessions (marketplace excluded - no session data),true
+checkout_conversion_rate,Checkout Conversion Rate,Product,pct,higher_is_better,true,purchase_sessions,checkout_sessions,Sessions with purchase / sessions that began checkout,true
+payment_success_rate,Payment Success Rate,Payments,pct,higher_is_better,true,successful_payment_attempts,payment_attempts,Successful prepaid payment attempts / all prepaid payment attempts (COD excluded),true
+refund_rate,Refund Rate (value),CX,pct,lower_is_better,true,return_refund_amount,gross_revenue,Processed return refunds / gross revenue - attributed to ORDER date (cohort basis) not refund date,true
+new_customers,New Customers,Marketing,count,higher_is_better,false,new_customers,,Customers whose first completed reportable order falls in the period,true
+cac,Customer Acquisition Cost,Marketing,INR,lower_is_better,true,acquisition_spend,paid_new_customers,Net acquisition marketing spend (excl. email/CRM) / new customers whose first order is attributed to a paid campaign,true
+blended_cac,Blended CAC,Marketing,INR,lower_is_better,true,acquisition_spend,new_customers,Net acquisition spend / all new customers (organic included) - flatters paid performance use with care,true
+roas,Return on Ad Spend,Marketing,ratio,higher_is_better,true,attributed_net_revenue,marketing_spend,Net revenue of orders attributed to paid campaigns (last non-direct touch) / net marketing spend of those campaigns,true
+revenue_per_visitor,Revenue per Visitor (session),Product,INR,higher_is_better,true,web_app_net_revenue,sessions,Net revenue from web/app orders / non-bot sessions (no cross-device visitor id so session is the visitor proxy),true
+repeat_purchase_rate_90d,90-day Repeat Purchase Rate,CRM,pct,higher_is_better,true,repeaters_90d,cohort_customers_90d,Share of new customers (mature cohorts only) who place a 2nd completed order within 90 days of the first,true
+retention_rate,Monthly Cohort Retention,CRM,pct,higher_is_better,true,active_customers,cohort_size,Customers of acquisition cohort with >=1 completed order in month N / cohort size,true
+churn_rate_90d,90-day Inactivity Churn Rate,CRM,pct,lower_is_better,true,churned_customers,active_base,Customers active in prior 90 days who place no order in the next 90 days / active base (only for mature periods),true
+ltv_180d_cm,180-day LTV (Contribution),CRM,INR,higher_is_better,true,cm_180d,cohort_customers_180d,Cumulative contribution margin in first 180 days per acquired customer (cohorts with >=180 days of history only),true

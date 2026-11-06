@@ -1,0 +1,12 @@
+raw_value,ticket_category
+payment_issue,payment_issue
+payment issue,payment_issue
+payments,payment_issue
+return_refund,return_refund
+refund,return_refund
+return/refund,return_refund
+product_defect,product_defect
+delivery_delay,delivery_delay
+account,account
+other,other
+order_change,order_change

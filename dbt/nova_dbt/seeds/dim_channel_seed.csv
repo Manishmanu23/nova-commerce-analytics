@@ -1,0 +1,11 @@
+channel,channel_name,channel_group,is_paid,is_acquisition_channel
+organic,Organic Search,earned,false,true
+paid_search,Paid Search,paid,true,true
+paid_social,Paid Social,paid,true,true
+affiliate,Affiliate,paid,true,true
+marketplace,Marketplace,marketplace,true,true
+referral,Referral,earned,false,true
+email,Email / CRM,owned,false,false
+push,App Push,owned,false,false
+direct,Direct,owned,false,false
+unknown,Unknown,unknown,false,false
